@@ -166,3 +166,12 @@ The following row types are currently supported from filing version 3 through 7.
 * SD (Debts & Obligations)
 * SE (Independent Expenditures)
 * SF (Coordinated Expenditures)
+
+== Authors
+
+Michael Strickland, michael.strickland@nytimes.com
+Evan Carmi
+
+== Copyright
+
+Copyright (c) 2011 The New York Times Company. See LICENSE for details.
