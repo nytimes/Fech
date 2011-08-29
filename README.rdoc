@@ -5,7 +5,7 @@
   \ \_\    \ \_____\  \ \_____\  \ \_\ \_\
    \/_/     \/_____/   \/_____/   \/_/\/_/
 
-Fech provides a layer of abstraction in parsing electronic presidential campaign filings from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
+Fech makes it easy to parse electronic presidential campaign filings from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
 
 == Installation
 
