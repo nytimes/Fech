@@ -4,4 +4,4 @@ pkg/*
 *.gem
 .yardoc/*
 doc/*
-rendered_maps.rb
+
