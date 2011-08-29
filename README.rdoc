@@ -1,0 +1,168 @@
+=
+  ______   ______     ______     __
+ /\  ___\ /\  ___\   /\  ___\   /\ \___
+ \ \  __\ \ \  __\   \ \ \____  \ \  __ \
+  \ \_\    \ \_____\  \ \_____\  \ \_\ \_\
+   \/_/     \/_____/   \/_____/   \/_/\/_/
+
+Fech provides a layer of abstraction in parsing electronic presidential campaign filings from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
+
+== Installation
+
+Install Fech as a gem:
+
+  gem install Fech
+  
+For use in a Rails 3 application, put the following in your Gemfile:
+
+  gem 'Fech'
+
+then issue the 'bundle install' command.
+
+== Getting Started
+
+Start by creating a Filing object that corresponds to any electronic filing from the FEC. You'll then have to download the file before parsing it:
+
+  filing = Fech::Filing.new(723604)
+  filing.download
+
+* Pass in the FEC filing id
+* Optional: specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem.
+
+=== Summary Data
+
+To get summary data for the filing (various aggregate amounts, stats about the filing):
+
+  filing.summary
+  #=> {:coverage_from_date=>"20110101", :coverage_from_date=>"20110301", ... }
+
+Returns a named hash of all attributes available for the filing. (Which fields are available can vary depending on the filing version number.)
+
+=== Accessing specific line items
+
+To grab every row in the filing of a certain type (all Schedule A items, for example):
+
+  filing.rows_like(/^sa/)
+  #=> [{:transaction_id=>"SA17.XXXX", :contribution_date>"20110101" ... } ... ]
+
+This will return an array of hashes, one hash for each row found in the filing whose line number matches the regular expression you passed in. (SA17s and SA18s would both be returned in this example). You can also pass in strings for exact matches.
+
+When given a block, .rows_like will yield a single hash at a time:
+
+  filing.rows_like(/^sa/) do |contribution|
+    contribution.transaction_id
+    #=> {:transaction_id=>"SA17.XXXX", :contribution_date>"20110101" ... }
+  end
+
+== Usage
+
+=== Accessing specific fields
+
+By default, .rows_like will process every field in the matched rows (some rows have 200+ fields). You can speed up performance significantly by asking for just the subset of fields you need.
+
+  filing.rows_like(/^sa/, :include => [:transaction_id]) do |contribution|
+    contribution
+    #=> {:transaction_id=>"SA17.XXXX"}
+  end
+
+=== Raw data
+
+If you want to access the raw arrays of row data, pass :raw => true to .rows_like or any of its shortcuts:
+
+  filing.contributions(:raw => true)
+  #=> [["SA17A", "C00XXXXXX", "SA17.XXXX", nil, nil, "IND" ... ], ... ]
+  
+  filing.contributions(:raw => true) do |row|
+    #row => ["SA17A", "C00XXXXX", "SA17.XXXX", nil, nil, "IND" ... ]
+  end
+
+The source maps for individual row types and versions may also be accessed directly:
+
+  Fech::Filing.map_for("sa")
+  Fech::Filing.map_for(/sa/, :version => 6.1)
+  #=> [:form_type, :filer_committee_id_number, :transaction_id ... ]
+
+You can then bypass some of the overhead of Fech if you're building something more targeted.
+
+=== Converting / Preprocessing data
+
+For performing bulk actions on specific types of fields, you can register "translations" which will manipulate specific data under certain conditions.
+
+An example: dates within filings are formatted as YYYYMMDD. To automatically convert all Schedule B :expenditure_date values to native Ruby Dates:
+
+  filing.translate do |t|
+    t.convert(:row => /^sb/, :field => :expenditure_date) { |v| Date.parse(v) }
+  end
+
+The block you give .convert will be given the original value of that field when it is run. After you run .convert, any time you parse a row beginning with "SB", the :expenditure_date value will be a Date object.
+
+The :field parameter can also be a regular expression:
+
+  filing.translate do |t|
+    t.convert(:row => /^f3p/, :field => /^coverage_.*_date/) { |v| Date.parse(v) }
+  end
+
+Now, both :coverage_from_date and :coverage_through_date will be automatically cast to dates.
+
+You can leave off any or all of the parameters (row, field, version) for more broad adoption of the translation.
+
+=== Derived Fields
+
+You may want to perform the same calculation on many rows of data (contributions minus refunds to create a net value, for example). This can be done without cluttering up your more app-specific parsing code by using a .combine translation. The translation blocks you pass .combine receive the entire row as their context, not just a single value. The :field parameter becomes what you want the new value to be named.
+
+  filing.translate do |t|
+    t.combine(:row => :f3pn, :field => :net_individual_contributions) do |row|
+      contribs = row.col_a_individual_contribution_total.to_f
+      refunds = row.col_a_total_contributions_refunds.to_f
+      contribs - refunds
+    end
+  end
+
+In this example, every parsed Schedule A row would contain an attribute not found in the original filing data - :net_individual_contributions - which contains the result of the calculation above. The values used to construct combinations will have already been run through any .convert translations you've specified.
+
+=== Built-in translations
+
+There are two sets of translations that come with Fech for some of the more common needs:
+ * Breaking apart names into their component parts and joining them back together, depending on which the filing provides
+ * Converting date field strings to Ruby Date objects
+
+You can mix these translations into your parser when you create it:
+
+  filing = Fech::Filing.new(723604, :translate => [:names, :dates])
+
+Just be aware that as you add more translations, the parsing will start to take slightly longer (although having translations that aren't used will not slow it down).
+
+=== Aliasing fields
+
+You can allow any field (converted, combined, or untranslated) to have an arbitrary number of aliases. For example, you could alias the F3P line's :col_a_6_cash_on_hand_beginning_period to the more manageable :cash_beginning
+
+  filing.translate do |t|
+    t.alias :cash_beginning, :col_a_cash_on_hand_beginning_period, :f3p
+  end
+  
+  filing.summary.cash_beginning == filing.summary.col_a_cash_on_hand_beginning_period.
+  #=> true
+
+We found it useful to be able to access attributes using the name the fields in our database they correspond to.
+
+== Warnings
+
+Filings can contain data that is incomplete or wrong: contributions might be in excess of legal limits, or data may have just been entered incorrectly. While some of these mistakes are corrected in later filing amendments, you should be aware that the data is not perfect. Fech will only return data as accurate as the source.
+
+When filings get very large, be careful not to perform operations that attempt to transform many rows in memory.
+
+== Supported row types and versions
+
+The following row types are currently supported from filing version 3 through 7.0:
+* F3P (Summaries)
+* F3PS
+* F3S
+* F3P31 (Items to be Liquidated)
+* SA (Contributions)
+* SB (Expenditures)
+* SC (Loans)
+* SC1
+* SC2
+* SD (Debts & Obligations)
+* SE (Independent Expenditures)
+* SF (Coordinated Expenditures)

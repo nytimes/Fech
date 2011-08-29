@@ -1,0 +1,7 @@
+sources/rows/*
+pkg/*
+.bundle
+*.gem
+.yardoc/*
+doc/*
+rendered_maps.rb
