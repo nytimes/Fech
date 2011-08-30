@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    fech (0.1.0)
+    fech (0.1.4)
       fastercsv
-      people (~> 0.2.1)
+      people
 
 GEM
   remote: http://rubygems.org/
