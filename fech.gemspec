@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency "fastercsv"
+  s.add_dependency "people"
   s.add_development_dependency "rspec", "~> 2.6"
   s.add_development_dependency "mocha"
   s.add_development_dependency "autotest"
