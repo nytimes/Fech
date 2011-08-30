@@ -1,6 +1,5 @@
 require 'tmpdir'
 require 'open-uri'
-require 'fastercsv'
 
 module Fech
   
@@ -192,9 +191,9 @@ module Fech
     def parse_filing_version
       first = File.open(file_path).first
       if first.index("\034").nil?
-        FasterCSV.parse(first).flatten[2]
+        Fech::Csv.parse(first).flatten[2]
       else
-        FasterCSV.parse(first, :col_sep => "\034").flatten[2]
+        Fech::Csv.parse(first, :col_sep => "\034").flatten[2]
       end
     end
     
@@ -224,7 +223,7 @@ module Fech
         raise "File #{file_path} does not exist. Try invoking the .download method on this Filing object."
       end
       c = 0
-      FasterCSV.foreach(file_path, :col_sep => delimiter, :skip_blanks => true) do |row|
+      Fech::Csv.foreach(file_path, :col_sep => delimiter, :skip_blanks => true) do |row|
         if opts[:with_index]
           yield [row, c]
           c += 1

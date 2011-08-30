@@ -40,7 +40,7 @@ module Fech
       # exists for it. If maps for two different versions are identical, they
       # are combined.
       FILING_VERSIONS.each do |version|
-        FasterCSV.foreach(version_summary_file(source_dir, version)) do |row|
+        Fech::Csv.foreach(version_summary_file(source_dir, version)) do |row|
           # Each row of a version summary file contains the ordered list of
           # column names.
           data[row.first] ||= {}

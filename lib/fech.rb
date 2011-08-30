@@ -6,6 +6,7 @@ require 'fech/translator'
 require 'fech/mapped'
 require 'fech/fech_utils'
 require 'fech/map_generator'
+require 'fech/csv'
 
 module Fech
   extend FechUtils

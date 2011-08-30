@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fech (0.1.4)
+    fech (0.1.5)
       fastercsv
       people
 
