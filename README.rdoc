@@ -16,7 +16,7 @@ For use in a Rails 3 application, put the following in your Gemfile:
 
   gem 'fech'
 
-then issue the 'bundle install' command.
+then issue the 'bundle install' command. Fech has been tested under Ruby 1.8.7 and 1.9.2.
 
 == Getting Started
 
@@ -171,6 +171,8 @@ The following row types are currently supported from filing version 3 through 7.
 Michael Strickland, michael.strickland@nytimes.com
 
 Evan Carmi
+
+Contributions by Daniel Pritchett, daniel@sharingatwork.com
 
 == Copyright
 
