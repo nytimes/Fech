@@ -11,11 +11,11 @@ Fech makes it easy to parse electronic presidential campaign filings from the Fe
 
 Install Fech as a gem:
 
-  gem install Fech
+  gem install fech
   
 For use in a Rails 3 application, put the following in your Gemfile:
 
-  gem 'Fech'
+  gem 'fech'
 
 then issue the 'bundle install' command.
 

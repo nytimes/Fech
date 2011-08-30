@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "fech/version"
 
 Gem::Specification.new do |s|
-  s.name        = "Fech"
+  s.name        = "fech"
   s.version     = Fech::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Michael Strickland", "Evan Carmi"]
