@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "fech/version"
 
 Gem::Specification.new do |s|
-  s.name        = "fech"
+  s.name        = "Fech"
   s.version     = Fech::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Michael Strickland", "Evan Carmi"]
@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency "fastercsv"
-  s.add_dependency "people", "~> 0.2.1"
   s.add_development_dependency "rspec", "~> 2.6"
   s.add_development_dependency "mocha"
   s.add_development_dependency "autotest"
