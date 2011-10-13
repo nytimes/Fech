@@ -2,7 +2,7 @@
 # Fech classes.
 module FechUtils
   
-  # All supported row types pointed to regular expressions that will correcty
+  # All supported row types pointed to regular expressions that will correctly
   # match that row type in the wild.
   ROW_TYPES = {
     :hdr   => /^hdr$/i,
