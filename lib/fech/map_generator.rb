@@ -7,7 +7,7 @@ module Fech
   class MapGenerator
     
     attr_accessor :map
-    FILING_VERSIONS   = ["7.0", "6.4", "6.3", "6.2", "6.1",
+    FILING_VERSIONS   = ["8.0", "7.0", "6.4", "6.3", "6.2", "6.1",
                          "5.3", "5.2", "5.1", "5.0", "3"]
     BASE_ROW_TYPES    = ["HDR", "F3P", "F3P31", "F3PS", "F3S", "SchA", "SchB",
                          "SchC", "SchC1", "SchC2", "SchD", "SchE", "SchF", "TEXT"]
@@ -32,11 +32,12 @@ module Fech
     # row map files for each type of row inside them.
     def self.convert_header_file_to_row_files(source_dir)
       data = {}
+      hybrid_data = {}
       
       ignored_fields = File.open(ignored_fields_file(source_dir)).readlines.map { |l| l.strip }
       
       # Create a hash of data with an entry for each row type found in the source
-      # version summary files. Each row has an entriy for each version map that
+      # version summary files. Each row has an entry for each version map that
       # exists for it. If maps for two different versions are identical, they
       # are combined.
       FILING_VERSIONS.each do |version|
@@ -44,8 +45,9 @@ module Fech
           # Each row of a version summary file contains the ordered list of
           # column names.
           data[row.first] ||= {}
+          hybrid_data[row.first] ||= {}
           row_version_data = remove_ignored_fields(row, ignored_fields)
-          
+
           # Check the maps for this row type in already-processed versions.
           # If this map is identical to a previous map, tack this version on to
           # to it instead of creating a new one.
@@ -56,13 +58,14 @@ module Fech
             next if k == version
             if v == row_version_data
               # Create the new hybrid entry
-              data[row.first]["#{k}|#{version}"] = row_version_data
+              hybrid_data[row.first]["#{k}|#{version}"] = row_version_data
               
               # Delete the old entry, and the one for this version only
               data[row.first].delete(k)
               data[row.first].delete(version)
             end
           end
+          data[row.first].update(hybrid_data[row.first])
         end
       end
       
