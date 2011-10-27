@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "fech"
   s.version     = Fech::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Michael Strickland", "Evan Carmi"]
+  s.authors     = ["Michael Strickland", "Evan Carmi", "Aaron Bycoffe"]
   s.email       = ["michael.c.strickland@gmail.com"]
   s.homepage    = "http://github.com/nytimes/fech"
   s.summary     = %q{Ruby library for parsing FEC filings.}
@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency "people"
   s.add_development_dependency "rspec", "~> 2.6"
   s.add_development_dependency "mocha"
-  s.add_development_dependency "autotest"
   s.add_development_dependency "ruby-debug"
   s.add_development_dependency "bundler"
   s.add_development_dependency "rcov"
