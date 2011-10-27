@@ -152,7 +152,7 @@ When filings get very large, be careful not to perform operations that attempt t
 
 == Supported row types and versions
 
-The following row types are currently supported from filing version 3 through 7.0:
+The following row types are currently supported from filing version 3 through 8.0:
 * F3P (Summaries)
 * F3PS
 * F3S
