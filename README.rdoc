@@ -20,7 +20,7 @@ then issue the 'bundle install' command. Fech has been tested under Ruby 1.8.7 a
 
 == Getting Started
 
-Start by creating a Filing object that corresponds to any electronic filing from the FEC. You'll then have to download the file before parsing it:
+Start by creating a Filing object that corresponds to any presidential electronic filing from the FEC. You'll then have to download the file before parsing it:
 
   filing = Fech::Filing.new(723604)
   filing.download
@@ -170,7 +170,9 @@ The following row types are currently supported from filing version 3 through 8.
 
 Michael Strickland, michael.strickland@nytimes.com
 
-Evan Carmi
+Evan Carmi, evan@ecarmi.org
+
+Aaron Bycoffe, bycoffe@gmail.com
 
 Contributions by Daniel Pritchett, daniel@sharingatwork.com
 
