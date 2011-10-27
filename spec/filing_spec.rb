@@ -5,12 +5,15 @@ describe Fech::Filing do
   before do
     @filing = Fech::Filing.new(723604)
     @filing.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '723604.fec'))
+    @filing8 = Fech::Filing.new(748730)
+    @filing8.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '748730.fec'))
   end
   
   describe "#filing_version" do
     
     it "should return the correct filing version" do
       @filing.send(:filing_version).should == "7.0"
+      @filing8.send(:filing_version).should == "8.0"
     end
     
     it "should parse the file only once" do
