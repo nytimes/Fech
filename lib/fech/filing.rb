@@ -101,15 +101,19 @@ module Fech
     #   in the returned hash
     def map(row, opts={})
       data = Fech::Mapped.new(self, row.first)
-      row_map = map_for(row.first)
+      full_row_map = map_for(row.first)
       
       # If specific fields were asked for, return only those
-      row_map = row_map.select { |k,v| opts[:include].include?(k) } if opts[:include]
+      if opts[:include]
+        row_map = full_row_map.select { |k| opts[:include].include?(k) }
+      else
+        row_map = full_row_map
+      end
       
       # Inserts the row into data, performing any specified preprocessing
       # on individual cells along the way
       row_map.each_with_index do |field, index|
-        value = row[index]
+        value = row[full_row_map.index(field)]
         translator.get_translations(:row => row.first,
             :version => filing_version, :action => :convert,
             :field => field).each do |translation|
