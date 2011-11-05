@@ -4,7 +4,7 @@
   \ \_\    \ \_____\  \ \_____\  \ \_\ \_\
    \/_/     \/_____/   \/_____/   \/_/\/_/
 
-Fech makes it easy to parse electronic presidential campaign filings from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
+Fech makes it easy to parse electronic presidential campaign filings[http://query.nictusa.com/pres/] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
 
 == News
 
