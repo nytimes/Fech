@@ -6,6 +6,10 @@
 
 Fech makes it easy to parse electronic presidential campaign filings from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
 
+== News
+
+* Nov. 4, 2011: Version 2.1 released. Bug-fix release to address a problem with the :include option for selecting only certain columns. Thanks to Aaron Bycoffe for the report and patch.
+
 == Installation
 
 Install Fech as a gem:
@@ -16,7 +20,7 @@ For use in a Rails 3 application, put the following in your Gemfile:
 
   gem 'fech'
 
-then issue the 'bundle install' command. Fech has been tested under Ruby 1.8.7 and 1.9.2.
+then issue the 'bundle install' command. Fech has been tested under Ruby 1.8.7, 1.9.2 and JRuby 1.6.3.
 
 == Getting Started
 
