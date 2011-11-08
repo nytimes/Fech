@@ -14,8 +14,8 @@ describe Fech::Mappings do
     end
     
     it "should use a greedy match on the row type, matching most complete available option" do
-      @mappings.for_row("f3p31").should == @mappings.map[FechUtils::ROW_TYPES[:f3p31].source]["^7.0|6.4|6.3|6.2|6.1"]
-      @mappings.for_row("f3p").should == @mappings.map[FechUtils::ROW_TYPES[:f3p].source]["^7.0"]
+      @mappings.for_row("f3p31").should == @mappings.map[FechUtils::ROW_TYPES[:f3p31].source]["^8.0|7.0|6.4|6.3|6.2|6.1"]
+      @mappings.for_row("f3p").should == @mappings.map[FechUtils::ROW_TYPES[:f3p].source]["^7.0|8.0"]
     end
     
   end

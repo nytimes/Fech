@@ -112,7 +112,7 @@ module Fech
       
       # Inserts the row into data, performing any specified preprocessing
       # on individual cells along the way
-      row_map.each do |field|
+      row_map.each_with_index do |field, index|
         value = row[full_row_map.index(field)]
         translator.get_translations(:row => row.first,
             :version => filing_version, :action => :convert,

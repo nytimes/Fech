@@ -1,0 +1,39 @@
+canonical,^8.0|7.0|6.4|6.3|6.2|6.1,,^5.3,,^5.2|5.1|5.0|3,
+form_type,1,FORM TYPE,1,FORM TYPE,1,FORM TYPE
+filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID,2,FILER FEC CMTE ID
+transaction_id_number,3,TRANSACTION ID NUMBER,32,TRAN ID,32,TRAN ID
+entity_type,4,ENTITY TYPE,3,ENTITY TYPE,3,ENTITY TYPE
+contributor_organization_name,5,CONTRIBUTOR ORGANIZATION NAME ,-0,,-0,
+contributor_name,,,4,NAME (Contributor/Lender),4,NAME (Contributor/Lender)
+contributor_last_name,6,CONTRIBUTOR LAST NAME,-0,,-0,
+contributor_first_name,7,CONTRIBUTOR FIRST NAME,-0,,-0,
+contributor_middle_name,8,CONTRIBUTOR MIDDLE NAME,-0,,-0,
+contributor_prefix,9,CONTRIBUTOR PREFIX,-0,,-0,
+contributor_suffix,10,CONTRIBUTOR SUFFIX,-0,,-0,
+contributor_street_1,11,CONTRIBUTOR STREET  1,5,STREET  1,5,STREET  1
+contributor_street_2,12,CONTRIBUTOR STREET  2,6,STREET  2,6,STREET  2
+contributor_city,13,CONTRIBUTOR CITY,7,CITY,7,CITY
+contributor_state,14,CONTRIBUTOR STATE,8,STATE,8,STATE
+contributor_zip,15,CONTRIBUTOR ZIP,9,ZIP,9,ZIP
+election_code,16,ELECTION CODE  {was RPTPGI},10,RPTPGI,10,RPTPGI
+item_description,17,ITEM DESCRIPTION,,,,
+item_contribution_aquired_date,18,ITEM CONTRIBUTION/AQUIRED DATE ,13,DATE (Of Contribution),13,DATE (Of Contribution)
+item_fair_market_value,19,ITEM FAIR MARKET VALUE,14,FAIR MARKET VALUE OF ITEM,14,FAIR MARKET VALUE OF ITEM
+contributor_employer,20,CONTRIBUTOR EMPLOYER,11,INDEMP,11,INDEMP
+contributor_occupation,21,CONTRIBUTOR OCCUPATION,12,INDOCC ,12,INDOCC 
+memo_code,22,MEMO CODE,29,MEMO CODE,29,MEMO CODE
+memo_text_description,23,MEMO TEXT/DESCRIPTION,30,MEMO TEXT,30,MEMO TEXT
+transaction_code,,,15,TRANSACTION CODE,15,TRANSACTION CODE
+transaction_description,,,16,TRANSDESC,16,TRANSDESC
+fec_committee_id_number,,,17,FEC COMMITTEE ID NUMBER,17,FEC COMMITTEE ID NUMBER
+fec_candidate_id_number,,,18,FEC CANDIDATE ID NUMBER,18,FEC CANDIDATE ID NUMBER
+candidate_name,,,19,CANDIDATE NAME,19,CANDIDATE NAME
+candidate_office,,,20,CAN/OFFICE,20,CAN/OFFICE
+candidate_state,,,21,CAN/STATE ,21,CAN/STATE 
+candidate_district,,,22,CAN/DIST,22,CAN/DIST
+conduit_name,,,23,CONDUIT NAME,23,CONDUIT NAME
+conduit_street_1,,,24,CONDUIT STREET  1,24,CONDUIT STREET  1
+conduit_street_2,,,25,CONDUIT STREET  2,25,CONDUIT STREET  2
+conduit_city,,,26,CONDUIT CITY,26,CONDUIT CITY
+conduit_state,,,27,CONDUIT STATE,27,CONDUIT STATE
+conduit_zip,,,28,CONDUIT ZIP,28,CONDUIT ZIP
