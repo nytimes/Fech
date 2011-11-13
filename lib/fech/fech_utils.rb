@@ -6,6 +6,7 @@ module FechUtils
   # match that row type in the wild.
   ROW_TYPES = {
     :hdr   => /^hdr$/i,
+    :f24   => /^f24/i,
     :f3p   => /(^f3p$)|(^f3p[^s|3])/i,
     :f3s   => /^f3s/i,
     :f3p31 => /^f3p31/i,
