@@ -8,6 +8,7 @@ Fech makes it easy to parse electronic presidential campaign filings[http://quer
 
 == News
 
+* Nov. 13, 2011: Layouts for forms 24, 5, 56 and 57 added, for parsing independent-expenditure filings.
 * Nov. 4, 2011: Version 2.1 released. Bug-fix release to address a problem with the :include option for selecting only certain columns. Thanks to Aaron Bycoffe for the report and patch.
 
 == Installation
@@ -161,6 +162,10 @@ The following row types are currently supported from filing version 3 through 8.
 * F3PS
 * F3S
 * F3P31 (Items to be Liquidated)
+* F24 (24/48 Hour Notice of Independent Expenditure)
+* F5 (Report of Independent Expenditures Made and Contributions Received)
+* F56 (Contributions for Independent Expenditures)
+* F57 (Independent Expenditures)
 * SA (Contributions)
 * SB (Expenditures)
 * SC (Loans)

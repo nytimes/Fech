@@ -1,0 +1,39 @@
+canonical,^8.0|7.0|6.4|6.3,,^5.3,,^5.2|5.1|5.0,,^3,
+form_type,1,FORM TYPE,1,FORM TYPE,1,FORM TYPE,1,FORM TYPE
+filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID,2,FILER FEC CMTE ID,2,FILER FEC CMTE ID
+entity_type,3,ENTITY TYPE,,,,,,
+committee_name,,,3,COMMITTEE NAME,3,COMMITTEE NAME,3,COMMITTEE NAME
+organization_name,4,ORGANIZATION NAME,,,,,,
+individual_last_name,5,INDIVIDUAL LAST NAME,,,,,,
+individual_first_name,6,INDIVIDUAL FIRST NAME,,,,,,
+individual_middle_name,7,INDIVIDUAL MIDDLE NAME,,,,,,
+individual_prefix,8,INDIVIDUAL PREFIX,,,,,,
+individual_suffix,9,INDIVIDUAL SUFFIX,,,,,,
+change_of_address,10,CHANGE OF ADDRESS,9,CHG OF ADDRESS,9,CHG OF ADDRESS,9,CHG OF ADDRESS
+street_1,11,STREET 1,4,STREET 1,4,STREET 1,4,STREET 1
+street_2,12,STREET 2,5,STREET 2,5,STREET 2,5,STREET 2
+city,13,CITY,6,CITY,6,CITY,6,CITY
+state,14,STATE,7,STATE,7,STATE,7,STATE
+zip,15,ZIP,8,ZIP,8,ZIP,8,ZIP
+qualified_nonprofit,16,YES/NO (Qualified Non-Profit Corporation),10,YESNO (Qual/Non Q),10,YESNO (Qual/Non Q),10,YESNO (Qual/Non Q)
+individual_employer,17,INDIVIDUAL EMPLOYER,11,INDEMP,11,INDEMP,11,INDEMP
+individual_occupation,18,INDIVIDUAL OCCUPATION,18,INDOCC,12,INDOCC,12,INDOCC
+report_code,19,REPORT CODE,13,RPTCODE,13,RPTCODE,13,RPTCODE
+report_type,20,24HOUR 48HOUR CODE,26,24HOUR 48HOUR CODE,26,24HOUR 48HOUR CODE,,
+report_pgi,,,,,14,RPTPGI,14,RPTPGI
+coverage_from_date,21,COVERAGE FROM DATE,17,DATE (Coverage From),17,DATE (Coverage From),17,DATE (Coverage From)
+coverage_through_date,22,COVERAGE THROUGH DATE,18,DATE (Coverage To),18,DATE (Coverage To),18,DATE (Coverage To)
+election_date,,,,,15,DATE (Of Election),15,DATE (Of Election)
+election_state,,,,,16,STATE (Of Election),16,STATE (Of Election)
+total_contribution,23,TOTAL CONTRIBUTION,19,TOTAL CONTRIBUTION,19,TOTAL CONTRIBUTION,19,TOTAL CONTRIBUTION
+total_independent_expenditure,24,TOTAL INDEPENDENT EXPENDITURE,20,TOTAL INDEP. EXPEND,20,TOTAL INDEP. EXPEND,20,TOTAL INDEP. EXPEND
+person_completing_name,,,21,IND/NAME (Person Completing Form),21,IND/NAME (Person Completing Form),21,IND/NAME (Person Completing Form)
+person_completing_last_name,25,PERSON COMPLETING LAST NAME,,,,,,
+person_completing_first_name,26,PERSON COMPLETING FIRST NAME,,,,,,
+person_completing_middle_name,27,PERSON COMPLETING MIDDLE NAME,,,,,,
+person_completing_prefix,28,PERSON COMPLETING PREFIX,,,,,,
+person_completing_suffix,29,PERSON COMPLETING SUFFIX,,,,,,
+date_signed,30,DATE SIGNED,22,DATE (Signed),22,DATE (Signed),22,DATE (Signed)
+date_notarized,,,,,23,DATE (Notarized),23,DATE (Notarized)
+date_notary_commission_expires,,,,,24,DATE (Notary Commission Expires),24,DATE (Notary Commission Expires)
+notary_name,,,,,25,IND/NAME (Notary),25,IND/NAME (Notary)

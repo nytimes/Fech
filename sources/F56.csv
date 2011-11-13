@@ -1,0 +1,33 @@
+canonical,^8.0|7.0|6.4|6.3|6.2,,^5.3|5.2|5.1|5.0|3.0,
+form_type,1,FORM TYPE,1,FORM TYPE
+filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID
+transaction_id,3,TRANSACTION ID NUMBER,27,TRAN ID
+entity_type,4,ENTITY TYPE,3,ENTITY TYPE
+contributor_organization_name,5,CONTRIBUTOR ORGANIZATION NAME,,
+contributor_name,,,4,NAME (Contributor/Lender)
+contributor_last_name,6,CONTRIBUTOR LAST NAME,,
+contributor_first_name,7,CONTRIBUTOR FIRST NAME,,
+contributor_middle_name,8,CONTRIBUTOR MIDDLE NAME,,
+contributor_prefix,9,CONTRIBUTOR PREFIX,,
+contributor_suffix,10,CONTRIBUTOR SUFFIX,,
+contributor_street_1,11,CONTRIBUTOR STREET 1,5,STREET 1
+contributor_street_2,12,CONTRIBUTOR STREET 2,6,STREET 2
+contributor_city,13,CONTRIBUTOR CITY,7,CITY
+contributor_state,14,CONTRIBUTOR STATE,8,STATE
+contributor_zip,15,CONTRIBUTOR ZIP,9,ZIP
+contributor_fec_id,16,CONTRIBUTOR COMMITTEE FEC ID,14,FEC COMMITTEE ID NUMBER
+contribution_date,17,CONTRIBUTION DATE,12,DATE (Of Contribution)
+contribution_amount,18,CONTRIBUTION AMOUNT,13,AMOUNT
+contributor_employer,19,CONTRIBUTOR EMPLOYER,10,INDEMP
+contributor_occupation,20,CONTRIBUTOR_OCCUPATION,11,INDOCC
+candidate_id,,,15,FEC CANDIDATE ID NUMBER
+candidate_name,,,16,CANDIDATE NAME
+candidate_office,,,17,CAN/OFFICE
+candidate_state,,,18,CAN/STATE
+candidate_district,,,19,CAN/DIST
+conduit_name,,,20,CONDUIT NAME
+conduit_street_1,,,21,CONDUIT STREET 1
+conduit_street_2,,,22,CONDUIT STREET 2
+conduit_city,,,23,CONDUIT CITY
+conduit_state,,,24,CONDUIT STATE
+conduit_zip,,,25,CONDUIT ZIP
