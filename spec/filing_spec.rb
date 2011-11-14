@@ -7,6 +7,8 @@ describe Fech::Filing do
     @filing.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '723604.fec'))
     @filing8 = Fech::Filing.new(748730)
     @filing8.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '748730.fec'))
+    @filing_ie = Fech::Filing.new(752356)
+    @filing_ie.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '752356.fec'))
   end
   
   describe "#filing_version" do
@@ -14,6 +16,7 @@ describe Fech::Filing do
     it "should return the correct filing version" do
       @filing.send(:filing_version).should == "7.0"
       @filing8.send(:filing_version).should == "8.0"
+      @filing_ie.send(:filing_version).should == "8.0"
     end
     
     it "should parse the file only once" do
@@ -41,6 +44,8 @@ describe Fech::Filing do
       sum = @filing.summary
       sum.should be_a_kind_of(Hash)
       sum[:form_type].should == "F3PN"
+      sum_ie = @filing_ie.summary
+      sum_ie[:form_type].should == "F24N"
     end
   end
   
@@ -65,6 +70,7 @@ describe Fech::Filing do
       @filing.rows_like(/^sa/).size.should == 1
       @filing.rows_like(/^s/).size.should == 2
       @filing.rows_like(/^sc/).size.should == 0
+      @filing_ie.rows_like(/^se/).size.should == 3
     end
     
     it "should return an array if no block is given" do
@@ -124,6 +130,8 @@ describe Fech::Filing do
       map = @filing.map_for(/sa/)
       map.class.should == Array
       map.first.should == :form_type
+      map_ie = @filing_ie.map_for(/se/)
+      map_ie[21].should == :calendar_y_t_d_per_election_office
     end
     
     it "should raise error if no map is found" do
@@ -160,6 +168,12 @@ describe Fech::Filing do
       @f3p_row = f.readline.split(@filing.delimiter)
       @sa_row = f.readline.split(@filing.delimiter)
       f.close
+
+      f_ie = open(@filing_ie.file_path, 'r')
+      f_ie.readline
+      @f24_row = f_ie.readline.split(@filing_ie.delimiter)
+      @se_row = f_ie.readline.split(@filing_ie.delimiter)
+      f_ie.close
     end
     
     it "should map the data in row to named values according to row_map" do
@@ -169,6 +183,13 @@ describe Fech::Filing do
       
       mapped[:form_type].should == "SA17A"
       mapped[:contributor_state].should == "SC"
+
+      row_map_ie = @filing_ie.send(:mappings).for_row(@se_row.first)
+      mapped_ie = @filing_ie.send(:map, @se_row)
+      mapped_ie.should be_a_kind_of(Hash)
+      
+      mapped_ie[:form_type].should == "SE"
+      mapped_ie[:candidate_id_number].should == "P00003608"
     end
     
     it "should perform conversion translations" do
