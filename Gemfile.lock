@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fech (0.2.1)
+    fech (0.3.0)
       fastercsv
       people
 
@@ -36,10 +36,8 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
-  fastercsv
   fech!
   mocha
-  people
   rcov
   rdoc
   rspec (~> 2.6)
