@@ -4,11 +4,13 @@
   \ \_\    \ \_____\  \ \_____\  \ \_\ \_\
    \/_/     \/_____/   \/_____/   \/_/\/_/
 
-Fech makes it easy to parse electronic presidential campaign filings[http://query.nictusa.com/pres/] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
+Fech makes it easy to parse electronic presidential campaign filings[http://query.nictusa.com/pres/] and independent expenditure filings[http://www.fec.gov/finance/disclosure/ie_reports.shtml] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
+
+Fech supports several FEC form types, including all F3P (presidential filings), F5 (independent expenditures), F24 (24/48 hour notices of independent expenditures), F56 (contributions to independent expenditure committees) and F57 (expenditures by independent expenditure committees).
 
 == News
 
-* Nov. 13, 2011: Layouts for forms 24, 5, 56 and 57 added, for parsing independent-expenditure filings.
+* Nov. 13, 2011: Version 2.5 released. Layouts for forms 24, 5, 56 and 57 added, for parsing independent expenditure filings.
 * Nov. 4, 2011: Version 2.1 released. Bug-fix release to address a problem with the :include option for selecting only certain columns. Thanks to Aaron Bycoffe for the report and patch.
 
 == Installation
