@@ -9,7 +9,7 @@ describe Fech::Mappings do
     end
     
     it "should return the correct row_map" do
-      @mappings.for_row("sa").should == @mappings.map["^sa"]["^7.0|6.4"]
+      @mappings.for_row("sa").should == @mappings.map["^sa"]["^8.0"]
       @mappings.for_row("f3p31").should_not == @mappings.for_row("f3p")
     end
     

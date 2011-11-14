@@ -10,5 +10,5 @@ require 'fech/csv'
 
 module Fech
   extend FechUtils
-  DEFAULT_VERSION = "7.0"
+  DEFAULT_VERSION = "8.0"
 end
