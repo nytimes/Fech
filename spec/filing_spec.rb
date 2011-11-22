@@ -9,6 +9,8 @@ describe Fech::Filing do
     @filing8.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '748730.fec'))
     @filing_ie = Fech::Filing.new(752356)
     @filing_ie.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '752356.fec'))
+    @filing_pac = Fech::Filing.new(753533)
+    @filing_pac.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '753533.fec'))
   end
   
   describe "#filing_version" do
@@ -17,6 +19,7 @@ describe Fech::Filing do
       @filing.send(:filing_version).should == "7.0"
       @filing8.send(:filing_version).should == "8.0"
       @filing_ie.send(:filing_version).should == "8.0"
+      @filing_pac.send(:filing_version).should == "8.0"
     end
     
     it "should parse the file only once" do
@@ -46,6 +49,8 @@ describe Fech::Filing do
       sum[:form_type].should == "F3PN"
       sum_ie = @filing_ie.summary
       sum_ie[:form_type].should == "F24N"
+      sum_pac = @filing_pac.summary
+      sum_pac[:form_type].should == "F3XN"
     end
   end
   
@@ -71,6 +76,9 @@ describe Fech::Filing do
       @filing.rows_like(/^s/).size.should == 2
       @filing.rows_like(/^sc/).size.should == 0
       @filing_ie.rows_like(/^se/).size.should == 3
+      @filing_pac.rows_like(/^sa/).size.should == 3
+      @filing_pac.rows_like(/^sb/).size.should == 1
+      @filing_pac.rows_like(/^sd/).size.should == 1
     end
     
     it "should return an array if no block is given" do
@@ -132,10 +140,13 @@ describe Fech::Filing do
       map.first.should == :form_type
       map_ie = @filing_ie.map_for(/se/)
       map_ie[21].should == :calendar_y_t_d_per_election_office
+      map_pac = @filing_pac.map_for(/f3x/)
+      map_pac[15].should == :qualified_committee
     end
     
     it "should raise error if no map is found" do
       lambda { @filing.map_for(/sz/) }.should raise_error
+      lambda { @filing_pac.map_for(/sz/) }.should raise_error
     end
     
   end
@@ -174,6 +185,12 @@ describe Fech::Filing do
       @f24_row = f_ie.readline.split(@filing_ie.delimiter)
       @se_row = f_ie.readline.split(@filing_ie.delimiter)
       f_ie.close
+
+      f_pac = open(@filing_pac.file_path, 'r')
+      f_pac.readline
+      @f3x_row = f_pac.readline.split(@filing_pac.delimiter)
+      @sa11_row = f_pac.readline.split(@filing_pac.delimiter)
+      f_pac.close
     end
     
     it "should map the data in row to named values according to row_map" do
