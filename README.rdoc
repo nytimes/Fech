@@ -154,11 +154,17 @@ We found it useful to be able to access attributes using the name the fields in 
 
 === Quote character
 
-The parsing of some filings might fail because of the exitence of a quote character in a field. To get around this, you may pass a :quote_char argument, and Fech will use it to parse the file.
+By default, Fech, like FasterCSV and CSV, assumes that double quotes are used around values that contain reserved characters.
 
-By default, Fech, like FasterCSV and CSV, will use a double-quote character if no :quote_char is given.
+However, the parsing of some filings might fail because of the existence of the default quote character in a field. To get around this, you may pass a :quote_char argument, and Fech will use it to parse the file.
 
-If no quote character is needed, it is necessary that you use "\0" (a null ASCII character):
+For example, filing No. 756218 has the following value in the field for the contributor's last name:
+
+  O""Leary
+
+Attempting to parse this filing with Fech fails because of illegal quoting.
+
+Since the FEC doesn't use a quote character in its electronic filings, we don't need a quote character at all. One way to achieve this is to use "\0" (a null ASCII character) as :quote_char:
 
   filing = Fech::Filing.new(756218, :quote_char => "\0")
 
