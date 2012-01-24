@@ -19,6 +19,7 @@ module Fech
       @filing_id    = filing_id
       @download_dir = opts[:download_dir] || Dir.tmpdir
       @translator   = Fech::Translator.new(:include => opts[:translate])
+      @quote_char   = opts[:quote_char] || '"'
     end
 
     # Saves the filing data from the FEC website into the default download
@@ -227,7 +228,7 @@ module Fech
         raise "File #{file_path} does not exist. Try invoking the .download method on this Filing object."
       end
       c = 0
-      Fech::Csv.foreach(file_path, :col_sep => delimiter, :skip_blanks => true) do |row|
+      Fech::Csv.foreach(file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
         if opts[:with_index]
           yield [row, c]
           c += 1
