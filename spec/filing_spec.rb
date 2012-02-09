@@ -11,6 +11,8 @@ describe Fech::Filing do
     @filing_ie.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '752356.fec'))
     @filing_pac = Fech::Filing.new(753533)
     @filing_pac.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '753533.fec'))
+    @filing_ec = Fech::Filing.new(764901)
+    @filing_ec.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '764901.fec'))
   end
   
   describe "#filing_version" do
@@ -51,6 +53,8 @@ describe Fech::Filing do
       sum_ie[:form_type].should == "F24N"
       sum_pac = @filing_pac.summary
       sum_pac[:form_type].should == "F3XN"
+      sum_ec = @filing_ec.summary
+      sum_ec[:form_type].should == 'F9N'
     end
   end
   
@@ -79,6 +83,7 @@ describe Fech::Filing do
       @filing_pac.rows_like(/^sa/).size.should == 3
       @filing_pac.rows_like(/^sb/).size.should == 1
       @filing_pac.rows_like(/^sd/).size.should == 1
+      @filing_ec.rows_like(/^f91/).size.should == 1
     end
     
     it "should return an array if no block is given" do
