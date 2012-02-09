@@ -15,6 +15,7 @@ module FechUtils
     :f5    => /^f5[na]/i,
     :f56   => /^f56/i,
     :f57   => /^f57/i,
+    :f9    => /^f9/i,
     :sa    => /^sa/i,
     :sb    => /^sb/i,
     :sc    => /^sc[^1-2]/i,

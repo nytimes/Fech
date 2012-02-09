@@ -9,7 +9,7 @@ module Fech
     attr_accessor :map
     FILING_VERSIONS   = ["8.0", "7.0", "6.4", "6.3", "6.2", "6.1",
                          "5.3", "5.2", "5.1", "5.0", "3"]
-    BASE_ROW_TYPES    = ["HDR", "F24", "F3P", "F3P31", "F3PS", "F3S", "F3X", "F5", "F56", "F57",
+    BASE_ROW_TYPES    = ["HDR", "F24", "F3P", "F3P31", "F3PS", "F3S", "F3X", "F5", "F56", "F57", "F9",
                          "SchA", "SchB", "SchC", "SchC1", "SchC2", "SchD", "SchE", 
                          "SchF", "TEXT"]
     ROW_TYPE_MATCHERS = {
@@ -23,6 +23,7 @@ module Fech
       "F5"    => FechUtils::ROW_TYPES[:f5],
       "F56"    => FechUtils::ROW_TYPES[:f56],
       "F57"    => FechUtils::ROW_TYPES[:f57],
+      "F9"     => FechUtils::ROW_TYPES[:f9],
       "SchA"   => FechUtils::ROW_TYPES[:sa],
       "SchB"   => FechUtils::ROW_TYPES[:sb],
       "SchC"   => FechUtils::ROW_TYPES[:sc],
