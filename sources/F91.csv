@@ -1,0 +1,17 @@
+canonical,^8.0|7.0|6.4|6.3|6.2|6.1,,^5.3,,^5.2|5.1|5.0,
+form_type,1,FORM TYPE,1,FORM TYPE,1,FORM TYPE
+filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID,2,FILER FEC CMTE ID
+transaction_id,3,TRANSACTION ID NUMBER,12,TRAN ID,12,TRAN ID
+controller_last_name,4,CONTROLLER LAST NAME (Share/Exer Control),3,IND/NAME  (Share/Exer Control),3,IND/NAME  (Share/Exer Control)
+controller_first_name,5,CONTROLLER FIRST NAME,,,,
+controller_middle_name,6,CONTROLLER MIDDLE NAME,,,,
+controller_prefix,7,CONTROLLER PREFIX,,,,
+controller_suffix,8,CONTROLLER SUFFIX,,,,
+controller_street_1,9,CONTROLLER STREET 1,4,STREET 1,4,STREET 1
+controller_street_2,10,CONTROLLER STREET 2,5,STREET 2,5,STREET 2
+controller_city,11,CONTROLLER CITY,6,CITY,6,CITY
+controller_state,12,CONTROLLER STATE,7,STATE,7,STATE
+controller_zip,13,CONTROLLER ZIP,8,ZIP,8,ZIP
+controller_employer,14,CONTROLLER EMPLOYER,9,EMPLOYER,9,EMPLOYER
+controller_occupation,15,CONTROLLER OCCUPATION,10,OCCUPATION,10,OCCUPATION
+amended_cd,,,,,11,AMENDED CD
