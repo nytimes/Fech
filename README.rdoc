@@ -6,7 +6,7 @@
 
 Fech makes it easy to parse electronic presidential campaign filings[http://query.nictusa.com/pres/], PAC filings and independent expenditure filings[http://www.fec.gov/finance/disclosure/ie_reports.shtml] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
 
-Fech supports several FEC form types, including all F3P (presidential filings), F5 (independent expenditures), F24 (24/48 hour notices of independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees) and F3X (filings by unauthorized committees).
+Fech supports several FEC form types, including all F3P (presidential filings), F5 (independent expenditures), F24 (24/48 hour notices of independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F3X (filings by unauthorized committees) and F9 (electioneering communications).
 
 == News
 
@@ -35,7 +35,7 @@ Start by creating a Filing object that corresponds to any presidential electroni
   filing.download
 
 * Pass in the FEC filing id
-* Optional: specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem.
+* Optional arguments: pass in a :quote_char argument, and Fech will use it as a quote character to parse the file (see details below). Specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem.
 
 === Summary Data
 
