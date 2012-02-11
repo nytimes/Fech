@@ -10,6 +10,7 @@ Fech supports several FEC form types, including all F3P (presidential filings), 
 
 == News
 
+* Feb. 11, 2012: Version 0.7.0 released. Layouts for form 9 added, for parsing electioneering communications filings.
 * Jan. 28, 2012: Version 0.6.0 released. Added support for quoted fields.
 * Nov. 22, 2011: Version 0.5.0 released. Layouts for form 3X added, for parsing filings from non-candidate committees.
 * Nov. 13, 2011: Version 0.3.0 released. Layouts for forms 24, 5, 56 and 57 added, for parsing independent expenditure filings.
