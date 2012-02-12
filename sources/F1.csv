@@ -52,8 +52,7 @@ affiliated_street_2,47,6. AFFILIATED STREET 2,47,6. AFFILIATED STREET 2,23,6. ST
 affiliated_city,48,6. AFFILIATED CITY,48,6. AFFILIATED CITY,24,6. CITY,24,6. CITY
 affiliated_state,49,6. AFFILIATED STATE,49,6. AFFILIATED STATE,25,6. STATE,25,6. STATE
 affiliated_zip,50,6. AFFILIATED ZIP,50,6. AFFILIATED ZIP,26,6. ZIP,26,6. ZIP
-affiliated_relationship_code,51,"6. AFFILIATED RELATIONSHIP CODE
-  (with Filing Committee named in field #4)",51,6. AFFILIATED RELATIONSHIP CODE,27,6. RELATIONSHIP (w/ Above Cmte),27,6. RELATIONSHIP (w/ Above Cmte)
+affiliated_relationship_code,51,"6. AFFILIATED RELATIONSHIP CODE",51,6. AFFILIATED RELATIONSHIP CODE,27,6. RELATIONSHIP (w/ Above Cmte),27,6. RELATIONSHIP (w/ Above Cmte)
 custodian_name,,,,,29,7. IND/NAME  (Custodian Name),29,7. IND/NAME  (Custodian Name)
 custodian_last_name,52,7. CUSTODIAN LAST NAME,52,7. CUSTODIAN LAST NAME,,,,
 custodian_first_name,53,7. CUSTODIAN FIRST NAME,53,7. CUSTODIAN FIRST NAME,,,,
