@@ -13,6 +13,8 @@ describe Fech::Filing do
     @filing_pac.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '753533.fec'))
     @filing_ec = Fech::Filing.new(764901)
     @filing_ec.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '764901.fec'))
+    @filing_f1 = Fech::Filing.new(765310)
+    @filing_f1.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '765310.fec'))    
   end
   
   describe "#filing_version" do
@@ -55,6 +57,8 @@ describe Fech::Filing do
       sum_pac[:form_type].should == "F3XN"
       sum_ec = @filing_ec.summary
       sum_ec[:form_type].should == 'F9N'
+      sum_f1 = @filing_f1.summary
+      sum_f1[:form_type].should == "F1N"
     end
   end
   
