@@ -6,11 +6,11 @@
 
 Fech makes it easy to parse electronic campaign filings[http://query.nictusa.com/pres/], House candidate filings, PAC filings and independent expenditure filings[http://www.fec.gov/finance/disclosure/ie_reports.shtml] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
 
-Fech supports several FEC form types, including all F3 (House candidate filings), F3P (presidential filings), F5 (independent expenditures), F24 (24/48 hour notices of independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F3X (filings by unauthorized committees) and F9 (electioneering communications).
+Fech supports several FEC form types, including all F1 (Statements of organization), F3 (House candidate filings), F3P (presidential filings), F5 (independent expenditures), F24 (24/48 hour notices of independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F3X (filings by unauthorized committees) and F9 (electioneering communications).
 
 == News
 
-* Feb. 13, 2012: Version 0.8.0 released. Layouts for form 3 added, for parsing House candidate committee filings.
+* Feb. 13, 2012: Version 0.8.0 released. Layouts for form 3 and form 1 added, for parsing House candidate committee filings.
 * Feb. 11, 2012: Version 0.7.0 released. Layouts for form 9 added, for parsing electioneering communications filings.
 * Jan. 28, 2012: Version 0.6.0 released. Added support for quoted fields.
 * Nov. 22, 2011: Version 0.5.0 released. Layouts for form 3X added, for parsing filings from non-candidate committees.
@@ -180,6 +180,7 @@ When filings get very large, be careful not to perform operations that attempt t
 == Supported row types and versions
 
 The following row types are currently supported from filing version 3 through 8.0:
+* F1 (Statement of Organization)
 * F3
 * F3P (Summaries)
 * F3PS
