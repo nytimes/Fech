@@ -4,7 +4,7 @@
   \ \_\    \ \_____\  \ \_____\  \ \_\ \_\
    \/_/     \/_____/   \/_____/   \/_/\/_/
 
-Fech makes it easy to parse electronic presidential campaign filings[http://query.nictusa.com/pres/], PAC filings and independent expenditure filings[http://www.fec.gov/finance/disclosure/ie_reports.shtml] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
+Fech makes it easy to parse electronic campaign filings[http://query.nictusa.com/pres/], House candidate filings, PAC filings and independent expenditure filings[http://www.fec.gov/finance/disclosure/ie_reports.shtml] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
 
 Fech supports several FEC form types, including all F3 (House candidate filings), F3P (presidential filings), F5 (independent expenditures), F24 (24/48 hour notices of independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F3X (filings by unauthorized committees) and F9 (electioneering communications).
 
@@ -31,7 +31,7 @@ then issue the 'bundle install' command. Fech has been tested under Ruby 1.8.7, 
 
 == Getting Started
 
-Start by creating a Filing object that corresponds to any presidential electronic filing from the FEC. You'll then have to download the file before parsing it:
+Start by creating a Filing object that corresponds to an electronic filing from the FEC. You'll then have to download the file before parsing it:
 
   filing = Fech::Filing.new(723604)
   filing.download
