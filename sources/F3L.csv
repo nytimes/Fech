@@ -1,0 +1,27 @@
+canonical,^8.0|7.0|6.4
+form_type,1,FORM TYPE
+filer_committee_id_number,2,FILER COMMITTEE ID NUMBER
+committee_name,3,COMMITTEE NAME
+change_of_address,4,CHANGE OF ADDRESS
+street_1,5,STREET  1
+street_2,6,STREET  2
+city,7,CITY
+state,8,STATE
+zip,9,ZIP
+report_code,12,REPORT CODE
+election_date,13,DATE OF ELECTION
+election_state,10,ELECTION STATE
+election_district,11,ELECTION DISTRICT
+coverage_from_date,16,COVERAGE FROM DATE
+coverage_through_date,17,COVERAGE THROUGH DATE
+semi_annual_period,15,SEMI-ANNUAL PERIOD - Sect 5(c) or (d)
+semi_annual_period_jan_june,18,SEMI-ANNUAL JAN-JUN - Sect 6(b)
+semi_annual_period_jul_dec,19,SEMI-ANNUAL JUL-DEC - Sect 6(b)
+quarterly_monthly_bundled_contributions,20,QTR/MON/POST BUNDLED CONTRIBUTIONS
+semi_annual_bundled_contributions,21,SEMI-ANNUAL BUNDLED CONTRIBS
+treasurer_last_name,22,TREASURER LAST NAME
+treasurer_first_name,23,TREASURER FIRST NAME
+treasurer_middle_name,24,TREASURER MIDDLE NAME
+treasurer_prefix,25,TREASURER PREFIX
+treasurer_suffix,26,TREASURER SUFFIX
+date_signed,27,DATE SIGNED
