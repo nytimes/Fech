@@ -15,6 +15,8 @@ describe Fech::Filing do
     @filing_ec.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '764901.fec'))
     @filing_f1 = Fech::Filing.new(765310)
     @filing_f1.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '765310.fec'))
+    @filing_f1m = Fech::Filing.new(730635)
+    @filing_f1m.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '730635.fec'))
     @filing_f3 = Fech::Filing.new(82094)
     @filing_f3.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '82094.fec'))    
   end
@@ -63,7 +65,9 @@ describe Fech::Filing do
       sum_f1 = @filing_f1.summary
       sum_f1[:form_type].should == "F1N"
       sum_f3 = @filing_f3.summary
-      sum_f3[:form_type].should == "F3N"      
+      sum_f3[:form_type].should == "F3N"
+      sum_f1m = @filing_f1m.summary
+      sum_f1m[:form_type].should == "F1MA"  
     end
   end
   
