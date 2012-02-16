@@ -38,7 +38,7 @@ Start by creating a Filing object that corresponds to an electronic filing from 
   filing.download
 
 * Pass in the FEC filing id
-* Optional arguments: pass in a :quote_char argument, and Fech will use it as a quote character to parse the file (see details below). Specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem.
+* Optional arguments: pass in a :quote_char argument, and Fech will use it as a quote character to parse the file (see details below). Specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem. Set :handle_malformed_csv to false if you'd like Fech to throw an error if it encounters a malformed filing (see details below).
 
 === Summary Data
 
@@ -155,6 +155,20 @@ You can allow any field (converted, combined, or untranslated) to have an arbitr
   #=> true
 
 We found it useful to be able to access attributes using the name the fields in our database they correspond to.
+
+=== Handling malformed filings
+
+Some filers put double quotes around each field in their filings, which can cause problems if not done correctly. For example, filing No. 735497 has the following value in the field for the name of a payee:
+
+  "Stichin" LLC"
+
+Because the field is not properly quoted FasterCSV and CSV will not be able to parse it, and will instead raise a MalformedCSVError.
+
+To get around this problem, Fech, by default, uses the following steps to parse each line in a filing:
+  * Try to parse the line using the default CSV parser, using double quotes as the quote character (by default) or a different quote character if specified.
+  * If a MalformedCSVError is raised, try to parse the line using a null value as the quote character. If this succeeds, each value in the line is then parsed, so that the quote characters around properly quoted fields are not included in Fech's output.
+
+If you'd like to parse an entire filing using a different CSV quote character, see the section below.
 
 === Quote character
 
