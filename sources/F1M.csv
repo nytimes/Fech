@@ -1,0 +1,78 @@
+canonical,^8.0|7.0|6.4|6.3|6.2|6.1,,^5.3|5.2|5.1|5.0|3.0,
+form_type,1,FORM TYPE,1,FORM TYPE
+filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER COMMITTEE ID NUMBER
+committee_name,3,COMMITTEE NAME,3,COMMITTEE NAME
+street_1,4,STREET 1,4,STREET 1
+street_2,5,STREET 2,5,STREET 2
+city,6,CITY,6,CITY
+state,7,STATE,7,STATE
+zip,8,ZIP,8,ZIP
+committee_type,9,COMMITTEE TYPE,9,COMMITTEE TYPE
+affiliated_date_f1_filed,10,DATE (Of Affiliation),10,AFFILIATED - DATE FORM F1 FILED
+affiliated_committee_id_number,11,FEC COMMITTEE ID NUMBER,11,AFFILIATED COMMITTEE FEC ID
+affiliated_committee_name,12,COMMITTEE NAME,12,AFFILIATED COMMITTEE NAME
+first_candidate_id_number,13,I CANDIDATE ID NUMBER,13,FEC CANDIDATE ID NUMBER
+first_candidate_name,,,14,CANDIDATE NAME
+first_candidate_last_name,14,I CANDIDATE LAST NAME,,
+first_candidate_first_name,15,I CANDIDATE FIRST NAME,,
+first_candidate_middle_name,16,I CANDIDATE MIDDLE NAME,,
+first_candidate_prefix,17,I CANDIDATE PREFIX,,
+first_candidate_suffix,18,I CANDIDATE SUFFIX,,
+first_candidate_office,19,I CANDIDATE OFFICE,15,CAN/OFFICE
+first_candidate_state,20,I CANDIDATE STATE ,16,CAN/STATE 
+first_candidate_district,21,I CANDIDATE DIST,17,CAN/DIST
+first_candidate_contribution_date,22,I DATE OF CONTRIBUTION,18, DATE (Of Contribution)
+second_candidate_id_number,23,II CANDIDATE ID NUMBER,19,FEC CANDIDATE ID NUMBER
+second_candidate_name,,,20,CANDIDATE NAME
+second_candidate_last_name,24,II CANDIDATE LAST NAME,,
+second_candidate_second_name,25,II CANDIDATE FIRST NAME,,
+second_candidate_middle_name,26,II CANDIDATE MIDDLE NAME,,
+second_candidate_prefix,27,II CANDIDATE PREFIX,,
+second_candidate_suffix,28,II CANDIDATE SUFFIX,,
+second_candidate_office,29,II CANDIDATE OFFICE,21,CAN/OFFICE
+second_candidate_state,30,II CANDIDATE STATE ,22,CAN/STATE 
+second_candidate_district,31,II CANDIDATE DIST,23,CAN/DIST
+second_candidate_contribution_date,32,II DATE OF CONTRIBUTION,24, DATE (Of Contribution)
+third_candidate_id_number,33,III CANDIDATE ID NUMBER,25,FEC CANDIDATE ID NUMBER
+third_candidate_name,,,26,CANDIDATE NAME
+third_candidate_last_name,34,III CANDIDATE LAST NAME,,
+third_candidate_third_name,35,III CANDIDATE FIRST NAME,,
+third_candidate_middle_name,36,III CANDIDATE MIDDLE NAME,,
+third_candidate_prefix,37,III CANDIDATE PREFIX,,
+third_candidate_suffix,38,III CANDIDATE SUFFIX,,
+third_candidate_office,39,III CANDIDATE OFFICE,27,CAN/OFFICE
+third_candidate_state,40,III CANDIDATE STATE ,28,CAN/STATE 
+third_candidate_district,41,III CANDIDATE DIST,29,CAN/DIST
+third_candidate_contribution_date,42,III DATE OF CONTRIBUTION,30, DATE (Of Contribution)
+fourth_candidate_id_number,43,IV CANDIDATE ID NUMBER,31,FEC CANDIDATE ID NUMBER
+fourth_candidate_name,,,32,CANDIDATE NAME
+fourth_candidate_last_name,44,IV CANDIDATE LAST NAME,,
+fourth_candidate_fourth_name,45,IV CANDIDATE FIRST NAME,,
+fourth_candidate_middle_name,46,IV CANDIDATE MIDDLE NAME,,
+fourth_candidate_prefix,47,IV CANDIDATE PREFIX,,
+fourth_candidate_suffix,48,IV CANDIDATE SUFFIX,,
+fourth_candidate_office,49,IV CANDIDATE OFFICE,33,CAN/OFFICE
+fourth_candidate_state,50,IV CANDIDATE STATE ,34,CAN/STATE 
+fourth_candidate_district,51,IV CANDIDATE DIST,35,CAN/DIST
+fourth_candidate_contribution_date,52,IV DATE OF CONTRIBUTION,36, DATE (Of Contribution)
+fifth_candidate_id_number,53,V CANDIDATE ID NUMBER,37,FEC CANDIDATE ID NUMBER
+fifth_candidate_name,,,38,CANDIDATE NAME
+fifth_candidate_last_name,54,V CANDIDATE LAST NAME,,
+fifth_candidate_fifth_name,55,V CANDIDATE FIRST NAME,,
+fifth_candidate_middle_name,56,V CANDIDATE MIDDLE NAME,,
+fifth_candidate_prefix,57,V CANDIDATE PREFIX,,
+fifth_candidate_suffix,58,V CANDIDATE SUFFIX,,
+fifth_candidate_office,59,V CANDIDATE OFFICE,39,CAN/OFFICE
+fifth_candidate_state,60,V CANDIDATE STATE ,40,CAN/STATE 
+fifth_candidate_district,61,V CANDIDATE DIST,41,CAN/DIST
+fifth_candidate_contribution_date,62,V DATE OF CONTRIBUTION,42, DATE (Of Contribution)
+fifty_first_contributor_date,63,DATE (Of 51st Contributor),43,DATE (Of 51st Contributor)
+original_registration_date,64,DATE (Of Orig Registration),44,DATE (Of Orig Registration)
+requirements_met_date,65,DATE (Cmte Met Requirements),45,DATE (Cmte Met Requirements)
+treasurer_name,,,46,NAME/TREASURER (as signed)
+treasurer_last_name,66,TREASURER LAST NAME,,
+treasurer_first_name,67,TREASURER FIRST NAME,,
+treasurer_middle_name,68,TREASURER MIDDLE NAME,,
+treasurer_prefix,69,TREASURER PREFIX,,
+treasurer_suffix,70,TREASURER SUFFIX,,
+date_signed,71,DATE SIGNED,47,DATE SIGNED
