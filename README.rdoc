@@ -10,6 +10,7 @@ Fech supports several FEC form types, including all F1 (statements of organizati
 
 == News
 
+* Feb. 17, 2012: Version 0.9.0 released. Added support for alternative CSV Parsers.
 * Feb. 15, 2012: Version 0.8.1 released. Bug-fix to support F3 termination filings.
 * Feb. 13, 2012: Version 0.8.0 released. Layouts for form 3 and form 1 added, for parsing House candidate committee filings.
 * Feb. 11, 2012: Version 0.7.0 released. Layouts for form 9 added, for parsing electioneering communications filings.
@@ -38,7 +39,15 @@ Start by creating a Filing object that corresponds to an electronic filing from 
   filing.download
 
 * Pass in the FEC filing id
-* Optional arguments: pass in a :quote_char argument, and Fech will use it as a quote character to parse the file (see details below). Specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem. Set :handle_malformed_csv to false if you'd like Fech to throw an error if it encounters a malformed filing (see details below).
+* Optional arguments: pass in a :quote_char argument, and Fech will use it as a quote character to parse the file (see details below). Specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem.
+
+=== CSV Parsers
+
+Not all CSV Parsers are created equal. Some are fast and naive, others are slow but handle malformed data more reliably. By default, FasterCSV is used, but you can pass in your own choice of parser with the :csv_parser option:
+
+  filing = Fech::Filing.new(723604, :csv_parser => Fech::CsvDoctor)
+
+Fech::CsvDoctor inherits from FasterCSV, and helps deal with certain types of malformed quotes in the data (see: Handling malformed filings). You could pass in any subclass with special handling.
 
 === Summary Data
 
@@ -164,11 +173,11 @@ Some filers put double quotes around each field in their filings, which can caus
 
 Because the field is not properly quoted FasterCSV and CSV will not be able to parse it, and will instead raise a MalformedCSVError.
 
-To get around this problem, Fech, by default, uses the following steps to parse each line in a filing:
+To get around this problem, you can pass in Fech::CsvDoctor as the :csv_parser when initializing the filing (see: CSV Parsers). It will then take the following steps when parsing the filing:
   * Try to parse the line using the default CSV parser, using double quotes as the quote character (by default) or a different quote character if specified.
   * If a MalformedCSVError is raised, try to parse the line using a null value as the quote character. If this succeeds, each value in the line is then parsed, so that the quote characters around properly quoted fields are not included in Fech's output.
 
-If you'd like to parse an entire filing using a different CSV quote character, see the section below.
+If you'd like to parse an entire filing using a specific CSV quote character, see: Quote character. 
 
 === Quote character
 
