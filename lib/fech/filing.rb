@@ -20,6 +20,7 @@ module Fech
       @download_dir = opts[:download_dir] || Dir.tmpdir
       @translator   = Fech::Translator.new(:include => opts[:translate])
       @quote_char   = opts[:quote_char] || '"'
+      @handle_malformed_csv = opts[:handle_malformed_csv] || true
     end
 
     # Saves the filing data from the FEC website into the default download
@@ -220,6 +221,32 @@ module Fech
       "http://query.nictusa.com/dcdev/posted/#{filing_id}.fec"
     end
 
+    # @val a value from a parsed line
+    def parse_value(val)
+      return val unless val.class == String
+      begin
+        Fech::Csv.parse_line(val).first
+      rescue Fech::Csv::MalformedCSVError
+        val
+      end
+    end
+
+    # Attempt to parse the line using @quote_char. If that fails,
+    # and @handle_malformed_csv is true, try again using an
+    # ASCII null character (\0) as the quote character.
+    # @line [String] a line from the filing
+    def parse_line(line)
+      begin
+        row = Fech::Csv.parse_line(line, :col_sep => delimiter, :quote_char => @quote_char)
+      rescue Fech::Csv::MalformedCSVError
+        raise Fech::Csv::MalformedCSVError unless @handle_malformed_csv
+        row = Fech::Csv.parse_line(line, :col_sep => delimiter, :quote_char => "\0")
+        # Try to parse as many fields as we can so that
+        # if they are quoted, the quotes are removed.
+        row.map! { |val| parse_value(val) }
+      end
+    end
+
     # Iterates over and yields the Filing's lines
     # @option opts [Boolean] :with_index yield both the item and its index
     # @yield [Array] a row of the filing, split by the delimiter from #delimiter
@@ -228,7 +255,9 @@ module Fech
         raise "File #{file_path} does not exist. Try invoking the .download method on this Filing object."
       end
       c = 0
-      Fech::Csv.foreach(file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
+      open(file_path, 'r').each do |line|
+        next if line.strip.empty?
+        row = parse_line(line)
         if opts[:with_index]
           yield [row, c]
           c += 1
