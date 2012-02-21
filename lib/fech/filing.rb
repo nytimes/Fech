@@ -230,7 +230,6 @@ module Fech
       end
 
       c = 0
-      #Fech::Csv.send(@parse_action, file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
       @csv_parser.parse_row(file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
         if opts[:with_index]
           yield [row, c]
