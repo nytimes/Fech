@@ -10,7 +10,7 @@ Fech supports several FEC form types, including all F1 (statements of organizati
 
 == News
 
-* Feb. 21, 2012: Version 0.9.0 released. Added support for alternative CSV Parsers, F4 filings.
+* Feb. 21, 2012: Versions 0.9.0, 0.9.1 released. Added support for alternative CSV Parsers, F4 filings.
 * Feb. 19, 2012: Version 0.8.2 released. Added layouts for F1M and F2 filings.
 * Feb. 15, 2012: Version 0.8.1 released. Bug-fix to support F3 termination filings.
 * Feb. 13, 2012: Version 0.8.0 released. Layouts for form 3 and form 1 added, for parsing House candidate committee filings.
