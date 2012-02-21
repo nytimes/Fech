@@ -28,7 +28,7 @@ col_a_debts_by,26,10. Debts by,20,10. Debts by
 col_a_convention_expenditures,27,11. Convention expenditures,21,11. Convention expenditures
 col_a_convention_refunds,28,12. refunds/rebates/returns relating to conv exp.,22,12. refunds/rebates/returns relating to conv exp.
 col_a_expenditures_subject_to_limits,29,12(a) Expenditures subject to limits,23,12(a) Expenditures subject to limits
-col_a_prior_expendiutres_subject_to_limits,30,12(b) expend. from prior years subject to limits,24,12(b) expend. from prior years subject to limits
+col_a_prior_expenditures_subject_to_limits,30,12(b) expend. from prior years subject to limits,24,12(b) expend. from prior years subject to limits
 col_a_total_expenditures_subject_to_limits,,,25,12(c) total expenditures subject to limits
 col_a_federal_funds,31,13. Federal Funds SCH A,26,13. Federal Funds SCH A
 col_a_contributions_itemized,32,14(a) Itemized,27,14(a) Itemized
