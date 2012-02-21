@@ -20,6 +20,7 @@ module Fech
       @download_dir = opts[:download_dir] || Dir.tmpdir
       @translator   = Fech::Translator.new(:include => opts[:translate])
       @quote_char   = opts[:quote_char] || '"'
+      @csv_parser   = opts[:csv_parse] || Fech::Csv
     end
 
     # Saves the filing data from the FEC website into the default download
@@ -196,9 +197,9 @@ module Fech
     def parse_filing_version
       first = File.open(file_path).first
       if first.index("\034").nil?
-        Fech::Csv.parse(first).flatten[2]
+        @csv_parser.parse(first).flatten[2]
       else
-        Fech::Csv.parse(first, :col_sep => "\034").flatten[2]
+        @csv_parser.parse(first, :col_sep => "\034").flatten[2]
       end
     end
     
@@ -227,8 +228,9 @@ module Fech
       unless File.exists?(file_path)
         raise "File #{file_path} does not exist. Try invoking the .download method on this Filing object."
       end
+
       c = 0
-      Fech::Csv.foreach(file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
+      @csv_parser.parse_row(file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
         if opts[:with_index]
           yield [row, c]
           c += 1
