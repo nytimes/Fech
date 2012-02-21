@@ -10,7 +10,7 @@ module Fech
     FILING_VERSIONS   = ["8.0", "7.0", "6.4", "6.3", "6.2", "6.1",
                          "5.3", "5.2", "5.1", "5.0", "3"]
     BASE_ROW_TYPES    = ["HDR", "F1", "F1M", "F2", "F24", "F3", "F3L", "F3P", "F3P31", "F3PS", "F3S", "F3X", 
-                         "F5", "F56", "F57", "F9", "F91", "F92", "F93", "F94",
+                         "F4", "F5", "F56", "F57", "F9", "F91", "F92", "F93", "F94",
                          "SchA", "SchB", "SchC", "SchC1", "SchC2", "SchD", "SchE", 
                          "SchF", "TEXT"]
     ROW_TYPE_MATCHERS = {
@@ -26,6 +26,7 @@ module Fech
       "F3P31"  => FechUtils::ROW_TYPES[:f3p31],
       "F3PS"   => FechUtils::ROW_TYPES[:f3ps],
       "F3X"   => FechUtils::ROW_TYPES[:f3x],
+      "F4"   => FechUtils::ROW_TYPES[:f4],
       "F5"    => FechUtils::ROW_TYPES[:f5],
       "F56"    => FechUtils::ROW_TYPES[:f56],
       "F57"    => FechUtils::ROW_TYPES[:f57],
