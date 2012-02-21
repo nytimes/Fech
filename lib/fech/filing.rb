@@ -20,7 +20,7 @@ module Fech
       @download_dir = opts[:download_dir] || Dir.tmpdir
       @translator   = Fech::Translator.new(:include => opts[:translate])
       @quote_char   = opts[:quote_char] || '"'
-      @csv_parser   = opts[:csv_parse] || Fech::Csv
+      @csv_parser   = opts[:csv_parser] || Fech::Csv
     end
 
     # Saves the filing data from the FEC website into the default download
