@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Comparison do
+describe Fech::Comparison do
 
   describe "compare" do
     before do
