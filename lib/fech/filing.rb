@@ -176,6 +176,19 @@ module Fech
       header[:report_id]
     end
     
+    # compares summary of this filing with summary of an earlier
+    # or later version of the filing, returning a hash of mapped 
+    # fields whose values have changed.
+    def compare(other_filing_id)
+      other_filing = Fech::Filing.new(other_filing_id)
+      other_filing.download
+      summary.hash_diff(other_filing.summary).keys
+    end
+    
+    # Returns a hash that represents the difference between two hashes.
+    def hash_diff(h2)
+      dup.delete_if { |k, v| h2[k] == v }.merge!(h2.dup.delete_if { |k, v| has_key?(k) })
+    end
     
     # Combines an array of keys and values into an Fech::Mapped object,
     # a type of Hash.
