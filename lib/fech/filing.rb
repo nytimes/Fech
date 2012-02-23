@@ -176,20 +176,6 @@ module Fech
       header[:report_id]
     end
     
-    # compares summary of this filing with summary of an earlier
-    # or later version of the filing, returning a Fech::Mapped hash
-    # of mapped fields whose values have changed. hash diff method from:
-    # https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/hash/diff.rb
-    # f = Fech::Filing.new(767339)
-    # f.download
-    # f.compare(467627)
-    def compare(other_filing_id)
-      other_filing = Fech::Filing.new(other_filing_id)
-      other_filing.download
-      raise "compare only works with two filings from the same committee" unless summary[:filer_committee_id_number] == other_filing.summary[:filer_committee_id_number]
-      summary.delete_if { |k, v| other_filing.summary[k] == v }.merge!(other_filing.summary.dup.delete_if { |k, v| summary.has_key?(k) })
-    end
-    
     # Combines an array of keys and values into an Fech::Mapped object,
     # a type of Hash.
     # @param [Array] keys the desired keys for the new hash
