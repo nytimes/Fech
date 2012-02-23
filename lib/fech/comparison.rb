@@ -29,7 +29,7 @@ module Fech
     # compares a schedule of itemized records from one filing to another
     # returns an array of records that are new or have changed.
     def schedule(schedule)
-      @filing_1.rows_like(/schedule/) - @filing_2.rows_like(/schedule/)
+      @filing_1.rows_like(schedule.to_sym) - @filing_2.rows_like(schedule.to_sym)
     end
     
   end
