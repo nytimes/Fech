@@ -15,6 +15,16 @@ describe Fech::Comparison do
       @comparison.summary.class.should == Fech::Mapped
       @comparison.summary[:col_a_net_contributions].should == "542344.49"
     end
+    
+    it "should return an array of schedule items that have changed" do
+      @comparison.schedule(:sa).size.should == 576
+      @comparison.schedule("sb").size.should == 60
+    end
+    
+    it "should return an empty array of schedule items when none have changed" do
+      @comparison.schedule("sc").size.should == 0
+    end
+    
   end
 
 end
