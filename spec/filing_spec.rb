@@ -306,19 +306,4 @@ describe Fech::Filing do
     
     end
   end
-  
-  describe "compare" do
-    before do
-      @amended_filing = Fech::Filing.new(767339)
-      @amended_filing.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '767339.fec'))
-      @original_filing = Fech::Filing.new(467627)
-      @original_filing.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '467627.fec'))
-    end
-    
-    it "should return a hash of columns and values that have changed for two filings" do
-      @amended_filing.compare(467627).class.should == Fech::Mapped
-      @amended_filing.compare(467627)[:col_a_net_contributions].should == "542344.49"
-      @original_filing.summary[:col_a_net_contributions].should == "524100.48"
-    end
-  end
 end
