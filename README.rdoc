@@ -10,6 +10,7 @@ Fech supports several FEC form types, including all F1 (statements of organizati
 
 == News
 
+* Feb. 29, 2012: Version 0.9.2 released. Bug-fix for F3 mappings, added filing comparison class.
 * Feb. 21, 2012: Versions 0.9.0, 0.9.1 released. Added support for alternative CSV Parsers, F4 filings.
 * Feb. 19, 2012: Version 0.8.2 released. Added layouts for F1M and F2 filings.
 * Feb. 15, 2012: Version 0.8.1 released. Bug-fix to support F3 termination filings.
@@ -165,6 +166,23 @@ You can allow any field (converted, combined, or untranslated) to have an arbitr
   #=> true
 
 We found it useful to be able to access attributes using the name the fields in our database they correspond to.
+
+=== Comparing filings
+
+You may want to compare two electronic filings to each other, particularly an original filing and its amendment, since amendments are a full replacement of the original filing. Fech has a Comparison class that allows you to compare the summary or a specific schedule of itemizations between two filings. The use of Comparison requires that you have created both Filing objects and downloaded them:
+
+  filing_1 = Fech::Filing.new(767437)
+  filing_1.download
+  filing_2 = Fech::Filing.new(751798)
+  filing_2.download
+  comparison = Fech::Comparison.new(filing_1, filing_2)
+  comparison.summary
+
+Comparison's summary method returns a hash of summary fields whose values have changed in filing_2. The schedule method accepts either a symbol or string representing the schedule. So, for Schedule A (itemized contributions): 
+
+  comparison.schedule(:sa)
+  
+The result will be an array of Fech contribution objects that differ in any way. If an amendment updates the employer or occupation of a contributor, for example, comparison.schedule(:sa) would return that contribution. If the array is empty, no itemized records changed.
 
 === Handling malformed filings
 
