@@ -8,6 +8,8 @@ Fech makes it easy to parse electronic campaign filings[http://query.nictusa.com
 
 Fech supports several FEC form types, including all F1 (statements of organization), F2 (statements of candidacy), F24 (24/48 hour notices of independent expenditures), F3 (House candidate filings), F3L (contributions bundled by lobbyists) F3P (presidential filings), F4 (convention committee filings), F5 (independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F3X (filings by unauthorized committees) and F9 (electioneering communications).
 
+Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
+
 == News
 
 * March 8, 2012: Version 0.9.3 released. Bug-fix for F2 & F24 mappings.
