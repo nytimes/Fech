@@ -3,7 +3,8 @@
 module FechUtils
   
   # All supported row types pointed to regular expressions that will correctly
-  # match that row type in the wild.
+  # match that row type in the wild. If multiple matches exist, Fech will match
+  # the longest regex pattern found.
   ROW_TYPES = {
     :hdr   => /^hdr$/i,
     :f1    => /^f1/i,
