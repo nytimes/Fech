@@ -90,7 +90,7 @@ module Fech
       '^5.3|5.2|5.1|5.0|3.0' => [:form_type, :filer_committee_id_number, :committee_name, :street_1, :street_2, :city, :state, :zip, :candidate_id_number, :candidate_name, :candidate_office, :candidate_state, :candidate_district, :date_signed],
       '^8.0' => [:form_type, :filer_committee_id_number, :original_amendment_date, :committee_name, :street_1, :street_2, :city, :state, :zip, :candidate_id_number, :candidate_last_name, :candidate_first_name, :candidate_middle_name, :candidate_prefix, :candidate_suffix, :candidate_office, :candidate_state, :candidate_district, :signer_last_name, :signer_first_name, :signer_middle_name, :signer_prefix, :signer_suffix, :date_signed],
     },
-    "^f65[an]" => {
+    "^f65" => {
       '^5.3|5.2|5.1|5.0|3.0' => [:form_type, :filer_committee_id_number, :entity_type, :contributor_name, :contributor_street_1, :contributor_street_2, :contributor_city, :contributor_state, :contributor_zip, :contributor_employer, :contributor_occupation, :contribution_date, :contribution_amount, :contributor_fec_id, :candidate_id, :candidate_name, :candidate_office, :candidate_state, :candidate_district, :conduit_name, :conduit_street_1, :conduit_street_2, :conduit_city, :conduit_state, :conduit_zip, nil, :transaction_id],
       '^8.0|7.0|6.4|6.3|6.2|6.1' => [:form_type, :filer_committee_id_number, :transaction_id, :entity_type, :contributor_organization_name, :contributor_last_name, :contributor_first_name, :contributor_middle_name, :contributor_prefix, :contributor_suffix, :contributor_street_1, :contributor_street_2, :contributor_city, :contributor_state, :contributor_zip, :contributor_fec_id, :contribution_date, :contribution_amount, :contributor_employer, :contributor_occupation],
     },
