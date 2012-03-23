@@ -10,9 +10,11 @@ Fech supports several FEC form types, including all F1 (statements of organizati
 
 Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
 
+Latest version: 0.9.6
+
 == News
 
-* March 23, 2012: Version 0.9.5 released. Bug-fix for F6 mappings.
+* March 23, 2012: Version 0.9.6 and 0.9.5 released. Bug-fixes for F6 mappings.
 * March 10, 2012: Version 0.9.4 released. Added support for F6 filings.
 * March 8, 2012: Version 0.9.3 released. Bug-fix for F2 & F24 mappings.
 * Feb. 29, 2012: Version 0.9.2 released. Bug-fix for F3 mappings, added filing comparison class.
