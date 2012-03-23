@@ -1,19 +1,20 @@
 PATH
   remote: .
   specs:
-    fech (0.3.0)
+    fech (0.9.5)
       fastercsv
       people
 
 GEM
   remote: http://rubygems.org/
   specs:
-    columnize (0.3.2)
+    columnize (0.3.6)
     diff-lcs (1.1.2)
     fastercsv (1.5.4)
     linecache (0.43)
     mocha (0.9.12)
     people (0.2.1)
+    rake (0.8.7)
     rcov (0.9.9)
     rdoc (3.9.2)
     rspec (2.6.0)
@@ -37,7 +38,9 @@ PLATFORMS
 DEPENDENCIES
   bundler
   fech!
+  linecache (= 0.43)
   mocha
+  rake (= 0.8.7)
   rcov
   rdoc
   rspec (~> 2.6)

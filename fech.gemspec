@@ -21,9 +21,17 @@ Gem::Specification.new do |s|
   
   s.add_dependency "fastercsv"
   s.add_dependency "people"
+  if RUBY_VERSION < "1.9"
+    s.add_development_dependency "linecache", "0.43"
+    s.add_development_dependency "ruby-debug"
+  end
+  if RUBY_VERSION >= "1.9"
+    s.add_development_dependency "ruby-debug19"
+    s.add_development_dependency "linecache19"
+  end 
+  s.add_development_dependency "rake", "0.8.7"
   s.add_development_dependency "rspec", "~> 2.6"
   s.add_development_dependency "mocha"
-  s.add_development_dependency "ruby-debug"
   s.add_development_dependency "bundler"
   s.add_development_dependency "rcov"
   s.add_development_dependency "rdoc"
