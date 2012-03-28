@@ -14,6 +14,7 @@ Latest version: 0.9.6
 
 == News
 
+* March 28, 2012: Version 0.9.7 released. Bug-fix to add support for F3XA form type.
 * March 23, 2012: Version 0.9.6 and 0.9.5 released. Bug-fixes for F6 mappings.
 * March 10, 2012: Version 0.9.4 released. Added support for F6 filings.
 * March 8, 2012: Version 0.9.3 released. Bug-fix for F2 & F24 mappings.
