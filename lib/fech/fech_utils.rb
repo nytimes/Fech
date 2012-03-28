@@ -36,6 +36,8 @@ module FechUtils
     :h2    => /^h2/i,
     :h3    => /^h3/i,
     :h4    => /^h4/i,
+    :h5    => /^h5/i,
+    :h6    => /^h6/i,
     :sa    => /^sa/i,
     :sb    => /^sb/i,
     :sc    => /^sc[^1-2]/i,
@@ -44,6 +46,7 @@ module FechUtils
     :sd    => /^sd/i,
     :se    => /^se/i,
     :sf    => /^sf/i,
+    :sl    => /^sl/i,
     :text  => /^text/i,
   }
   

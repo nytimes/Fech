@@ -11,9 +11,8 @@ module Fech
                          "5.3", "5.2", "5.1", "5.0", "3"]
     BASE_ROW_TYPES    = ["HDR", "F1", "F1M", "F2", "F24", "F3", "F3L", "F3P", "F3P31", "F3PS", "F3S", "F3X", 
                          "F4", "F5", "F56", "F57", "F6", "F65", "F7", "F76", "F9", "F91", "F92", "F93", "F94", "F99",
-                         "H1", "H2", "H3", "H4",
-                         "SchA", "SchB", "SchC", "SchC1", "SchC2", "SchD", "SchE", 
-                         "SchF", "TEXT"]
+                         "H1", "H2", "H3", "H4", "H5", "H6",
+                         "SchA", "SchB", "SchC", "SchC1", "SchC2", "SchD", "SchE", "SchF", "SchL", "TEXT"]
     ROW_TYPE_MATCHERS = {
       "HDR"    => FechUtils::ROW_TYPES[:hdr],
       "F1"     => FechUtils::ROW_TYPES[:f1],
@@ -45,6 +44,8 @@ module Fech
       "H2"     => FechUtils::ROW_TYPES[:h2],
       "H3"     => FechUtils::ROW_TYPES[:h3],
       "H4"     => FechUtils::ROW_TYPES[:h4],
+      "H5"     => FechUtils::ROW_TYPES[:h5],
+      "H6"     => FechUtils::ROW_TYPES[:h6],
       "SchA"   => FechUtils::ROW_TYPES[:sa],
       "SchB"   => FechUtils::ROW_TYPES[:sb],
       "SchC"   => FechUtils::ROW_TYPES[:sc],
@@ -53,6 +54,7 @@ module Fech
       "SchD"   => FechUtils::ROW_TYPES[:sd],
       "SchE"   => FechUtils::ROW_TYPES[:se],
       "SchF"   => FechUtils::ROW_TYPES[:sf],
+      "SchL"   => FechUtils::ROW_TYPES[:sl],
       "TEXT"   => FechUtils::ROW_TYPES[:text],
     }
     
