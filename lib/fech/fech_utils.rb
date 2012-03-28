@@ -17,7 +17,7 @@ module FechUtils
     :f3s   => /^f3s/i,
     :f3p31 => /^f3p31/i,
     :f3ps  => /^f3ps/i,
-    :f3x   => /^f3x[an]/i,
+    :f3x   => /(^f3x[an])/i,
     :f4    => /^f4[na]/i,
     :f5    => /^f5[na]/i,
     :f56   => /^f56/i,
