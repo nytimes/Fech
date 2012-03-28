@@ -31,7 +31,7 @@ module Fech
       "F56"    => FechUtils::ROW_TYPES[:f56],
       "F57"    => FechUtils::ROW_TYPES[:f57],
       "F6"     => FechUtils::ROW_TYPES[:f6],
-      "F65"     => FechUtils::ROW_TYPES[:f65],
+      "F65"    => FechUtils::ROW_TYPES[:f65],
       "F7"     => FechUtils::ROW_TYPES[:f7],
       "F76"    => FechUtils::ROW_TYPES[:f76],
       "F9"     => FechUtils::ROW_TYPES[:f9],
