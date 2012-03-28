@@ -256,6 +256,8 @@ The following row types are currently supported from filing version 3 through 8.
 * H2 (Federal/Non-Federal Allocation Ratios)
 * H3 (Transfers from Non-Federal Accounts)
 * H4 (Disbursements for Allocated Federal/Non-Federal Activity)
+* H5 (Transfers from Levin Funds)
+* H6 (Disbursements from Levin Funds)
 * SA (Contributions)
 * SB (Expenditures)
 * SC (Loans)
@@ -264,7 +266,7 @@ The following row types are currently supported from filing version 3 through 8.
 * SD (Debts & Obligations)
 * SE (Independent Expenditures)
 * SF (Coordinated Expenditures)
-* SL (Levin Account Summary)
+* SL (Levin Fund Summary)
 
 == How to contribute
 
