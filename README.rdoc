@@ -4,9 +4,9 @@
   \ \_\    \ \_____\  \ \_____\  \ \_\ \_\
    \/_/     \/_____/   \/_____/   \/_/\/_/
 
-Fech makes it easy to parse electronic campaign filings[http://query.nictusa.com/pres/], House candidate filings, PAC filings and independent expenditure filings[http://www.fec.gov/finance/disclosure/ie_reports.shtml] from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
+Fech makes it easy to parse electronic campaign finance filings[http://www.fec.gov/finance/disclosure/efile_search.shtml] by candidates, parties and political action committees from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
 
-Fech supports several FEC form types, including all F1 (statements of organization), F2 (statements of candidacy), F24 (24/48 hour notices of independent expenditures), F3 (House candidate filings), F3L (contributions bundled by lobbyists) F3P (presidential filings), F4 (convention committee filings), F5 (independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F6 (48 hour notices of contributions/loans received), F3X (filings by unauthorized committees) and F9 (electioneering communications).
+Fech supports several FEC form types, including all F1 (statements of organization), F2 (statements of candidacy), F24 (24/48 hour notices of independent expenditures), F3 (House candidate filings), F3L (contributions bundled by lobbyists) F3P (presidential filings), F4 (convention committee filings), F5 (independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F6 (48 hour notices of contributions/loans received), F3X (filings by unauthorized committees), F9 (electioneering communications) and H1-H4 (federal/non-federal allocation ratios and disbursements).
 
 Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
 
@@ -252,6 +252,10 @@ The following row types are currently supported from filing version 3 through 8.
 * F92 (Contributions for Electioneering Communications)
 * F93 (Expenditures for Electioneering Communications)
 * F94 (Federal Candidates List for Electioneering Communications)
+* H1 (Method of Allocation for Federal/Non-Federal Activity)
+* H2 (Federal/Non-Federal Allocation Ratios)
+* H3 (Transfers from Non-Federal Accounts)
+* H4 (Disbursements for Allocated Federal/Non-Federal Activity)
 * SA (Contributions)
 * SB (Expenditures)
 * SC (Loans)
@@ -260,6 +264,7 @@ The following row types are currently supported from filing version 3 through 8.
 * SD (Debts & Obligations)
 * SE (Independent Expenditures)
 * SF (Coordinated Expenditures)
+* SL (Levin Account Summary)
 
 == How to contribute
 
