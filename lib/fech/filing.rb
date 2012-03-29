@@ -21,6 +21,7 @@ module Fech
       @translator   = Fech::Translator.new(:include => opts[:translate])
       @quote_char   = opts[:quote_char] || '"'
       @csv_parser   = opts[:csv_parser] || Fech::Csv
+      @resaved      = false
     end
 
     # Saves the filing data from the FEC website into the default download
@@ -212,6 +213,40 @@ module Fech
       File.join(download_dir, file_name)
     end
 
+    # The raw contents of the Filing
+    def file_contents
+      File.open(file_path, 'r')
+    end
+
+    def form_type
+      file_contents.lines.each_with_index do |row, index|
+        next if index == 0
+        return row.split(delimiter).first
+      end
+    end
+
+    def custom_file_path
+      File.join(download_dir, "fech_#{file_name}")
+    end
+
+    def fix_f99_contents
+      content = file_contents.read
+      regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/m
+      match = content.match(regex)
+      if match
+        repl = match[1].gsub(/"/, '""')
+        content.gsub(regex, "#{delimiter}\"#{repl}\"")
+      else
+        file_contents
+      end
+    end
+
+    def resave_f99_contents
+      return if @resaved
+      File.open(custom_file_path, 'w') { |f| f.write(fix_f99_contents) }
+      @resaved = true
+    end
+
     def file_name
       "#{filing_id}.fec"
     end
@@ -228,8 +263,15 @@ module Fech
         raise "File #{file_path} does not exist. Try invoking the .download method on this Filing object."
       end
 
+      # If this is an F99, we need to parse it differently.
+      customized = false
+      if form_type == 'F99'
+        resave_f99_contents
+        customized = true
+      end
+
       c = 0
-      @csv_parser.parse_row(file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
+      @csv_parser.parse_row(customized ? custom_file_path : file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
         if opts[:with_index]
           yield [row, c]
           c += 1
