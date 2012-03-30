@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "fech"
   s.version     = Fech::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Michael Strickland", "Evan Carmi", "Aaron Bycoffe"]
-  s.email       = ["michael.c.strickland@gmail.com"]
+  s.authors     = ["Michael Strickland", "Evan Carmi", "Aaron Bycoffe", "Derek Willis"]
+  s.email       = ["dwillis@gmail.com"]
   s.homepage    = "http://github.com/nytimes/fech"
   s.summary     = %q{Ruby library for parsing FEC filings.}
   s.description = %q{A Ruby library for interacting with electronic filings from the Federal Election Commission.}
