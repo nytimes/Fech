@@ -96,6 +96,13 @@ By default, .rows_like will process every field in the matched rows (some rows h
     #=> {:transaction_id=>"SA17.XXXX"}
   end
 
+=== Miscellaneous Text
+
+Form 99 submissions contain no structured data but miscellaneous text communicated between committees and the F.E.C. The text is accessible via the summary:
+
+  filing.summary[:text]
+  #=> "This is in response to Requests for Additional Information received on 9 and 10 February 2012...."
+
 === Raw data
 
 If you want to access the raw arrays of row data, pass :raw => true to .rows_like or any of its shortcuts:
@@ -253,6 +260,7 @@ The following row types are currently supported from filing version 3 through 8.
 * F92 (Contributions for Electioneering Communications)
 * F93 (Expenditures for Electioneering Communications)
 * F94 (Federal Candidates List for Electioneering Communications)
+* F99 (Miscellaneous Text)
 * H1 (Method of Allocation for Federal/Non-Federal Activity)
 * H2 (Federal/Non-Federal Allocation Ratios)
 * H3 (Transfers from Non-Federal Accounts)
