@@ -52,7 +52,7 @@ To get started, fork the repo, make your additions or changes and send a pull re
 
 == Pronunciation guide
 
-It's "fetch", with a soft "ch" sound. There are no other acceptable pronunciations.
+/fɛx/[http://en.wikipedia.org/wiki/Wikipedia:IPA_for_English#Key]
 
 == Authors
 
