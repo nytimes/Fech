@@ -4,13 +4,13 @@
   \ \_\    \ \_____\  \ \_____\  \ \_\ \_\
    \/_/     \/_____/   \/_____/   \/_/\/_/
 
-Fech makes it easy to parse electronic campaign finance filings[http://www.fec.gov/finance/disclosure/efile_search.shtml] by candidates, parties and political action committees from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data.
-
-Fech supports several FEC form types, including all F1 (statements of organization), F2 (statements of candidacy), F24 (24/48 hour notices of independent expenditures), F3 (House candidate filings), F3L (contributions bundled by lobbyists) F3P (presidential filings), F4 (convention committee filings), F5 (independent expenditures), F56 (contributions to independent expenditure committees) F57 (expenditures by independent expenditure committees), F6 (48 hour notices of contributions/loans received), F3X (filings by unauthorized committees), F9 (electioneering communications) and H1-H4 (federal/non-federal allocation ratios and disbursements).
-
-Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
+Fech makes it easy to parse electronic campaign finance filings[http://www.fec.gov/finance/disclosure/efile_search.shtml] by candidates, parties and political action committees from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data. Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
 
 Latest version: 0.9.10
+
+== Documentation
+
+Can be found at Fech's Github page[http://nytimes.github.com/Fech/].
 
 == News
 
@@ -42,248 +42,17 @@ For use in a Rails 3 application, put the following in your Gemfile:
 
 then issue the 'bundle install' command. Fech has been tested under Ruby 1.8.7, 1.9.2 and JRuby 1.6.3.
 
-== Getting Started
-
-Start by creating a Filing object that corresponds to an electronic filing from the FEC. You'll then have to download the file before parsing it:
-
-  filing = Fech::Filing.new(723604)
-  filing.download
-
-* Pass in the FEC filing id
-* Optional arguments: pass in a :quote_char argument, and Fech will use it as a quote character to parse the file (see details below). Specify the :download_dir on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem.
-
-=== CSV Parsers
-
-Not all CSV Parsers are created equal. Some are fast and naive, others are slow but handle malformed data more reliably. By default, FasterCSV is used, but you can pass in your own choice of parser with the :csv_parser option:
-
-  filing = Fech::Filing.new(723604, :csv_parser => Fech::CsvDoctor)
-
-Fech::CsvDoctor inherits from FasterCSV, and helps deal with certain types of malformed quotes in the data (see: Handling malformed filings). You could pass in any subclass with special handling.
-
-=== Summary Data
-
-To get summary data for the filing (various aggregate amounts, stats about the filing):
-
-  filing.summary
-  #=> {:coverage_from_date=>"20110101", :coverage_from_date=>"20110301", ... }
-
-Returns a named hash of all attributes available for the filing. (Which fields are available can vary depending on the filing version number.)
-
-=== Accessing specific line items
-
-To grab every row in the filing of a certain type (all Schedule A items, for example):
-
-  filing.rows_like(/^sa/)
-  #=> [{:transaction_id=>"SA17.XXXX", :contribution_date>"20110101" ... } ... ]
-
-This will return an array of hashes, one hash for each row found in the filing whose line number matches the regular expression you passed in. (SA17s and SA18s would both be returned in this example). You can also pass in strings for exact matches.
-
-When given a block, .rows_like will yield a single hash at a time:
-
-  filing.rows_like(/^sa/) do |contribution|
-    contribution.transaction_id
-    #=> {:transaction_id=>"SA17.XXXX", :contribution_date>"20110101" ... }
-  end
-
-== Usage
-
-=== Accessing specific fields
-
-By default, .rows_like will process every field in the matched rows (some rows have 200+ fields). You can speed up performance significantly by asking for just the subset of fields you need.
-
-  filing.rows_like(/^sa/, :include => [:transaction_id]) do |contribution|
-    contribution
-    #=> {:transaction_id=>"SA17.XXXX"}
-  end
-
-=== Miscellaneous Text
-
-Form 99 submissions contain no structured data but miscellaneous text communicated between committees and the F.E.C. The text is accessible via the summary:
-
-  filing.summary[:text]
-  #=> "This is in response to Requests for Additional Information received on 9 and 10 February 2012...."
-
-=== Raw data
-
-If you want to access the raw arrays of row data, pass :raw => true to .rows_like or any of its shortcuts:
-
-  filing.contributions(:raw => true)
-  #=> [["SA17A", "C00XXXXXX", "SA17.XXXX", nil, nil, "IND" ... ], ... ]
-  
-  filing.contributions(:raw => true) do |row|
-    #row => ["SA17A", "C00XXXXX", "SA17.XXXX", nil, nil, "IND" ... ]
-  end
-
-The source maps for individual row types and versions may also be accessed directly:
-
-  Fech::Filing.map_for("sa")
-  Fech::Filing.map_for(/sa/, :version => 6.1)
-  #=> [:form_type, :filer_committee_id_number, :transaction_id ... ]
-
-You can then bypass some of the overhead of Fech if you're building something more targeted.
-
-=== Converting / Preprocessing data
-
-For performing bulk actions on specific types of fields, you can register "translations" which will manipulate specific data under certain conditions.
-
-An example: dates within filings are formatted as YYYYMMDD. To automatically convert all Schedule B :expenditure_date values to native Ruby Dates:
-
-  filing.translate do |t|
-    t.convert(:row => /^sb/, :field => :expenditure_date) { |v| Date.parse(v) }
-  end
-
-The block you give .convert will be given the original value of that field when it is run. After you run .convert, any time you parse a row beginning with "SB", the :expenditure_date value will be a Date object.
-
-The :field parameter can also be a regular expression:
-
-  filing.translate do |t|
-    t.convert(:row => /^f3p/, :field => /^coverage_.*_date/) { |v| Date.parse(v) }
-  end
-
-Now, both :coverage_from_date and :coverage_through_date will be automatically cast to dates.
-
-You can leave off any or all of the parameters (row, field, version) for more broad adoption of the translation.
-
-=== Derived Fields
-
-You may want to perform the same calculation on many rows of data (contributions minus refunds to create a net value, for example). This can be done without cluttering up your more app-specific parsing code by using a .combine translation. The translation blocks you pass .combine receive the entire row as their context, not just a single value. The :field parameter becomes what you want the new value to be named.
-
-  filing.translate do |t|
-    t.combine(:row => :f3pn, :field => :net_individual_contributions) do |row|
-      contribs = row.col_a_individual_contribution_total.to_f
-      refunds = row.col_a_total_contributions_refunds.to_f
-      contribs - refunds
-    end
-  end
-
-In this example, every parsed Schedule A row would contain an attribute not found in the original filing data - :net_individual_contributions - which contains the result of the calculation above. The values used to construct combinations will have already been run through any .convert translations you've specified.
-
-=== Built-in translations
-
-There are two sets of translations that come with Fech for some of the more common needs:
- * Breaking apart names into their component parts and joining them back together, depending on which the filing provides
- * Converting date field strings to Ruby Date objects
-
-You can mix these translations into your parser when you create it:
-
-  filing = Fech::Filing.new(723604, :translate => [:names, :dates])
-
-Just be aware that as you add more translations, the parsing will start to take slightly longer (although having translations that aren't used will not slow it down).
-
-=== Aliasing fields
-
-You can allow any field (converted, combined, or untranslated) to have an arbitrary number of aliases. For example, you could alias the F3P line's :col_a_6_cash_on_hand_beginning_period to the more manageable :cash_beginning
-
-  filing.translate do |t|
-    t.alias :cash_beginning, :col_a_cash_on_hand_beginning_period, :f3p
-  end
-  
-  filing.summary.cash_beginning == filing.summary.col_a_cash_on_hand_beginning_period.
-  #=> true
-
-We found it useful to be able to access attributes using the name the fields in our database they correspond to.
-
-=== Comparing filings
-
-You may want to compare two electronic filings to each other, particularly an original filing and its amendment, since amendments are a full replacement of the original filing. Fech has a Comparison class that allows you to compare the summary or a specific schedule of itemizations between two filings. The use of Comparison requires that you have created both Filing objects and downloaded them:
-
-  filing_1 = Fech::Filing.new(767437)
-  filing_1.download
-  filing_2 = Fech::Filing.new(751798)
-  filing_2.download
-  comparison = Fech::Comparison.new(filing_1, filing_2)
-  comparison.summary
-
-Comparison's summary method returns a hash of summary fields whose values have changed in filing_2. The schedule method accepts either a symbol or string representing the schedule. So, for Schedule A (itemized contributions): 
-
-  comparison.schedule(:sa)
-  
-The result will be an array of Fech contribution objects that differ in any way. If an amendment updates the employer or occupation of a contributor, for example, comparison.schedule(:sa) would return that contribution. If the array is empty, no itemized records changed.
-
-=== Handling malformed filings
-
-Some filers put double quotes around each field in their filings, which can cause problems if not done correctly. For example, filing No. 735497 has the following value in the field for the name of a payee:
-
-  "Stichin" LLC"
-
-Because the field is not properly quoted FasterCSV and CSV will not be able to parse it, and will instead raise a MalformedCSVError.
-
-To get around this problem, you can pass in Fech::CsvDoctor as the :csv_parser when initializing the filing (see: CSV Parsers). It will then take the following steps when parsing the filing:
-  * Try to parse the line using the default CSV parser, using double quotes as the quote character (by default) or a different quote character if specified.
-  * If a MalformedCSVError is raised, try to parse the line using a null value as the quote character. If this succeeds, each value in the line is then parsed, so that the quote characters around properly quoted fields are not included in Fech's output.
-
-If you'd like to parse an entire filing using a specific CSV quote character, see: Quote character. 
-
-=== Quote character
-
-By default, Fech, like FasterCSV and CSV, assumes that double quotes are used around values that contain reserved characters.
-
-However, the parsing of some filings might fail because of the existence of the default quote character in a field. To get around this, you may pass a :quote_char argument, and Fech will use it to parse the file.
-
-For example, filing No. 756218 has the following value in the field for the contributor's last name:
-
-  O""Leary
-
-Attempting to parse this filing with Fech fails because of illegal quoting.
-
-Since the FEC doesn't use a quote character in its electronic filings, we don't need a quote character at all. One way to achieve this is to use "\0" (a null ASCII character) as :quote_char:
-
-  filing = Fech::Filing.new(756218, :quote_char => "\0")
-
-== Warnings
-
-Filings can contain data that is incomplete or wrong: contributions might be in excess of legal limits, or data may have just been entered incorrectly. While some of these mistakes are corrected in later filing amendments, you should be aware that the data is not perfect. Fech will only return data as accurate as the source.
-
-When filings get very large, be careful not to perform operations that attempt to transform many rows in memory.
-
-== Supported row types and versions
-
-The following row types are currently supported from filing version 3 through 8.0:
-* F1 (Statement of Organization)
-* F2 (Statement of Candidacy)
-* F24 (24/48 Hour Notice of Independent Expenditure)
-* F3 (including termination reports)
-* F3L (Report of Contributions Bundled by Lobbyists/Registrants)
-* F3P (Summaries)
-* F3PS
-* F3P31 (Items to be Liquidated)
-* F3S
-* F3X (Report of Receipts and Disbursements for Other Than an Authorized Committee)
-* F4 (Report of Receipts and Disbursements for a Convention Committee)
-* F5 (Report of Independent Expenditures Made and Contributions Received)
-* F56 (Contributions for Independent Expenditures)
-* F57 (Independent Expenditures)
-* F6 (48 Hour Notice of Contributions/Loans Received)
-* F65 (Contributions for 48 Hour Notices)
-* F9 (Electioneering Communications, first appeared in filing version 5.0)
-* F91 (Lists of Persons Exercising Control)
-* F92 (Contributions for Electioneering Communications)
-* F93 (Expenditures for Electioneering Communications)
-* F94 (Federal Candidates List for Electioneering Communications)
-* F99 (Miscellaneous Text)
-* H1 (Method of Allocation for Federal/Non-Federal Activity)
-* H2 (Federal/Non-Federal Allocation Ratios)
-* H3 (Transfers from Non-Federal Accounts)
-* H4 (Disbursements for Allocated Federal/Non-Federal Activity)
-* H5 (Transfers from Levin Funds)
-* H6 (Disbursements from Levin Funds)
-* SA (Contributions)
-* SB (Expenditures)
-* SC (Loans)
-* SC1
-* SC2
-* SD (Debts & Obligations)
-* SE (Independent Expenditures)
-* SF (Coordinated Expenditures)
-* SL (Levin Fund Summary)
-
 == How to contribute
 
-Fech's goal is to provide support for all electronically filed forms and their row types, so contributors can pick an form type that is currently unsupported and try to implement it. For entirely new form types, please include specs showing successful parsing of the summary. A good way to start is to look at the mappings for a similar form type. Please note that Fech currently commits to supporting the F.E.C.'s filing formats back to version 3.0, where applicable.
+Fech's goal is to provide support for all electronically filed forms and their row types, so contributors can pick an form type that is currently unsupported and try to implement it, or to improve an existing implementation. For entirely new form types, please include specs showing successful parsing of the summary. A good way to start is to look at the mappings for a similar form type. Please note that Fech currently commits to supporting the F.E.C.'s filing formats back to version 3.0, where applicable.
 
 Bug reports and feature requests are welcomed by submitting an Issue. Please be advised that development is focused on parsing filings, which may contain errors or be improperly filed, and not on providing wrappers or helper methods for working with filings in another context.
 
 To get started, fork the repo, make your additions or changes and send a pull request.
+
+== Pronunciation guide
+
+It's "fetch", with a soft "ch" sound. There are no other acceptable pronunciations.
 
 == Authors
 
