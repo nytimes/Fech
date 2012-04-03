@@ -60,7 +60,7 @@ describe Fech::DefaultTranslations do
     end
     
     it "should pass all other values through untouched" do
-      @filing.rows_like(/sa/).first.contributor_zip.should == "298608420"
+      @filing.rows_like(/sa/).first.contributor_zip_code.should == "298608420"
     end
     
     it "should pass nils through untouched" do
