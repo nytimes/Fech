@@ -14,7 +14,7 @@ contributor_street_1,11,CONTRIBUTOR STREET 1,5,STREET 1
 contributor_street_2,12,CONTRIBUTOR STREET 2,6,STREET 2
 contributor_city,13,CONTRIBUTOR CITY,7,CITY
 contributor_state,14,CONTRIBUTOR STATE,8,STATE
-contributor_zip,15,CONTRIBUTOR ZIP,9,ZIP
+contributor_zip_code,15,CONTRIBUTOR ZIP,9,ZIP
 contributor_fec_id,16,CONTRIBUTOR COMMITTEE FEC ID,14,FEC COMMITTEE ID NUMBER
 contribution_date,17,CONTRIBUTION DATE,12,DATE (Of Contribution)
 contribution_amount,18,CONTRIBUTION AMOUNT,13,AMOUNT
@@ -30,4 +30,4 @@ conduit_street_1,,,21,CONDUIT STREET 1
 conduit_street_2,,,22,CONDUIT STREET 2
 conduit_city,,,23,CONDUIT CITY
 conduit_state,,,24,CONDUIT STATE
-conduit_zip,,,25,CONDUIT ZIP
+conduit_zip_code,,,25,CONDUIT ZIP

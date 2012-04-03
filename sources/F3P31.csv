@@ -14,7 +14,7 @@ contributor_street_1,11,CONTRIBUTOR STREET  1,5,STREET  1,5,STREET  1
 contributor_street_2,12,CONTRIBUTOR STREET  2,6,STREET  2,6,STREET  2
 contributor_city,13,CONTRIBUTOR CITY,7,CITY,7,CITY
 contributor_state,14,CONTRIBUTOR STATE,8,STATE,8,STATE
-contributor_zip,15,CONTRIBUTOR ZIP,9,ZIP,9,ZIP
+contributor_zip_code,15,CONTRIBUTOR ZIP,9,ZIP,9,ZIP
 election_code,16,ELECTION CODE  {was RPTPGI},10,RPTPGI,10,RPTPGI
 item_description,17,ITEM DESCRIPTION,,,,
 item_contribution_aquired_date,18,ITEM CONTRIBUTION/AQUIRED DATE ,13,DATE (Of Contribution),13,DATE (Of Contribution)
@@ -36,4 +36,4 @@ conduit_street_1,,,24,CONDUIT STREET  1,24,CONDUIT STREET  1
 conduit_street_2,,,25,CONDUIT STREET  2,25,CONDUIT STREET  2
 conduit_city,,,26,CONDUIT CITY,26,CONDUIT CITY
 conduit_state,,,27,CONDUIT STATE,27,CONDUIT STATE
-conduit_zip,,,28,CONDUIT ZIP,28,CONDUIT ZIP
+conduit_zip_code,,,28,CONDUIT ZIP,28,CONDUIT ZIP

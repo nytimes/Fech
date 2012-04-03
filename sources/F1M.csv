@@ -6,7 +6,7 @@ street_1,4,STREET 1,4,STREET 1
 street_2,5,STREET 2,5,STREET 2
 city,6,CITY,6,CITY
 state,7,STATE,7,STATE
-zip,8,ZIP,8,ZIP
+zip_code,8,ZIP,8,ZIP
 committee_type,9,COMMITTEE TYPE,9,COMMITTEE TYPE
 affiliated_date_f1_filed,10,DATE (Of Affiliation),10,AFFILIATED - DATE FORM F1 FILED
 affiliated_committee_id_number,11,FEC COMMITTEE ID NUMBER,11,AFFILIATED COMMITTEE FEC ID

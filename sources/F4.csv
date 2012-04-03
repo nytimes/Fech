@@ -6,7 +6,7 @@ street_1,4,STREET  1,4,STREET  1
 street_2,5,STREET  2,5,STREET  2
 city,6,CITY,6,CITY
 state,7,STATE,7,STATE
-zip,8,ZIP,8,ZIP
+zip_code,8,ZIP,8,ZIP
 committee_type,9,COMMITTEE/ORG TYPE,9,COMMITTEE/ORG TYPE
 committee_type_description,10,COMMITTEE/ORG TYPE - OTHER DESCRIPTION,10,DESC  
 report_code,11,REPORT CODE,11,RPTCODE

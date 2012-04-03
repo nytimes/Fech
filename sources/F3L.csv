@@ -7,7 +7,7 @@ street_1,5,STREET  1
 street_2,6,STREET  2
 city,7,CITY
 state,8,STATE
-zip,9,ZIP
+zip_code,9,ZIP
 report_code,12,REPORT CODE
 election_date,13,DATE OF ELECTION
 election_state,10,ELECTION STATE
