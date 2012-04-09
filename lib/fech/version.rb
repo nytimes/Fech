@@ -1,3 +1,3 @@
 module Fech
-  VERSION = "0.9.10"
+  VERSION = "1.0.rc1"
 end
