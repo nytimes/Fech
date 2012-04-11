@@ -74,7 +74,7 @@ module Fech
         filepath = version_summary_file(source_dir, version)
 
         # Clean the source files by removing unparseable characters
-        if RUBY_VERSION < "1.9"
+        if RUBY_VERSION < "1.9.3"
           require 'iconv'
           ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
           valid_string = ic.iconv(open(filepath).read << ' ')[0..-2]
