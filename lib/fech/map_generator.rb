@@ -79,7 +79,8 @@ module Fech
           ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
           valid_string = ic.iconv(open(filepath).read << ' ')[0..-2]
         else
-          valid_string = (open(filepath).read << ' ')[0..-2].encode!('UTF-8', 'UTF-8', :invalid => :replace)
+          valid_string = (open(filepath).read << ' ')[0..-2].encode!('UTF-16', 'UTF-8', :invalid => :replace, :replace => '')
+          valid_string = valid_string.encode!('UTF-8', 'UTF-16')
         end
         open(filepath, 'w').write(valid_string)
 
