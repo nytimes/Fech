@@ -157,7 +157,7 @@ module Fech
         f.write("  RENDERED_MAPS = {\n")
         BASE_ROW_TYPES.each do |row_type|
           f.write("    \"#{ROW_TYPE_MATCHERS[row_type].source}\" => {\n")
-          generate_row_map_from_file(source_dir, row_type).each do |k, v|
+          generate_row_map_from_file(source_dir, row_type).sort_by(&:first).reverse.each do |k, v|
             f.write("      \'#{k}' => [#{v.map {|x| x.to_s.gsub(/^\d+_?/, "") }.collect {|x| (x.nil? || x == "") ? "nil" : ":#{x}" }.join(', ') }],\n")
           end
           f.write("    },\n")
