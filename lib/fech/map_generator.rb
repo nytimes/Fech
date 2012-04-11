@@ -1,5 +1,3 @@
-require 'iconv'
-
 module Fech
   
   # Helper class to generate mapping hashes from source csv data.
@@ -76,8 +74,13 @@ module Fech
         filepath = version_summary_file(source_dir, version)
 
         # Clean the source files by removing unparseable characters
-        ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
-        valid_string = ic.iconv(open(filepath).read << ' ')[0..-2]
+        if RUBY_VERSION < "1.9"
+          require 'iconv'
+          ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+          valid_string = ic.iconv(open(filepath).read << ' ')[0..-2]
+        else
+          valid_string = (open(filepath).read << ' ')[0..-2].encode!('UTF-8', 'UTF-8', :invalid => :replace)
+        end
         open(filepath, 'w').write(valid_string)
 
         Fech::Csv.foreach(filepath) do |row|
