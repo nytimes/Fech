@@ -31,7 +31,7 @@ module Fech
       from, to = period.split('-')
       from = Date.strptime(from, @date_format)
       to = Date.strptime(to, @date_format)
-      {:from => to, :to => to}
+      {:from => from, :to => to}
     end
 
     # The Fech filing object for this search result
