@@ -1,5 +1,6 @@
 require 'csv'       if     RUBY_VERSION > '1.9'
 require 'fastercsv' unless RUBY_VERSION > '1.9'
+require 'iconv'
 
 # Fech::Csv is a wrapper that provides simple CSV handling consistency
 # between Ruby 1.8 and Ruby 1.9.
@@ -48,6 +49,8 @@ module Fech
     # @param [String] line the file's row to parse
     # @options opts :quote_char the quote_char to try initially
     def self.safe_line(line, opts)
+      ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+      line = ic.iconv(line + ' ')[0..-2]
       begin
         parse_line(line, opts)
       rescue Fech::Csv::MalformedCSVError
