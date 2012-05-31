@@ -107,9 +107,9 @@ module Fech
     # yield the results one by one if a block is passed.
     def results_from_nondate_search(&block)
       parsed_results = []
-      regex = /<DT>(?<content>.*?)<P/m
+      regex = /<DT>(.*?)<P/m
       match = body.match regex
-      content = match['content']
+      content = match[1]
       committee_sections = content.split(/<DT>/)
       committee_sections.each do |section|
         data = parse_committee_section(section)
@@ -169,12 +169,12 @@ module Fech
     def parse_committee_row(row)
       regex = /
               '>
-              (?<committee_name>.*?)
+              (.*?)
               \s-\s
-              (?<committee_id>C\d{8})
+              (C\d{8})
               /x
       match = row.match regex
-      {:committee_name => match['committee_name'], :committee_id => match['committee_id']}
+      {:committee_name => match[1], :committee_id => match[2]}
     end
 
     # Parse a result row with information on the filing itself.
@@ -183,29 +183,29 @@ module Fech
     # and, optionally, the filing that amended this filing.
     def parse_filing_row(row)
       regex = /
-              FEC-(?<filing_id>\d+)
+              FEC-(\d+)
               \s
               Form
               \s
-              (?<form_type>F.*?)
+              (F.*?)
               \s\s-\s
-              (?:period\s(?<period>[-\/\d]+),\s)?
+              (period\s([-\/\d]+),\s)?
               filed
               \s
-              (?<filed>[\/\d]+)
+              ([\/\d]+)
               \s
-              (?:-\s
-               (?<filing_description>.*?)
-               (?:$|<BR>.*?FEC-(?<amendment>\d+))
+              (-\s
+               (.*?)
+               ($|<BR>.*?FEC-(\d+))
               )?
               /x
       match = row.match regex
-      {:filing_id => match['filing_id'],
-       :form_type => match['form_type'],
-       :period => match['period'],
-       :date_filed => match['filed'],
-       :description => match['filing_description'],
-       :amended_by => match['amendment']
+      {:filing_id => match[1],
+       :form_type => match[2],
+       :period => match[4],
+       :date_filed => match[5],
+       :description => match[7],
+       :amended_by => match[9]
       }
     end
 
