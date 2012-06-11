@@ -9,7 +9,7 @@ module FechUtils
     :hdr   => /^hdr$/i,
     :f1    => /^f1/i,
     :f1m   => /(^f1m[^a|n])/i,
-    :f2    => /(^f2[^4])/i,
+    :f2    => /(^f2$)|(^f2[^4])/i,
     :f24   => /(^f24$)|(^f24[an])/i,
     :f3    => /^f3[a|n|t]/i,
     :f3l   => /^f3l[a|n]/i,
