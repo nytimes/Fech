@@ -41,7 +41,7 @@ module Fech
     # 
     # This takes a very long time to run - on the order of an hour or two, depending on your bandwidth.
     #
-    # WARNING: As of July 9, 2012, this downloads X ( GB) files, into one directory. 
+    # WARNING: As of July 9, 2012, this downloads 536964 files (25.8 GB), into one directory. 
     # This means that the download directory will break bash file globbing (so e.g. ls and rm *.fec will not work).
     # If you want to get all of it, make sure to download only to a dedicated FEC filings directory.
     def self.download_all download_dir
