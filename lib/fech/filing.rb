@@ -50,12 +50,16 @@ module Fech
       Dir[File.join(download_dir, '*.fec')].count
     end
 
-    # Runs the passed block on every downloaded .fec file.
-    # note that if there are a lot of files, just listing them to prepare for this will take several seconds
-    def self.for_all download_dir
+    # Runs the passed block on every downloaded .fec file. Pass the same options hash as you would to Fech::Filing.new.
+    # E.g. for_all(:download_dir => Rails.root.join('db', 'data', 'fec', 'filings', :csv_parser => Fech::CsvDoctor, ...) {|filing| ... }
+    # filing.download is of course unnecessary.
+    #
+    # note that if there are a lot of files (e.g. after download_all), just listing them to prepare for this will take several seconds
+    def self.for_all options = {}
+      options[:download_dir] ||= Dir.tmpdir
       # .sort{|x| x.scan/\d+/.to_i } # should be no need to spend time on sort, since the file system should already do that
-      Dir[File.join(download_dir, '*.fec')].each do |file|
-        yield file
+      Dir[File.join(options[:download_dir], '*.fec')].each do |file|
+        yield Fech::Filing.new(file.scan(/(\d+)\.fec/)[0][0].to_i, options)
       end
     end
     
