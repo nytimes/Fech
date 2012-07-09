@@ -34,6 +34,31 @@ module Fech
       self
     end
     
+    # This downloads ALL the filings.
+    #
+    # Because this trashes the zip files after extraction (to save space), while it is safe to rerun, it has to do the whole thing over again.
+    # Update operations should just iterate single file downloads starting from the current+1th filing number.
+    # 
+    # This takes a very long time to run - on the order of an hour or two, depending on your bandwidth.
+    #
+    # WARNING: As of July 9, 2012, this downloads X ( GB) files, into one directory. 
+    # This means that the download directory will break bash file globbing (so e.g. ls and rm *.fec will not work).
+    # If you want to get all of it, make sure to download only to a dedicated FEC filings directory.
+    def self.download_all download_dir
+      `cd #{download_dir} && ftp -a ftp://ftp.fec.gov/FEC/electronic/*.zip`
+      `cd #{download_dir} && for z in *.zip; do unzip -o $z && rm $z; done`
+      Dir[File.join(FILES_DIR, '*.fec')].count
+    end
+
+    # Runs the passed block on every downloaded .fec file.
+    # note that if there are a lot of files, just listing them to prepare for this will take several seconds
+    def self.for_all download_dir
+      # .sort{|x| x.scan/\d+/.to_i } # should be no need to spend time on sort, since the file system should already do that
+      Dir[File.join(download_dir, '*.fec')].each do |file|
+        yield file
+      end
+    end
+    
     # Access the header (first) line of the filing, containing information
     # about the filing's version and metadata about the software used to file it.
     # @return [Hash] a hash that assigns labels to the values of the filing's header row
