@@ -67,6 +67,10 @@ module FechUtils
     end
   end
   
-  
+  # get symbol (eg :f1) based on the literal row type returned (eg 'f1nwhatever')
+  # this is used to pick which table to store it in, since it's one table per base type (not per equivalent variant)
+  def base_type row_type
+    ROW_TYPES.find{|k,v| k if row_type =~ v }.first 
+  end
 
 end
