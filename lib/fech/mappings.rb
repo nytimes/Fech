@@ -1,4 +1,5 @@
 module Fech
+  class VersionError < RuntimeError ;
   
   # Fech::Mappings loads a set of master mappings between labels and where
   # their values can be found in Electronic Filings for various row types
@@ -58,7 +59,7 @@ module Fech
         return hash[key] if Regexp.new(key, Regexp::IGNORECASE).match(label.to_s)
       end
       
-      raise "Attempted to access mapping that has not been generated (#{label}). " +
+      raise VersionError, "Attempted to access mapping that has not been generated (#{label}). " +
             "Supported keys match the format: #{hash.keys.join(', ')}"
     end
     
