@@ -65,7 +65,9 @@ module Fech
     # Converts everything that looks like an FEC-formatted date to a
     # native Ruby Date object.
     def dates
-      t.convert do |value|
+      # only convert fields whose name is date* or *_date*
+      # lots of other things might be 8 digits, and we have to exclude eg 'candidate'
+      t.convert :field => /(^|_)date/ do |value|
         if /^\d{8}$/.match(value).nil?
           value
         else
