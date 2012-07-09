@@ -45,7 +45,7 @@ module Fech
     # This means that the download directory will break bash file globbing (so e.g. ls and rm *.fec will not work).
     # If you want to get all of it, make sure to download only to a dedicated FEC filings directory.
     def self.download_all download_dir
-      `cd #{download_dir} && ftp -a ftp://ftp.fec.gov/FEC/electronic/*.zip`
+      `cd #{download_dir} && ftp -a ftp.fec.gov:/FEC/electronic/*.zip`
       `cd #{download_dir} && for z in *.zip; do unzip -o $z && rm $z; done`
       Dir[File.join(FILES_DIR, '*.fec')].count
     end
