@@ -9,7 +9,7 @@ module Fech
   # Translations may be added to change the way that data is mapped and cleaned.
   class Filing
     # first filing number using the version >=3.00 format
-    # note that there are plenty of <v3 filings after this, so readable? stil needs to be checked
+    # note that there are plenty of <v3 filings after this, so readable? still needs to be checked
     FIRST_V3_FILING = 11850 
     
     attr_accessor :filing_id, :download_dir, :translator
