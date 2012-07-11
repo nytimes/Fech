@@ -55,11 +55,21 @@ module Fech
     # filing.download is of course unnecessary.
     #
     # note that if there are a lot of files (e.g. after download_all), just listing them to prepare for this will take several seconds
+    #
+    # Special option: :from => integer or :from => range will only process filing #s starting from / within the argument
     def self.for_all options = {}
       options[:download_dir] ||= Dir.tmpdir
+      from = options.delete :from
+      raise ArgumentError, ":from must be Integer or Range" if from and !(from.is_a?(Integer) or from.is_a?(Range))
       # .sort{|x| x.scan/\d+/.to_i } # should be no need to spend time on sort, since the file system should already do that
       Dir[File.join(options[:download_dir], '*.fec')].each do |file|
-        yield Fech::Filing.new(file.scan(/(\d+)\.fec/)[0][0].to_i, options)
+        n = file.scan(/(\d+)\.fec/)[0][0].to_i
+        if from.is_a? Integer
+          next unless n >= from
+        elsif from.is_a? Range
+          next unless n.in? from
+        end
+        yield Fech::Filing.new(n, options)
       end
     end
     
