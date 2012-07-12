@@ -242,19 +242,19 @@ module Fech
     def fix_f99_contents
       @customized = true
       content = file_contents.read
-      regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/m
+      regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/mi # some use eg [EndText]
       match = content.match(regex)
       if match
         repl = match[1].gsub(/"/, '""')
         content.gsub(regex, "#{delimiter}\"#{repl}\"")
       else
-        file_contents
+        content
       end
     end
 
     # Resave the "fixed" version of an F99
     def resave_f99_contents
-      return if @resaved
+      return true if @resaved
       File.open(custom_file_path, 'w') { |f| f.write(fix_f99_contents) }
       @resaved = true
     end
@@ -276,7 +276,7 @@ module Fech
       end
 
       # If this is an F99, we need to parse it differently.
-      resave_f99_contents if form_type == 'F99'
+      resave_f99_contents if ['F99', '"F99"'].include? form_type
 
       c = 0
       @csv_parser.parse_row(@customized ? custom_file_path : file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
