@@ -18,7 +18,7 @@ module Fech
     def initialize(filing_id, opts={})
       @filing_id    = filing_id
       @download_dir = opts[:download_dir] || Dir.tmpdir
-      @translator   = Fech::Translator.new(:include => opts[:translate])
+      @translator   = opts[:translate] ? Fech::Translator.new(:include => opts[:translate]) : nil
       @quote_char   = opts[:quote_char] || '"'
       @csv_parser   = opts[:csv_parser] || Fech::Csv
       @resaved      = false
