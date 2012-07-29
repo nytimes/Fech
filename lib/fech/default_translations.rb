@@ -30,16 +30,16 @@ module Fech
       
       # COMBINE split names into composite names for these rows
       composites = [
-        {:row => :sa,     :version => /^[6-7]/,   :field => [:contributor, :donor_candidate]},
-        {:row => :sb,     :version => /^[6-7]/,   :field => [:payee, :beneficiary_candidate]},
-        {:row => :sc,     :version => /^[6-7]/,   :field => [:lender, :lender_candidate]},
-        {:row => :sc1,    :version => /^[6-7]/,   :field => [:treasurer, :authorized]},
-        {:row => :sc2,    :version => /^[6-7]/,   :field => :guarantor},
-        {:row => :sd,     :version => /^[6-7]/,   :field => :creditor},
-        {:row => :se,     :version => /^[6-7]/,   :field => [:payee, :candidate]},
-        {:row => :sf,     :version => /^[6-7]/,   :field => [:payee, :payee_candidate]},
-        {:row => :f3p,    :version => /^[6-7]/,   :field => :treasurer},
-        {:row => :f3p31,  :version => /^[6-7]/,   :field => :contributor},
+        {:row => :sa,     :version => /^[6-8]/,   :field => [:contributor, :donor_candidate]},
+        {:row => :sb,     :version => /^[6-8]/,   :field => [:payee, :beneficiary_candidate]},
+        {:row => :sc,     :version => /^[6-8]/,   :field => [:lender, :lender_candidate]},
+        {:row => :sc1,    :version => /^[6-8]/,   :field => [:treasurer, :authorized]},
+        {:row => :sc2,    :version => /^[6-8]/,   :field => :guarantor},
+        {:row => :sd,     :version => /^[6-8]/,   :field => :creditor},
+        {:row => :se,     :version => /^[6-8]/,   :field => [:payee, :candidate]},
+        {:row => :sf,     :version => /^[6-8]/,   :field => [:payee, :payee_candidate]},
+        {:row => :f3p,    :version => /^[6-8]/,   :field => :treasurer},
+        {:row => :f3p31,  :version => /^[6-8]/,   :field => :contributor},
       ]
       # SPLIT composite names into component parts for these rows
       components = [
