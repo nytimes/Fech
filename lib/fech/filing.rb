@@ -130,16 +130,17 @@ module Fech
       end
       
       # Performs any specified group preprocessing / combinations
-      combinations = translator.get_translations(:row => row.first,
-            :version => filing_version, :action => :combine)
-      row_hash = hash_zip(row_map, row) if combinations
-      combinations.each do |translation|
-        # User's Procs should be given the entire row as context
-        value = translation[:proc].call(row_hash)
-        field = translation[:field].source.gsub(/[\^\$]*/, "").to_sym
-        data[field] = value
+      if translator
+        combinations = translator.get_translations(:row => row.first,
+              :version => filing_version, :action => :combine)
+        row_hash = hash_zip(row_map, row) if combinations
+        combinations.each do |translation|
+          # User's Procs should be given the entire row as context
+          value = translation[:proc].call(row_hash)
+          field = translation[:field].source.gsub(/[\^\$]*/, "").to_sym
+          data[field] = value
+        end
       end
-      
       data
     end
     
