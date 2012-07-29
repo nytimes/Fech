@@ -118,11 +118,13 @@ module Fech
       # on individual cells along the way
       row_map.each_with_index do |field, index|
         value = row[full_row_map.index(field)]
-        translator.get_translations(:row => row.first,
-            :version => filing_version, :action => :convert,
-            :field => field).each do |translation|
-          # User's Procs should be given each field's value as context
-          value = translation[:proc].call(value)
+        if translator
+          translator.get_translations(:row => row.first,
+              :version => filing_version, :action => :convert,
+              :field => field).each do |translation|
+            # User's Procs should be given each field's value as context
+            value = translation[:proc].call(value)
+          end
         end
         data[field] = value
       end
