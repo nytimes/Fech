@@ -56,19 +56,13 @@
 
 <p>Install Fech as a gem:</p>
 
-<div class="highlight">
-<pre><span class="n">gem</span> <span class="n">install</span> <span class="n">fech</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="n">gem</span> <span class="n">install</span> <span class="n">fech</span>
+</pre></div>
 
 <p>For use in a Rails 3 application, put the following in your Gemfile:</p>
 
-<div class="highlight">
-<pre><span class="n">gem</span> <span class="s1">'fech'</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="n">gem</span> <span class="s1">'fech'</span>
+</pre></div>
 
 <p>then issue the <code>bundle install</code> command.</p>
 
@@ -77,12 +71,9 @@
 
 <p>Start by creating a Filing object that corresponds to an electronic filing from the FEC, using the unique numeric identifier that the F.E.C. assigns to each filing. You'll then have to download the file before parsing it:</p>
 
-<div class="highlight">
-<pre><span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">)</span>
 <span class="n">filing</span><span class="o">.</span><span class="n">download</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>Optional arguments: pass in a <code>:quote_char</code> argument, and Fech will use it as a quote character to parse the file (see details below). Specify the <code>:download_dir</code> on initialization to set where filings are stored. Otherwise, they'll go into a temp folder on your filesystem.</p>
 
@@ -91,11 +82,8 @@
 
 <p>Not all CSV Parsers are created equal. Some are fast and naive, others are slow but handle malformed data more reliably. By default, FasterCSV is used, but you can pass in your own choice of parser with the <code>:csv_parser</code> option:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:csv_parser</span> <span class="o">=&gt;</span> <span class="no">Fech</span><span class="o">::</span><span class="no">CsvDoctor</span><span class="p">)</span>
-</pre>
-</div>
-
+<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:csv_parser</span> <span class="o">=&gt;</span> <span class="no">Fech</span><span class="o">::</span><span class="no">CsvDoctor</span><span class="p">)</span>
+</pre></div>
 
 <p>Fech::CsvDoctor inherits from FasterCSV, and helps deal with certain types of malformed quotes in the data (see: Handling malformed filings). You could pass in any subclass with special handling.</p>
 
@@ -104,12 +92,9 @@
 
 <p>To get summary data for the filing (various aggregate amounts, stats about the filing):</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">summary</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">summary</span>
   <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:coverage_from_date</span><span class="o">=&gt;</span><span class="s2">"20110101"</span><span class="p">,</span> <span class="ss">:coverage_from_date</span><span class="o">=&gt;</span><span class="s2">"20110301"</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>Returns a named hash of all attributes available for the filing. (Which fields are available can vary depending on the filing version number.)</p>
 
@@ -118,25 +103,25 @@
 
 <p>To grab every row in the filing of a certain type (all Schedule A items, for example):</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">rows_like</span><span class="p">(</span><span class="sr">/^sa/</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">rows_like</span><span class="p">(</span><span class="sr">/^sa/</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="o">[</span><span class="p">{</span><span class="ss">:transaction_id</span><span class="o">=&gt;</span><span class="s2">"SA17.XXXX"</span><span class="p">,</span> <span class="ss">:contribution_date</span><span class="o">&gt;</span><span class="s2">"20110101"</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>This will return an array of hashes, one hash for each row found in the filing whose line number matches the regular expression you passed in. (SA17s and SA18s would both be returned in this example). You can also pass in strings for exact matches.</p>
 
 <p>When given a block, .rows_like will yield a single hash at a time:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">rows_like</span><span class="p">(</span><span class="sr">/^sa/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">contribution</span><span class="o">|</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">rows_like</span><span class="p">(</span><span class="sr">/^sa/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">contribution</span><span class="o">|</span>
     <span class="n">contribution</span><span class="o">.</span><span class="n">transaction_id</span>
     <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:transaction_id</span><span class="o">=&gt;</span><span class="s2">"SA17.XXXX"</span><span class="p">,</span> <span class="ss">:contribution_date</span><span class="o">&gt;</span><span class="s2">"20110101"</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
   <span class="k">end</span>
-</pre>
-</div>
+</pre></div>
 
+<p>Since .rows_like loads all transactions matching the corresponding line number into memory, for very large filings (for example, for presidential campaigns) you may want to use .enum_for instead:</p>
+
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">enum_for</span><span class="p">((</span><span class="ss">:rows_like</span><span class="p">,</span> <span class="sr">/sa/</span><span class="p">)</span>
+  <span class="o">=&gt;</span> <span class="o">[</span><span class="p">{</span><span class="ss">:transaction_id</span><span class="o">=&gt;</span><span class="s2">"SA17.XXXX"</span><span class="p">,</span> <span class="ss">:contribution_date</span><span class="o">&gt;</span><span class="s2">"20110101"</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
+</pre></div>
 
 <h2>Usage<a name="usage"></a>
 </h2>
@@ -145,52 +130,40 @@
 
 <p>By default, <code>.rows_like</code> will process every field in the matched rows (some rows have 200+ fields). You can speed up performance significantly by asking for just the subset of fields you need.</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">rows_like</span><span class="p">(</span><span class="sr">/^sa/</span><span class="p">,</span> <span class="ss">:include</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:transaction_id</span><span class="o">]</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">contribution</span><span class="o">|</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">rows_like</span><span class="p">(</span><span class="sr">/^sa/</span><span class="p">,</span> <span class="ss">:include</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:transaction_id</span><span class="o">]</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">contribution</span><span class="o">|</span>
     <span class="n">contribution</span>
     <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:transaction_id</span><span class="o">=&gt;</span><span class="s2">"SA17.XXXX"</span><span class="p">}</span>
   <span class="k">end</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h3>Miscellaneous Text<a name="misc_text"></a>
 </h3>
 
 <p>Form 99 submissions contain no structured data but miscellaneous text communicated between committees and the F.E.C. The text is accessible via the summary:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">summary</span><span class="o">[</span><span class="ss">:text</span><span class="o">]</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">summary</span><span class="o">[</span><span class="ss">:text</span><span class="o">]</span>
   <span class="o">=&gt;</span> <span class="s2">"This is in response to Requests for Additional Information received on 9 and 10 February 2012...."</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h3>Raw data<a name="raw_data"></a>
 </h3>
 
 <p>If you want to access the raw arrays of row data, pass <code>:raw =&gt; true</code> to <code>.rows_like</code> or any of its shortcuts:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">contributions</span><span class="p">(</span><span class="ss">:raw</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">contributions</span><span class="p">(</span><span class="ss">:raw</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="o">[[</span><span class="s2">"SA17A"</span><span class="p">,</span> <span class="s2">"C00XXXXXX"</span><span class="p">,</span> <span class="s2">"SA17.XXXX"</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="s2">"IND"</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
 
   <span class="n">filing</span><span class="o">.</span><span class="n">contributions</span><span class="p">(</span><span class="ss">:raw</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
     <span class="n">row</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">"SA17A"</span><span class="p">,</span> <span class="s2">"C00XXXXX"</span><span class="p">,</span> <span class="s2">"SA17.XXXX"</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="s2">"IND"</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
   <span class="k">end</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>The source maps for individual row types and versions may also be accessed directly:</p>
 
-<div class="highlight">
-<pre>  <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">map_for</span><span class="p">(</span><span class="s2">"sa"</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">map_for</span><span class="p">(</span><span class="s2">"sa"</span><span class="p">)</span>
   <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">map_for</span><span class="p">(</span><span class="sr">/sa/</span><span class="p">,</span> <span class="ss">:version</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:form_type</span><span class="p">,</span> <span class="ss">:filer_committee_id_number</span><span class="p">,</span> <span class="ss">:transaction_id</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>You can then bypass some of the overhead of Fech if you're building something more targeted.</p>
 
@@ -200,25 +173,19 @@
 
 <p>An example: dates within filings are formatted as YYYYMMDD. To automatically convert all Schedule B <code>:expenditure_date</code> values to native Ruby Dates:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
     <span class="n">t</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="ss">:row</span> <span class="o">=&gt;</span> <span class="sr">/^sb/</span><span class="p">,</span> <span class="ss">:field</span> <span class="o">=&gt;</span> <span class="ss">:expenditure_date</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="no">Date</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>The block you give <code>.convert</code> will be given the original value of that field when it is run. After you run <code>.convert</code>, any time you parse a row beginning with "SB", the <code>:expenditure_date</code> value will be a Date object.</p>
 
 <p>The <code>:field</code> parameter can also be a regular expression:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
     <span class="n">t</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="ss">:row</span> <span class="o">=&gt;</span> <span class="sr">/^f3p/</span><span class="p">,</span> <span class="ss">:field</span> <span class="o">=&gt;</span> <span class="sr">/^coverage_.*_date/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="no">Date</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>Now, both <code>:coverage_from_date</code> and <code>:coverage_through_date</code> will be automatically cast to dates.</p>
 
@@ -228,17 +195,14 @@
 
 <p>You may want to perform the same calculation on many rows of data (contributions minus refunds to create a net value, for example). This can be done without cluttering up your more app-specific parsing code by using a <code>.combine</code> translation. The translation blocks you pass .combine receive the entire row as their context, not just a single value. The <code>:field</code> parameter becomes what you want the new value to be named.</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
     <span class="n">t</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="ss">:row</span> <span class="o">=&gt;</span> <span class="ss">:f3pn</span><span class="p">,</span> <span class="ss">:field</span> <span class="o">=&gt;</span> <span class="ss">:net_individual_contributions</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
       <span class="n">contribs</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">col_a_individual_contribution_total</span><span class="o">.</span><span class="n">to_f</span>
       <span class="n">refunds</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">col_a_total_contributions_refunds</span><span class="o">.</span><span class="n">to_f</span>
       <span class="n">contribs</span> <span class="o">-</span> <span class="n">refunds</span>
     <span class="k">end</span>
   <span class="k">end</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>In this example, every parsed Schedule A row would contain an attribute not found in the original filing data - <code>:net_individual_contributions</code> - which contains the result of the calculation above. The values used to construct combinations will have already been run through any .convert translations you've specified.</p>
 
@@ -251,11 +215,8 @@
 <li>Converting date field strings to Ruby Date objects</li>
 </ul><p>You can mix these translations into your parser when you create it:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:translate</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:names</span><span class="p">,</span> <span class="ss">:dates</span><span class="o">]</span><span class="p">)</span>
-</pre>
-</div>
-
+<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:translate</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:names</span><span class="p">,</span> <span class="ss">:dates</span><span class="o">]</span><span class="p">)</span>
+</pre></div>
 
 <p>Just be aware that as you add more translations, the parsing will start to take slightly longer (although having translations that aren't used will not slow it down).</p>
 
@@ -263,16 +224,13 @@
 
 <p>You can allow any field (converted, combined, or untranslated) to have an arbitrary number of aliases. For example, you could alias the F3P line's <code>:col_a_6_cash_on_hand_beginning_period</code> to the more manageable <code>:cash_beginning</code></p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+<div class="highlight"><pre>  <span class="n">filing</span><span class="o">.</span><span class="n">translate</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
     <span class="n">t</span><span class="o">.</span><span class="n">alias</span> <span class="ss">:cash_beginning</span><span class="p">,</span> <span class="ss">:col_a_cash_on_hand_beginning_period</span><span class="p">,</span> <span class="ss">:f3p</span>
   <span class="k">end</span>
 
   <span class="n">filing</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">cash_beginning</span> <span class="c1">## filing.summary.col_a_cash_on_hand_beginning_period.</span>
   <span class="o">=&gt;</span> <span class="kp">true</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>We found it useful to be able to access attributes using the name the fields in our database they correspond to.</p>
 
@@ -281,24 +239,18 @@
 
 <p>You may want to compare two electronic filings to each other, particularly an original filing and its amendment, since amendments are a full replacement of the original filing. Fech has a Comparison class that allows you to compare the summary or a specific schedule of itemizations between two filings. The use of Comparison requires that you have created both Filing objects and downloaded them:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing_1</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">767437</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="n">filing_1</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">767437</span><span class="p">)</span>
   <span class="n">filing_1</span><span class="o">.</span><span class="n">download</span>
   <span class="n">filing_2</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">751798</span><span class="p">)</span>
   <span class="n">filing_2</span><span class="o">.</span><span class="n">download</span>
   <span class="n">comparison</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Comparison</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">filing_1</span><span class="p">,</span> <span class="n">filing_2</span><span class="p">)</span>
   <span class="n">comparison</span><span class="o">.</span><span class="n">summary</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>Comparison's summary method returns a hash of summary fields whose values have changed in filing_2. The schedule method accepts either a symbol or string representing the schedule. So, for Schedule A (itemized contributions): </p>
 
-<div class="highlight">
-<pre>  <span class="n">comparison</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="ss">:sa</span><span class="p">)</span>
-</pre>
-</div>
-
+<div class="highlight"><pre>  <span class="n">comparison</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="ss">:sa</span><span class="p">)</span>
+</pre></div>
 
 <p>The result will be an array of Fech contribution objects that differ in any way. If an amendment updates the employer or occupation of a contributor, for example, <code>comparison.schedule(:sa)</code> would return that contribution. If the array is empty, no itemized records changed.</p>
 
@@ -332,11 +284,8 @@
 
 <p>Since the FEC doesn't use a quote character in its electronic filings, we don't need a quote character at all. One way to achieve this is to use "\0" (a null ASCII character) as <code>:quote_char</code>:</p>
 
-<div class="highlight">
-<pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">756218</span><span class="p">,</span> <span class="ss">:quote_char</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="se">\0</span><span class="s2">"</span><span class="p">)</span>
-</pre>
-</div>
-
+<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">756218</span><span class="p">,</span> <span class="ss">:quote_char</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="se">\0</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
 
 <h2>Warnings<a name="warnings"></a>
 </h2>
