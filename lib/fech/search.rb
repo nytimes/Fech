@@ -146,16 +146,19 @@ module Fech
     # yield the results one by one if a block is passed.
     def results_from_date_search(&block)
       parsed_results = []
-      results = body.scan(/<DT>(.*)\n(.*)/)
-      results.each do |result|
-        committee, filing = result
-        data = parse_committee_row(committee).merge(parse_filing_row(filing))
-        search_result = SearchResult.new(data)
-
-        if block_given?
-          yield search_result
-        else
-          parsed_results << search_result
+      dl = body.match(/<DL>(.*?)<BR><P/m)[0]
+      rows = dl.split('<DT>')[1..-1].map { |row| row.split("\n") }
+      rows.each do |committee, *filings|
+        committee = parse_committee_row(committee)
+        filings.each do |filing|
+          next if filing == "<BR><P"
+          data = committee.merge(parse_filing_row(filing))
+          search_result = SearchResult.new(data)
+          if block_given?
+            yield search_result
+          else
+            parsed_results << search_result
+          end
         end
       end
       block_given? ? nil : parsed_results
