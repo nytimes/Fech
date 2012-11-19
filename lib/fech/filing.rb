@@ -66,7 +66,7 @@ module Fech
     # @return [Array] the complete set of mapped hashes for matched lines
     def rows_like(row_type, opts={}, &block)
       data = []
-      each_row do |row|
+      each_row(:row_type => row_type) do |row|
         value = parse_row?(row, opts.merge(:parse_if => row_type))
         next if value == false
         if block_given?
@@ -86,6 +86,8 @@ module Fech
     # @option opts [Array] :include list of field names that should be included
     #   in the returned hash
     def parse_row?(row, opts={})
+      return false if row.nil? || row.empty?
+
       # Always parse, unless :parse_if is given and does not match row
       if opts[:parse_if].nil? || \
           Fech.regexify(opts[:parse_if]).match(row.first.downcase)
@@ -242,19 +244,19 @@ module Fech
     def fix_f99_contents
       @customized = true
       content = file_contents.read
-      regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/m
+      regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/mi # some use eg [EndText]
       match = content.match(regex)
       if match
         repl = match[1].gsub(/"/, '""')
         content.gsub(regex, "#{delimiter}\"#{repl}\"")
       else
-        file_contents
+        content
       end
     end
 
     # Resave the "fixed" version of an F99
     def resave_f99_contents
-      return if @resaved
+      return true if @resaved
       File.open(custom_file_path, 'w') { |f| f.write(fix_f99_contents) }
       @resaved = true
     end
@@ -269,6 +271,7 @@ module Fech
 
     # Iterates over and yields the Filing's lines
     # @option opts [Boolean] :with_index yield both the item and its index
+    # @option opts [Boolean] :row_type yield only rows that match this type
     # @yield [Array] a row of the filing, split by the delimiter from #delimiter
     def each_row(opts={}, &block)
       unless File.exists?(file_path)
@@ -276,10 +279,10 @@ module Fech
       end
 
       # If this is an F99, we need to parse it differently.
-      resave_f99_contents if form_type == 'F99'
+      resave_f99_contents if ['F99', '"F99"'].include? form_type
 
       c = 0
-      @csv_parser.parse_row(@customized ? custom_file_path : file_path, :col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true) do |row|
+      @csv_parser.parse_row(@customized ? custom_file_path : file_path, opts.merge(:col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true)) do |row|
         if opts[:with_index]
           yield [row, c]
           c += 1
