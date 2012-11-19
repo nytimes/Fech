@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   if RUBY_VERSION < "1.9"
     s.add_development_dependency "linecache", "0.43"
     s.add_development_dependency "ruby-debug"
+    s.add_development_dependency "iconv"
   end
   if RUBY_VERSION >= "1.9"
     s.add_development_dependency "ruby-debug19"

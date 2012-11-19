@@ -71,7 +71,20 @@ module Fech
       # exists for it. If maps for two different versions are identical, they
       # are combined.
       FILING_VERSIONS.each do |version|
-        Fech::Csv.foreach(version_summary_file(source_dir, version)) do |row|
+        filepath = version_summary_file(source_dir, version)
+
+        # Clean the source files by removing unparseable characters
+        if RUBY_VERSION < "1.9.3"
+          require 'iconv'
+          ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+          valid_string = ic.iconv(open(filepath).read << ' ')[0..-2]
+        else
+          valid_string = (open(filepath).read << ' ')[0..-2].encode!('UTF-16', 'UTF-8', :invalid => :replace, :replace => '')
+          valid_string = valid_string.encode!('UTF-8', 'UTF-16')
+        end
+        open(filepath, 'w').write(valid_string)
+
+        Fech::Csv.foreach(filepath) do |row|
           # Each row of a version summary file contains the ordered list of
           # column names.
           data[row.first] ||= {}
@@ -148,7 +161,7 @@ module Fech
         f.write("  RENDERED_MAPS = {\n")
         BASE_ROW_TYPES.each do |row_type|
           f.write("    \"#{ROW_TYPE_MATCHERS[row_type].source}\" => {\n")
-          generate_row_map_from_file(source_dir, row_type).each do |k, v|
+          generate_row_map_from_file(source_dir, row_type).sort_by(&:first).reverse.each do |k, v|
             f.write("      \'#{k}' => [#{v.map {|x| x.to_s.gsub(/^\d+_?/, "") }.collect {|x| (x.nil? || x == "") ? "nil" : ":#{x}" }.join(', ') }],\n")
           end
           f.write("    },\n")

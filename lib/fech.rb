@@ -9,6 +9,7 @@ require 'fech/map_generator'
 require 'fech/csv'
 require 'fech/comparison'
 require 'fech/search'
+require 'fech/version'
 
 module Fech
   extend FechUtils
