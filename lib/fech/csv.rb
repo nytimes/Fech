@@ -1,6 +1,6 @@
 require 'csv'       if     RUBY_VERSION > '1.9'
 require 'fastercsv' unless RUBY_VERSION > '1.9'
-
+# iso-55 encoding to avoid utf-8 error while parsing some f3 file 
 # Fech::Csv is a wrapper that provides simple CSV handling consistency
 # between Ruby 1.8 and Ruby 1.9.
 #
@@ -41,10 +41,10 @@ module Fech
     def self.parse_row(file_path, opts)
       File.open(file_path, 'r').each do |line|
         # Skip empty lines
-        next if line.strip.empty?
+        next if line.force_encoding('ISO-8859-1').strip.empty?
 
         # Skip non-matching row-types
-        next if opts.key?(:row_type) && !Fech.regexify(opts[:row_type]).match(line)
+        next if opts.key?(:row_type) && !Fech.regexify(opts[:row_type]).match(line.force_encoding('ISO-8859-1'))
 
         yield safe_line(line, clean_opts(opts))
       end
@@ -56,9 +56,9 @@ module Fech
     # @options opts :quote_char the quote_char to try initially
     def self.safe_line(line, opts)
       begin
-        parse_line(line, opts)
+        parse_line(line.force_encoding('ISO-8859-1'), opts)
       rescue Fech::Csv::MalformedCSVError
-        row = parse_line(line, clean_opts(opts).merge(:quote_char => "\0"))
+        row = parse_line(line.force_encoding('ISO-8859-1'), clean_opts(opts).merge(:quote_char => "\0"))
         row.map! { |val| safe_value(val) }
       end
     end
@@ -67,7 +67,7 @@ module Fech
     def self.safe_value(val)
       return val unless val.is_a?(String)
       begin
-        parse_line(val).first
+        parse_line(val.force_encoding('ISO-8859-1')).first
       rescue Fech::Csv::MalformedCSVError
         val
       end
