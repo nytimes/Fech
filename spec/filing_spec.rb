@@ -5,6 +5,7 @@ describe Fech::Filing do
   before do
     @filing = Fech::Filing.new(723604)
     @filing.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '723604.fec'))
+    
     @filing8 = Fech::Filing.new(748730)
     @filing8.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '748730.fec'))
     @filing_ie = Fech::Filing.new(752356)
@@ -21,8 +22,29 @@ describe Fech::Filing do
     @filing_f3.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '82094.fec'))
     @filing_f7 = Fech::Filing.new(747058)
     @filing_f7.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '747058.fec'))
+    
+    @filing_for_malformed_file  = Fech::Filing.new(780387, :csv_parser => Fech::CsvDoctor)
+    @filing_for_malformed_file.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '780387.fec'))
+
   end
-  
+
+  describe "Filing for Malformed file" do
+    # Earlier Some f3 file giving Argument error so i(narutosanjiv) added iso-encoding support
+    it "should raise error with faster csv" do
+      filing_for_malformed_file1  = Fech::Filing.new(780387)
+      
+      filing_for_malformed_file1.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '780387.fec'))
+      expect{filing_for_malformed_file1.rows_like(/sa/)}.to raise_error(ArgumentError)
+    end
+   
+    it "should parse with csv without raising error" do
+      filing_for_malformed_file1  = Fech::Filing.new(780387, :csv_parser => Fech::CsvDoctor)
+      
+      filing_for_malformed_file1.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '780387.fec'))
+      expect{filing_for_malformed_file1.rows_like(/sa/)}.to_not raise_error(ArgumentError)
+    end
+  end
+
   describe "#filing_version" do
     
     it "should return the correct filing version" do
@@ -31,12 +53,18 @@ describe Fech::Filing do
       @filing_ie.send(:filing_version).should == "8.0"
       @filing_pac.send(:filing_version).should == "8.0"
       @filing_f3.send(:filing_version).should == "5.00"
+      @filing_for_malformed_file.send(:filing_version).should == "8.0"
     end
     
     it "should parse the file only once" do
       @filing.expects(:parse_filing_version).once.returns("7.0")
       @filing.send(:filing_version)
       @filing.send(:filing_version)
+
+
+      @filing_for_malformed_file.expects(:parse_filing_version).once.returns("7.0")
+      @filing_for_malformed_file.send(:filing_version)
+      @filing_for_malformed_file.send(:filing_version)
     end
     
   end
@@ -48,8 +76,13 @@ describe Fech::Filing do
       keys = [:one,:three,:two]
       values = [1, 3, 2]
       @filing.hash_zip(keys, values).should == {:one => 1, :two => 2, :three => 3}
+   
+      keys = [:one,:three,:two]
+      values = [1, 3, 2]
+      @filing_for_malformed_file.hash_zip(keys, values).should == {:one => 1, :two => 2, :three => 3} 
     end
-    
+   
+
   end
   
   describe "#summary" do
@@ -103,6 +136,8 @@ describe Fech::Filing do
       @filing_ec.rows_like(/^f91/).size.should == 1
       @filing_f3.rows_like(/^sa/).size.should == 17
       @filing_f7.rows_like(/^f76/).size.should == 2
+
+      @filing_for_malformed_file.rows_like(/sa/).size == 12
     end
     
     it "should return an array if no block is given" do
