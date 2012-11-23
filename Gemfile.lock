@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fech (0.9.10)
+    fech (1.1)
       fastercsv
       people
 
@@ -10,7 +10,8 @@ GEM
   specs:
     columnize (0.3.6)
     diff-lcs (1.1.2)
-    fastercsv (1.5.4)
+    fastercsv (1.5.5)
+    iconv (0.1)
     linecache (0.43)
     mocha (0.9.12)
     people (0.2.1)
@@ -38,6 +39,7 @@ PLATFORMS
 DEPENDENCIES
   bundler
   fech!
+  iconv
   linecache (= 0.43)
   mocha
   rake (= 0.8.7)

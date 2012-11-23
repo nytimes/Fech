@@ -24,7 +24,11 @@ module Fech
     # @param [String] file_path location of the filing on the file system
     # @options opts passed through to FasterCSV
     def self.parse_row(file_path, opts)
-      foreach(file_path, opts) { |row| yield row }
+      foreach(file_path, clean_opts(opts)) { |row| yield row }
+    end
+
+    def self.clean_opts(opts)
+      opts.reject {|k,v| ![:col_sep, :quote_char].include?(k)}
     end
 
   end
@@ -33,13 +37,16 @@ module Fech
 
     # Skips FasterCSV's whole-file wrapper, and passes each line in
     # the file to a function that will parse it individually.
+    # @option opts [Boolean] :row_type yield only rows that match this type
     def self.parse_row(file_path, opts)
-      opts.reject! {|k,v| ![:col_sep, :quote_char].include?(k)}
-
       File.open(file_path, 'r').each do |line|
         # Skip empty lines
         next if line.strip.empty?
-        yield safe_line(line, opts)
+
+        # Skip non-matching row-types
+        next if opts.key?(:row_type) && !Fech.regexify(opts[:row_type]).match(line)
+
+        yield safe_line(line, clean_opts(opts))
       end
     end
 
@@ -51,7 +58,7 @@ module Fech
       begin
         parse_line(line, opts)
       rescue Fech::Csv::MalformedCSVError
-        row = parse_line(line, opts.merge(:quote_char => "\0"))
+        row = parse_line(line, clean_opts(opts).merge(:quote_char => "\0"))
         row.map! { |val| safe_value(val) }
       end
     end
