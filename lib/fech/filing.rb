@@ -282,7 +282,7 @@ module Fech
       resave_f99_contents if ['F99', '"F99"'].include? form_type
 
       c = 0
-      @csv_parser.parse_row(@customized ? custom_file_path : file_path, opts.merge(:col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true)) do |row|
+      @csv_parser.parse_row(@customized ? custom_file_path : file_path, opts.merge(:col_sep => delimiter, :quote_char => @quote_char, :skip_blanks => true, :encoding => 'iso-8859-1:utf-8')) do |row|
         if opts[:with_index]
           yield [row, c]
           c += 1

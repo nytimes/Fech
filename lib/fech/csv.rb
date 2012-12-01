@@ -28,7 +28,7 @@ module Fech
     end
 
     def self.clean_opts(opts)
-      opts.reject {|k,v| ![:col_sep, :quote_char].include?(k)}
+      opts.reject {|k,v| ![:col_sep, :quote_char, :encoding].include?(k)}
     end
 
   end
