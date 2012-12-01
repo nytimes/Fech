@@ -39,7 +39,7 @@ module Fech
     # the file to a function that will parse it individually.
     # @option opts [Boolean] :row_type yield only rows that match this type
     def self.parse_row(file_path, opts)
-      File.open(file_path, 'r').each do |line|
+      File.open(file_path, 'r', :encoding => opts[:encoding]).each do |line|
         # Skip empty lines
         next if line.strip.empty?
 
