@@ -6,7 +6,7 @@
 
 Fech makes it easy to parse electronic campaign finance filings[http://www.fec.gov/finance/disclosure/efile_search.shtml] by candidates, parties and political action committees from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data. Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
 
-Latest version: 1.3
+Latest version: 1.3.1
 
 Fech is tested under Ruby versions 1.8.7, 1.9.2 and 1.9.3.
 
@@ -16,7 +16,7 @@ Can be found at Fech's Github page[http://nytimes.github.com/Fech/].
 
 == News
 
-* Dec. 11, 2012: Version 1.3 released. Adds support for F13 filings from inaugural committees.
+* Dec. 11, 2012: Versions 1.3, 1.3.1 released. Adds support for F13 filings from inaugural committees and fixes an encoding bug.
 * Dec. 3, 2012: Version 1.2 released. Fixes encoding errors under Ruby 1.9.3 for ASCII-encoded filings. Thanks to Sanjiv for the bug report.
 * Nov. 13, 2012: Version 1.1 released. CSVDoctor skips rows that don't match row type being searched for, which provides a performance boost, and smaller bugfixes for Form 99 handling and date-field conversions. Thanks to Sai for several patches.
 * June 16, 2012: Version 1.0.1 released. Bug-fix for older Form 2 support.
