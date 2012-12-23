@@ -21,6 +21,10 @@ describe Fech::Filing do
     @filing_f3.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '82094.fec'))
     @filing_f7 = Fech::Filing.new(747058)
     @filing_f7.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '747058.fec'))
+    @filing_f13 = Fech::Filing.new(425925)
+    @filing_f13.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '425925.fec'))
+    @filing_special_character = Fech::Filing.new(771694)
+    @filing_special_character.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '771694.fec'))
   end
   
   describe "#filing_version" do
@@ -31,6 +35,7 @@ describe Fech::Filing do
       @filing_ie.send(:filing_version).should == "8.0"
       @filing_pac.send(:filing_version).should == "8.0"
       @filing_f3.send(:filing_version).should == "5.00"
+      @filing_special_character.send(:filing_version).should == "8.0"
     end
     
     it "should parse the file only once" do
@@ -72,6 +77,10 @@ describe Fech::Filing do
       sum_f1m[:form_type].should == "F1MA"
       sum_f7 = @filing_f7.summary
       sum_f7[:form_type].should == 'F7N' 
+      sum_f13 = @filing_f13.summary
+      sum_f13[:form_type].should == 'F13N'
+      sum_filing_special_character = @filing_special_character.summary
+      sum_filing_special_character[:form_type].should == "F3XN"
     end
   end
   
@@ -103,6 +112,7 @@ describe Fech::Filing do
       @filing_ec.rows_like(/^f91/).size.should == 1
       @filing_f3.rows_like(/^sa/).size.should == 17
       @filing_f7.rows_like(/^f76/).size.should == 2
+      @filing_special_character.rows_like(/^sa/).size.should == 13
     end
     
     it "should return an array if no block is given" do

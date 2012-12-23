@@ -28,7 +28,7 @@ module Fech
     end
 
     def self.clean_opts(opts)
-      opts.reject {|k,v| ![:col_sep, :quote_char].include?(k)}
+      opts.reject {|k,v| ![:col_sep, :quote_char, :encoding].include?(k)}
     end
 
   end
@@ -39,7 +39,7 @@ module Fech
     # the file to a function that will parse it individually.
     # @option opts [Boolean] :row_type yield only rows that match this type
     def self.parse_row(file_path, opts)
-      File.open(file_path, 'r').each do |line|
+      File.open(file_path, "r:#{opts[:encoding]}").each do |line|
         # Skip empty lines
         next if line.strip.empty?
 
@@ -55,6 +55,8 @@ module Fech
     # @param [String] line the file's row to parse
     # @options opts :quote_char the quote_char to try initially
     def self.safe_line(line, opts)
+      # :encoding isn't a valid argument to Csv#parse_line
+      opts.delete(:encoding)
       begin
         parse_line(line, opts)
       rescue Fech::Csv::MalformedCSVError
