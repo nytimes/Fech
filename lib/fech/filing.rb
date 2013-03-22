@@ -1,5 +1,7 @@
 require 'tmpdir'
 require 'open-uri'
+require 'iconv'
+
 
 module Fech
   
@@ -245,6 +247,11 @@ module Fech
     def fix_f99_contents
       @customized = true
       content = file_contents.read
+      
+      # Fix the nasty "invalid byte sequence in UTF-8" error.
+      ic = Iconv.new('UTF-8//IGNORE', 'UTF-8') 
+      content = ic.iconv(content + ' ')[0..-2] # add valid byte before converting, then remove it
+      
       regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/mi # some use eg [EndText]
       match = content.match(regex)
       if match
