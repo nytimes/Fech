@@ -245,6 +245,15 @@ module Fech
     def fix_f99_contents
       @customized = true
       content = file_contents.read
+      
+      require 'iconv' unless String.method_defined?(:encode)
+      if String.method_defined?(:encode)
+        content.encode!('UTF-8', 'UTF-8', :invalid => :replace)
+      else
+        ic = Iconv.new('UTF-8//IGNORE', 'UTF-8') 
+        content = ic.iconv(content + ' ')[0..-2] # add valid byte before converting, then remove it
+      end
+      
       regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/mi # some use eg [EndText]
       match = content.match(regex)
       if match
