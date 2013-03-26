@@ -246,10 +246,10 @@ module Fech
       @customized = true
       content = file_contents.read
       
-      require 'iconv' unless String.method_defined?(:encode)
-      if String.method_defined?(:encode)
+      if RUBY_VERSION > "1.9.2"
         content.encode!('UTF-8', 'UTF-8', :invalid => :replace)
       else
+        require 'iconv'
         ic = Iconv.new('UTF-8//IGNORE', 'UTF-8') 
         content = ic.iconv(content + ' ')[0..-2] # add valid byte before converting, then remove it
       end
