@@ -1,4 +1,5 @@
 require 'fech/filing'
+require 'fech/senate_filing'
 require 'fech/rendered_maps'
 require 'fech/mappings'  
 require 'fech/default_translations'
