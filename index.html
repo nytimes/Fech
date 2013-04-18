@@ -71,7 +71,7 @@
 
 <p>Start by creating a Filing object that corresponds to an electronic filing from the FEC, using the unique numeric identifier that the F.E.C. assigns to each filing. You'll then have to download the file before parsing it:</p>
 
-<div class="highlight"><pre><span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">filing</span> <span class="o">=</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">)</span>
 <span class="n">filing</span><span class="o">.</span><span class="n">download</span>
 </pre></div>
 
@@ -82,7 +82,7 @@
 
 <p>Not all CSV Parsers are created equal. Some are fast and naive, others are slow but handle malformed data more reliably. By default, FasterCSV is used, but you can pass in your own choice of parser with the <code>:csv_parser</code> option:</p>
 
-<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:csv_parser</span> <span class="o">=&gt;</span> <span class="no">Fech</span><span class="o">::</span><span class="no">CsvDoctor</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:csv_parser</span> <span class="o">=&gt;</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:CsvDoctor</span><span class="p">)</span>
 </pre></div>
 
 <p>Fech::CsvDoctor inherits from FasterCSV, and helps deal with certain types of malformed quotes in the data (see: Handling malformed filings). You could pass in any subclass with special handling.</p>
@@ -160,8 +160,8 @@
 
 <p>The source maps for individual row types and versions may also be accessed directly:</p>
 
-<div class="highlight"><pre>  <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">map_for</span><span class="p">(</span><span class="s2">"sa"</span><span class="p">)</span>
-  <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">map_for</span><span class="p">(</span><span class="sr">/sa/</span><span class="p">,</span> <span class="ss">:version</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">map_for</span><span class="p">(</span><span class="s2">"sa"</span><span class="p">)</span>
+  <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">map_for</span><span class="p">(</span><span class="sr">/sa/</span><span class="p">,</span> <span class="ss">:version</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:form_type</span><span class="p">,</span> <span class="ss">:filer_committee_id_number</span><span class="p">,</span> <span class="ss">:transaction_id</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
 </pre></div>
 
@@ -215,7 +215,7 @@
 <li>Converting date field strings to Ruby Date objects</li>
 </ul><p>You can mix these translations into your parser when you create it:</p>
 
-<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:translate</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:names</span><span class="p">,</span> <span class="ss">:dates</span><span class="o">]</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">723604</span><span class="p">,</span> <span class="ss">:translate</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:names</span><span class="p">,</span> <span class="ss">:dates</span><span class="o">]</span><span class="p">)</span>
 </pre></div>
 
 <p>Just be aware that as you add more translations, the parsing will start to take slightly longer (although having translations that aren't used will not slow it down).</p>
@@ -234,16 +234,24 @@
 
 <p>We found it useful to be able to access attributes using the name the fields in our database they correspond to.</p>
 
+<h3>Unofficial Senate Filings</h3>
+
+<p>Fech also supports <a href="http://query.nictusa.com/senate/">unofficial electronic filings submitted voluntarily by Senate campaign committees</a>. While Senate candidates are not required to file electronically, some do. To access a Senate filing, use <code>Fech::SenateFiling</code>:</p>
+
+<p><code>filing = Fech::SenateFiling.new(853)</code></p>
+
+<p>You can then work with the filing as you would any other.</p>
+
 <h3>Comparing filings<a name="compare"></a>
 </h3>
 
 <p>You may want to compare two electronic filings to each other, particularly an original filing and its amendment, since amendments are a full replacement of the original filing. Fech has a Comparison class that allows you to compare the summary or a specific schedule of itemizations between two filings. The use of Comparison requires that you have created both Filing objects and downloaded them:</p>
 
-<div class="highlight"><pre>  <span class="n">filing_1</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">767437</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="n">filing_1</span> <span class="o">=</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">767437</span><span class="p">)</span>
   <span class="n">filing_1</span><span class="o">.</span><span class="n">download</span>
-  <span class="n">filing_2</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">751798</span><span class="p">)</span>
+  <span class="n">filing_2</span> <span class="o">=</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">751798</span><span class="p">)</span>
   <span class="n">filing_2</span><span class="o">.</span><span class="n">download</span>
-  <span class="n">comparison</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Comparison</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">filing_1</span><span class="p">,</span> <span class="n">filing_2</span><span class="p">)</span>
+  <span class="n">comparison</span> <span class="o">=</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Comparison</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">filing_1</span><span class="p">,</span> <span class="n">filing_2</span><span class="p">)</span>
   <span class="n">comparison</span><span class="o">.</span><span class="n">summary</span>
 </pre></div>
 
@@ -284,7 +292,7 @@
 
 <p>Since the FEC doesn't use a quote character in its electronic filings, we don't need a quote character at all. One way to achieve this is to use "\0" (a null ASCII character) as <code>:quote_char</code>:</p>
 
-<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="no">Fech</span><span class="o">::</span><span class="no">Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">756218</span><span class="p">,</span> <span class="ss">:quote_char</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="se">\0</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><pre>  <span class="n">filing</span> <span class="o">=</span> <span class="ss">Fech</span><span class="p">:</span><span class="ss">:Filing</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">756218</span><span class="p">,</span> <span class="ss">:quote_char</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="se">\0</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 
 <h2>Warnings<a name="warnings"></a>
