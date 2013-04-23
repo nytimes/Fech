@@ -8,6 +8,10 @@ module Fech
   # is automatically mapped at runtime into a labeled Hash. Additional
   # Translations may be added to change the way that data is mapped and cleaned.
   class Filing
+    # first filing number using the version >=3.00 format
+    # note that there are plenty of <v3 filings after this, so readable? still needs to be checked
+    FIRST_V3_FILING = 11850 
+    
     attr_accessor :filing_id, :download_dir, :translator
 
     # Create a new Filing object, assign the download directory to system's
@@ -210,6 +214,11 @@ module Fech
       end
     end
     
+    # Only FEC format 3.00 + is supported
+    def readable?
+      filing_version.to_i >= 3
+    end
+    
     # Gets or creats the Mappings instance for this filing_version
     def mappings
       @mapping ||= Fech::Mappings.new(filing_version)
@@ -248,6 +257,15 @@ module Fech
     def fix_f99_contents
       @customized = true
       content = file_contents.read
+      
+      if RUBY_VERSION > "1.9.2"
+        content.encode!('UTF-8', 'UTF-8', :invalid => :replace)
+      else
+        require 'iconv'
+        ic = Iconv.new('UTF-8//IGNORE', 'UTF-8') 
+        content = ic.iconv(content + ' ')[0..-2] # add valid byte before converting, then remove it
+      end
+      
       regex = /\n\[BEGINTEXT\]\n(.*?)\[ENDTEXT\]\n/mi # some use eg [EndText]
       match = content.match(regex)
       if match

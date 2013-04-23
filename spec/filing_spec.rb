@@ -25,6 +25,8 @@ describe Fech::Filing do
     @filing_f13.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '425925.fec'))
     @filing_special_character = Fech::Filing.new(771694)
     @filing_special_character.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '771694.fec'))
+    @filing_f99 = Fech::Filing.new(862554)
+    @filing_f99.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '862554.fec'))
   end
   
   describe "#filing_version" do
@@ -97,6 +99,12 @@ describe Fech::Filing do
       @filing.send(:mappings)
     end
     
+  end
+  
+  describe 'miscelleanous filings' do
+    it "should handle invalid encoding" do
+      @filing_f99.rows_like(/f99/).first.should_not raise_error
+    end
   end
   
   describe "#rows_like" do
