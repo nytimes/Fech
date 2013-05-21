@@ -1,5 +1,6 @@
 require 'csv'       if     RUBY_VERSION > '1.9'
 require 'fastercsv' unless RUBY_VERSION > '1.9'
+require 'iconv'
 
 # Fech::Csv is a wrapper that provides simple CSV handling consistency
 # between Ruby 1.8 and Ruby 1.9.
