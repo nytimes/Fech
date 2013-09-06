@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fech (1.4)
+    fech (1.4.2)
       fastercsv
       people
 
@@ -17,7 +17,6 @@ GEM
     mocha (0.9.12)
     people (0.2.1)
     rake (0.8.7)
-    rcov (0.9.9)
     rdoc (3.9.2)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
@@ -47,8 +46,7 @@ DEPENDENCIES
   fech!
   linecache19
   mocha
-  rake (= 0.8.7)
-  rcov
+  rake
   rdoc
   rspec (~> 2.6)
   ruby-debug19
