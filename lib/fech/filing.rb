@@ -235,7 +235,14 @@ module Fech
     # before it's been parsed. This is needed
     # for the F99 special case.
     def form_type
-      file_contents.lines.each_with_index do |row, index|
+
+      if RUBY_VERSION >= "2.0"
+        lines = file_contents.each_line
+      else
+        lines = file_contents.lines
+      end
+
+      lines.each_with_index do |row, index|
         next if index == 0
         return row.split(delimiter).first
       end
@@ -256,7 +263,8 @@ module Fech
       content = file_contents.read
       
       if RUBY_VERSION > "1.9.2"
-        content.encode!('UTF-8', 'UTF-8', :invalid => :replace)
+        content.encode!('UTF-16', 'UTF-8', :invalid => :replace, :replace => '')
+        content.encode!('UTF-8', 'UTF-16')
       else
         require 'iconv'
         ic = Iconv.new('UTF-8//IGNORE', 'UTF-8') 
