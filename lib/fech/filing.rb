@@ -263,7 +263,7 @@ module Fech
       content = file_contents.read
       
       if RUBY_VERSION > "1.9.2"
-        content.encode!('UTF-16', 'UTF-8', :invalid => :replace, :replace => '')
+        content.encode!('UTF-16', 'UTF-8', :invalid => :replace, :undef => :replace, :replace => '')
         content.encode!('UTF-8', 'UTF-16')
       else
         require 'iconv'
