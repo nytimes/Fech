@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   
   s.add_dependency "fastercsv"
   s.add_dependency "people"
+  s.add_dependency "ensure-encoding"
   if RUBY_VERSION < "1.9"
     s.add_development_dependency "linecache", "0.43"
     s.add_development_dependency "ruby-debug"
