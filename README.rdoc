@@ -16,6 +16,7 @@ Can be found at Fech's Github page[http://nytimes.github.com/Fech/].
 
 == News
 
+* Nov. 14, 2013: Version 1.5.0 released. Bugfix for F3 mapping that did not include col_a_total_receipts_period. Thanks to @capitolmuckrakr for the report.
 * Sep. 10, 2013: Version 1.4.3 released. Bugfix for certain filings that raise encoding errors using Ruby 1.9.3 or greater.
 * Sep. 6, 2013: Version 1.4.2 released. Added support for Ruby 2.0 and fixed improper mapping for F1S records. Thanks to @bycoffe for the report.
 * May 22, 2013: Version 1.4.1 released. Bugfix to add version 6.2 to F5 filing mappings.
