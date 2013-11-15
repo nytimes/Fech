@@ -7,11 +7,12 @@ module FechUtils
   # the longest regex pattern found.
   ROW_TYPES = {
     :hdr   => /^hdr$/i,
-    :f1    => /^f1/i,
+    :f1    => /^f1[an]/i,
     :f13   => /^f13[an]/i,
     :f132  => /^f132/i,
     :f133  => /^f133/i,
-    :f1m   => /(^f1m[^a|n])/i,
+    :f1m   => /(^f1m[a|n])/i,
+    :f1s   => /^f1s/i,
     :f2    => /(^f2$)|(^f2[^4])/i,
     :f24   => /(^f24$)|(^f24[an])/i,
     :f3    => /^f3[a|n|t]/i,

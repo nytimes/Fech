@@ -1,22 +1,24 @@
 PATH
   remote: .
   specs:
-    fech (1.4)
+    fech (1.5.0)
+      ensure-encoding
       fastercsv
       people
 
 GEM
   remote: http://rubygems.org/
   specs:
+    archive-tar-minitar (0.5.2)
     columnize (0.3.6)
     diff-lcs (1.1.2)
+    ensure-encoding (0.1)
     fastercsv (1.5.5)
-    iconv (0.1)
-    linecache (0.43)
+    linecache19 (0.5.12)
+      ruby_core_source (>= 0.1.4)
     mocha (0.9.12)
     people (0.2.1)
     rake (0.8.7)
-    rcov (0.9.9)
     rdoc (3.9.2)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
@@ -26,11 +28,16 @@ GEM
     rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.6.0)
-    ruby-debug (0.10.4)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.4.0)
-    ruby-debug-base (0.10.4)
-      linecache (>= 0.3)
+    ruby-debug-base19 (0.11.25)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.5)
+      archive-tar-minitar (>= 0.5.2)
     yard (0.7.2)
 
 PLATFORMS
@@ -39,12 +46,10 @@ PLATFORMS
 DEPENDENCIES
   bundler
   fech!
-  iconv
-  linecache (= 0.43)
+  linecache19
   mocha
-  rake (= 0.8.7)
-  rcov
+  rake
   rdoc
   rspec (~> 2.6)
-  ruby-debug
+  ruby-debug19
   yard
