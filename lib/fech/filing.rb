@@ -299,7 +299,7 @@ module Fech
     end
 
     def filing_url
-      "http://query.nictusa.com/dcdev/posted/#{filing_id}.fec"
+      "http://docquery.fec.gov/dcdev/posted/#{filing_id}.fec"
     end
 
     # Iterates over and yields the Filing's lines
