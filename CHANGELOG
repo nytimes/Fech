@@ -1,0 +1,7 @@
+1.6.0 / 2014-01-14
+
+* Breaking changes
+
+  * F5 Form - deleted 16th field, switched 16th & 17th fields and added 20th field.
+  * F57 Form - changed :expenditure_date to :dissemination_date for field 18.
+  * Schedule E records - added a new 20th field, old 20th field moved to 22nd, 35th & 36th fields are switched.
