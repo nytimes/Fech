@@ -1,36 +1,1 @@
-canonical,^8.0|7.0|6.4|6.3|6.2|6.1,,^5.3|5.2|5.1|5.0|3,
-form_type,1,FORM TYPE,1,FORM TYPE
-filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID
-date_general_election,3,Date - General Election,34,Date - General Election
-date_day_after_general_election,4,Date - Day after General Election,35,Date - Day after General Election
-6a_total_contributions_no_loans,5,(6a) Total Contributions (No Loans),3,(6a) Total Contributions (No Loans)
-6b_total_contribution_refunds,6,(6b) Total Contribution Refunds,4,(6b) Total Contribution Refunds
-6c_net_contributions,7,(6c) Net Contributions,5,(6c) Net Contributions
-7a_total_operating_expenditures,8,(7a) Total Operating Expenditures,6,(7a) Total Operating Expenditures
-7b_total_offsets_to_operating_expenditures,9,(7b) Total Offsets to Operating Expenditures,7,(7b) Total Offsets to Operating Expenditures
-7c_net_operating_expenditures,10,(7c) NET Operating Expenditures.,8,(7c) NET Operating Expenditures.
-11_a_i_individuals_itemized,11,11(a i.) Individuals Itemized,9,11(a.i) Individuals Itemized
-11_a_ii_individuals_unitemized,12,11(a.ii) Individuals Unitemized,10,11(a.ii) Individuals Unitemized
-11_a_iii_individuals_total,13,11(a.iii) Individuals Total,11,11(a.iii) Individuals Total
-11_b_political_party_committees,14,11(b) Political Party Committees,12,11(b) Political Party Committees
-11_c_all_other_political_committees_pacs,15,11(c) All Other Political Committees (PACS),13,11(c) All Other Political Committees (PACS)
-11_d_the_candidate,16,11(d) The Candidate,14,11(d) The Candidate
-11_e_total_contributions,17,11(e) Total Contributions,15,11(e) Total Contributions
-12_transfers_from_other_auth_committees,18,12. Transfers From Other AUTH Committees,16,12. Transfers From Other AUTH Committees
-13_a_loans_made_or_guarn_by_the_candidate,19,13(a) Loans made or guarn. by the Candidate,17,13(a) Loans made or guarn. by the Candidate
-13_b_all_other_loans,20,13(b) All Other Loans,18,13(b) All Other Loans
-13_c_total_loans,21,13(c) Total Loans,19,13(c) Total Loans
-14_offsets_to_operating_expenditures,22,14. Offsets to Operating Expenditures,20,14. Offsets to Operating Expenditures
-15_other_receipts,23,15. Other Receipts,21,15. Other Receipts
-16_total_receipts,24,16. Total Receipts,22,16. Total Receipts
-17_operating_expenditures,25,17 Operating Expenditures,23,17 Operating Expenditures
-18_transfers_to_other_auth_committees,26,18. Transfers To Other AUTH Committees,24,18. Transfers To Other AUTH Committees
-19_a_loan_repayment_by_candidate,27,19(a) Loan Repayment By Candidate,25,19(a) Loan Repayment By Candidate
-19_b_loan_repayments_all_other_loans,28,19(b) Loan Repayments,  ALL Other Loans,26,19(b) Loan Repayments,  ALL Other Loans
-19_c_total_loan_repayments,29,19(c) Total Loan Repayments,27,19(c) Total Loan Repayments
-20_a_refund_individuals_other_than_pol_cmtes,30,20(a) Refund/Individuals Other than Pol. Cmtes,28,20(a) Refund/Individuals Other than Pol. Cmtes
-20_b_refund_political_party_committees,31,20(b) Refund, Political Party Committees,29,20(b) Refund, Political Party Committees
-20_c_refund_other_political_committees,32,20(c) Refund, Other Political Committees,30,20(c) Refund, Political Party Committees
-20_d_total_contributions_refunds,33,20(d) Total Contributions Refunds,31,20(d) Total Contributions Refunds
-21_other_disbursements,34,21. Other Disbursements,32,21. Other Disbursements
-22_total_disbursements,35,22. Total Disbursements,33,22. Total Disbursements
+canonical,^8.1|8.0|7.0|6.4|6.3|6.2|6.1,,^5.3|5.2|5.1|5.0|3,,,form_type,1,FORM TYPE,1,FORM TYPE,,filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID,,date_general_election,3,Date - General Election,34,Date - General Election,,date_day_after_general_election,4,Date - Day after General Election,35,Date - Day after General Election,,6a_total_contributions_no_loans,5,(6a) Total Contributions (No Loans),3,(6a) Total Contributions (No Loans),,6b_total_contribution_refunds,6,(6b) Total Contribution Refunds,4,(6b) Total Contribution Refunds,,6c_net_contributions,7,(6c) Net Contributions,5,(6c) Net Contributions,,7a_total_operating_expenditures,8,(7a) Total Operating Expenditures,6,(7a) Total Operating Expenditures,,7b_total_offsets_to_operating_expenditures,9,(7b) Total Offsets to Operating Expenditures,7,(7b) Total Offsets to Operating Expenditures,,7c_net_operating_expenditures,10,(7c) NET Operating Expenditures.,8,(7c) NET Operating Expenditures.,,11_a_i_individuals_itemized,11,11(a i.) Individuals Itemized,9,11(a.i) Individuals Itemized,,11_a_ii_individuals_unitemized,12,11(a.ii) Individuals Unitemized,10,11(a.ii) Individuals Unitemized,,11_a_iii_individuals_total,13,11(a.iii) Individuals Total,11,11(a.iii) Individuals Total,,11_b_political_party_committees,14,11(b) Political Party Committees,12,11(b) Political Party Committees,,11_c_all_other_political_committees_pacs,15,11(c) All Other Political Committees (PACS),13,11(c) All Other Political Committees (PACS),,11_d_the_candidate,16,11(d) The Candidate,14,11(d) The Candidate,,11_e_total_contributions,17,11(e) Total Contributions,15,11(e) Total Contributions,,12_transfers_from_other_auth_committees,18,12. Transfers From Other AUTH Committees,16,12. Transfers From Other AUTH Committees,,13_a_loans_made_or_guarn_by_the_candidate,19,13(a) Loans made or guarn. by the Candidate,17,13(a) Loans made or guarn. by the Candidate,,13_b_all_other_loans,20,13(b) All Other Loans,18,13(b) All Other Loans,,13_c_total_loans,21,13(c) Total Loans,19,13(c) Total Loans,,14_offsets_to_operating_expenditures,22,14. Offsets to Operating Expenditures,20,14. Offsets to Operating Expenditures,,15_other_receipts,23,15. Other Receipts,21,15. Other Receipts,,16_total_receipts,24,16. Total Receipts,22,16. Total Receipts,,17_operating_expenditures,25,17 Operating Expenditures,23,17 Operating Expenditures,,18_transfers_to_other_auth_committees,26,18. Transfers To Other AUTH Committees,24,18. Transfers To Other AUTH Committees,,19_a_loan_repayment_by_candidate,27,19(a) Loan Repayment By Candidate,25,19(a) Loan Repayment By Candidate,,19_b_loan_repayments_all_other_loans,28,19(b) Loan Repayments,  ALL Other Loans,26,19(b) Loan Repayments,  ALL Other Loans19_c_total_loan_repayments,29,19(c) Total Loan Repayments,27,19(c) Total Loan Repayments,,20_a_refund_individuals_other_than_pol_cmtes,30,20(a) Refund/Individuals Other than Pol. Cmtes,28,20(a) Refund/Individuals Other than Pol. Cmtes,,20_b_refund_political_party_committees,31,20(b) Refund, Political Party Committees,29,20(b) Refund, Political Party Committees20_c_refund_other_political_committees,32,20(c) Refund, Other Political Committees,30,20(c) Refund, Political Party Committees20_d_total_contributions_refunds,33,20(d) Total Contributions Refunds,31,20(d) Total Contributions Refunds,,21_other_disbursements,34,21. Other Disbursements,32,21. Other Disbursements,,22_total_disbursements,35,22. Total Disbursements,33,22. Total Disbursements,,

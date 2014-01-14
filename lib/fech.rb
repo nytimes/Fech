@@ -13,5 +13,5 @@ require 'fech/version'
 
 module Fech
   extend FechUtils
-  DEFAULT_VERSION = "8.0"
+  DEFAULT_VERSION = "8.1"
 end

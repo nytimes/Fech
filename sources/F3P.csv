@@ -1,208 +1,1 @@
-canonical,^7.0|8.0,,^6.4|6.3|6.2|6.1,,^5.3|5.2,,^5.1|5.0|3,
-form_type,1,FORM TYPE,1,FORM TYPE,1,FORM TYPE,1,FORM TYPE
-filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID,2,FILER FEC CMTE ID
-committee_name,3,COMMITTEE NAME,3,COMMITTEE NAME,3,COMMITTEENAME,3,COMMITTEENAME
-change_of_address,4,CHANGE OF ADDRESS,4,CHANGE OF ADDRESS,9,CHG OF ADDRESS,9,CHG OF ADDRESS
-street_1,5,STREET  1,5,STREET  1,4,STREET  1,4,STREET  1
-street_2,6,STREET  2,6,STREET  2,5,STREET  2,5,STREET  2
-city,7,CITY,7,CITY,6,CITY,6,CITY
-state,8,STATE,8,STATE,7,STATE,7,STATE
-zip_code,9,ZIP,9,ZIP,8,ZIP,8,ZIP
-activity_primary,10,ACTIVITY PRIMARY,10,ACTIVITY PRIMARY,10,ACTIVITY PRIMARY,10,ACTIVITY PRIMARY
-activity_general,11,ACTIVITY GENERAL,11,ACTIVITY GENERAL,11,ACTIVITY GENERAL,11,ACTIVITY GENERAL
-report_code,12,REPORT CODE,12,REPORT CODE,12,RPTCODE,12,RPTCODE
-election_code,13,ELECTION CODE  {was RPTPGI},13,ELECTION CODE  {was RPTPGI},13,RPTPGI,13,RPTPGI
-date_of_election,14,DATE OF ELECTION,14,DATE OF ELECTION,14,DATE (Of Election),14,DATE (Of Election)
-state_of_election,15,STATE OF ELECTION,15,STATE OF ELECTION,15,STATE (Of Election),15,STATE (Of Election)
-coverage_from_date,16,COVERAGE FROM DATE,16,COVERAGE FROM DATE,16,DATE (Coverage From),16,DATE (Coverage From)
-coverage_through_date,17,COVERAGE THROUGH DATE,17,COVERAGE THROUGH DATE,17,DATE (Coverage To),17,DATE (Coverage To)
-treasurer_name,,,,,197,NAME/TREASURER (as signed),197,NAME/TREASURER (as signed)
-treasurer_last_name,18,TREASURER LAST NAME,18,TREASURER LAST NAME,,,,
-treasurer_first_name,19,TREASURER FIRST NAME,19,TREASURER FIRST NAME,,,,
-treasurer_middle_name,20,TREASURER MIDDLE NAME,20,TREASURER MIDDLE NAME,,,,
-treasurer_prefix,21,TREASURER PREFIX,21,TREASURER PREFIX,,,,
-treasurer_suffix,22,TREASURER SUFFIX,22,TREASURER SUFFIX,,,,
-date_signed,23,DATE SIGNED,23,DATE SIGNED,198,DATE (Signed),198,DATE (Signed)
-col_a_cash_on_hand_beginning_period,24,6.  Cash on Hand Beginning Period,24,6.  Cash on Hand Beginning Period,18,6.  Cash on Hand Beginning Period,18,6.  Cash on Hand Beginning Period
-col_a_total_receipts,25,7.  Total Receipts,25,7.  Total Receipts,19,7.  Total Receipts,19,7.  Total Receipts
-col_a_subtotal,26,8.  Subtotal,26,8.  SubTotal,20,8.  SubTotal,20,8.  SubTotal
-col_a_total_disbursements,27,9.  Total Disbursements,27,9.  Total Disbursements,21,9.  Total Disbursements,21,9.  Total Disbursements
-col_a_cash_on_hand_close_of_period,28,10.  Cash on Hand Close of Period,28,10.  Cash on Hand Close of Period,22,10.  Cash on Hand Close of Period,22,10.  Cash on Hand Close of Period
-col_a_debts_to,29,11.  Debts to,29,11.  Debts to,23,11.  Debts to,23,11.  Debts to
-col_a_debts_by,30,12.  Debts by,30,12.  Debts by,24,12.  Debts by,24,12.  Debts by
-col_a_expenditures_subject_to_limits,31,13.  Expenditures Subject to Limits,31,13.  Expenditures Subject to Limits,25,13.  Expenditures Subject to Limits,25,13.  Expenditures Subject to Limits
-col_a_net_contributions,32,14.  Net Contributions,32,14.  Net Contributions,26,14.  Net Contributions,26,14.  Net Contributions
-col_a_net_operating_expenditures,33,15.  Net Operating Expenditures,33,15.  Net Operating Expenditures,27,15.  Net Operating Expenditures,27,15.  Net Operating Expenditures
-col_a_federal_funds,34,16. Federal Funds,34,16. Federal Funds,28,16. Federal Funds,28,16. Federal Funds
-col_a_individuals_itemized,35,17(a.i) Individuals Itemized,,,,,,
-col_a_individuals_unitemized,36,17(a.ii) Individuals Unitemized,,,,,,
-col_a_individual_contribution_total,37,17(a.iii) Individual Contribution Total,35,17(a)  Individuals,29,17(a)  Individuals,29,17(a)  Individuals
-col_a_political_party_committees_receipts,38,17(b) Political Party Committees,36,17(b) Political Party Committees,30,17(b) Political Party Committees,30,17(b) Political Party Committees
-col_a_other_political_committees_pacs,39,17(c) Other Political Committees (PACs),37,17(c) Other Political Committees (PACs),31,17(c) Other Political Committees (PACs),31,17(c) Other Political Committees (PACs)
-col_a_the_candidate,40,17(d) The Candidate,38,17(d) The Candidate,32,17(d) The Candidate,32,17(d) The Candidate
-col_a_total_contributions,41,17(e) Total Contributions,39,17(e) Total Contributions,33,17(e) Total Contributions,33,17(e) Total Contributions
-col_a_transfers_from_aff_other_party_cmttees,42,18. Transfers From Aff/Other Party Cmttees,40,18. Transfers From Aff/Other Party Cmttees,34,18. Transfers From Aff/Other Party Cmttees,34,18. Transfers From Aff/Other Party Committees
-col_a_received_from_or_guaranteed_by_cand,43,19(a) Received from or Guaranteed by Cand.,41,19(a) Received from or Guaranteed by Cand.,35,19(a) Received from or Guaranteed by Cand.,35,19(a) Received from or Guaranteed by Candidate
-col_a_other_loans,44,19(b) Other Loans,42,19(b) Other Loans,36,19(b) Other Loans,36,19(b) Other Loans
-col_a_total_loans,45,19(c) Total Loans,43,19(c) Total Loans,37,19(c) Total Loans,37,19(c) Total Loans
-col_a_operating,46,20(a) Operating,44,20(a) Operating,38,20(a) Operating,38,20(a) Operating
-col_a_fundraising,47,20(b) Fundraising,45,20(b) Fundraising,39,20(b) Fundraising,39,20(b) Fundraising
-col_a_legal_and_accounting,48,20(c) Legal and Accounting,46,20(c) Legal and Accounting,40,20(c) Legal and Accounting,40,20(c) Legal and Accounting
-col_a_total_offsets_to_expenditures,49,20(d) Total offsets to Expenditures,47,20(d) Total offsets to Expenditures,41,20(d) Total offsets to Expenditures,41,20(d) Total offsets to Expenditures
-col_a_other_receipts,50,21. Other Receipts,48,21. Other Receipts,42,21. Other Receipts,42,21. Other Receipts
-col_a_total_receipts,51,22. Total Receipts,49,22. Total Receipts,43,22. Total Receipts,43,22. Total Receipts
-col_a_operating_expenditures,52,23. Operating Expenditures,50,23. Operating Expenditures,44,23. Operating Expenditures,44,23. Operating Expenditures
-col_a_transfers_to_other_authorized_committees,53,24. Transfers to Other Authorized Committees,51,24. Transfers to Other Authorized Committees,45,24. Transfers to Other Authorized Committees,45,24. Transfers to Other Authorized Committees
-col_a_fundraising_disbursements,54,25. Fundraising Disbursements,52,25. Fundraising Disbursements,46,25. Fundraising Disbursements,46,25. Fundraising Disbursements
-col_a_exempt_legal_accounting_disbursement,55,26. Exempt Legal & Accounting Disbursement,53,26. Exempt Legal & Accounting Disbursement,47,26. Exempt Legal & Accounting Disbursement,47,26. Exempt Legal and Accounting Disbursements
-col_a_made_or_guaranteed_by_candidate,56,27(a) Made or guaranteed by Candidate,54,27(a) Made or guaranteed by Candidate,48,27(a) Made or guaranteed by Candidate,48,27(a) Made or guaranteed by Candidate
-col_a_other_repayments,57,27(b) Other Repayments,55,27(b) Other Repayments,49,27(b) Other Repayments,49,27(b) Other Repayments
-col_a_total_loan_repayments_made,58,27(c) Total Loan Repayments Made,56,27(c) Total Loan Repayments Made,50,27(c) Total Loan Repayments Made,50,27(c) Total Loan Repayments Made
-col_a_individuals,59,28(a) Individuals,57,28(a) Individuals,51,28(a) Individuals,51,28(a) Individuals
-col_a_political_party_committees_refunds,60,28(b) Political Party Committees,58,28(b) Political Party Committees,52,28(b) Political Party Committees,52,28(b) Political Party Committees
-col_a_other_political_committees,61,28(c) Other Political Committees,59,28(c) Other Political Committees,53,28(c) Other Political Committees,53,28(c) Other Political Committees
-col_a_total_contributions_refunds,62,28(d) Total Contributions Refunds,60,28(d) Total Contributions Refunds,54,28(d) Total Contributions Refunds,54,28(d) Total Contributions Refunds
-col_a_other_disbursements,63,29. Other Disbursements,61,29. Other Disbursements,55,29. Other Disbursements,55,29. Other Disbursements
-col_a_total_disbursements,64,30. Total Disbursements,62,30. Total Disbursements,56,30. Total Disbursements,56,30. Total Disbursements
-col_a_items_on_hand_to_be_liquidated,65,31. Items on Hand to be Liquidated,63,31. Items on Hand to be Liquidated,57,31. Items on Hand to be Liquidated,57,31. Items on Hand to be Liquidated
-col_a_alabama,66,ALABAMA,64,ALABAMA,58,ALABAMA,58,ALABAMA
-col_a_alaska,67,ALASKA,65,ALASKA,59,ALASKA,59,ALASKA
-col_a_arizona,68,ARIZONA,66,ARIZONA,60,ARIZONA,60,ARIZONA
-col_a_arkansas,69,ARKANSAS,67,ARKANSAS,61,ARKANSAS,61,ARKANSAS
-col_a_california,70,CALIFORNIA,68,CALIFORNIA,62,CALIFORNIA,62,CALIFORNIA
-col_a_colorado,71,COLORADO,69,COLORADO,63,COLORADO,63,COLORADO
-col_a_connecticut,72,CONNECTICUT,70,CONNECTICUT,64,CONNECTICUT,64,CONNECTICUT
-col_a_delaware,73,DELAWARE,71,DELAWARE,65,DELAWARE,65,DELAWARE
-col_a_dist_of_columbia,74,DIST OF COLUMBIA,72,DIST OF COLUMBIA,66,DIST OF COLUMBIA,66,DIST OF COLUMBIA
-col_a_florida,75,FLORIDA,73,FLORIDA,67,FLORIDA,67,FLORIDA
-col_a_georgia,76,GEORGIA,74,GEORGIA,68,GEORGIA,68,GEORGIA
-col_a_hawaii,77, HAWAII,75, HAWAII,69, HAWAII,69, HAWAII
-col_a_idaho,78,IDAHO,76,IDAHO,70,IDAHO,70,IDAHO
-col_a_illinois,79,ILLINOIS,77,ILLINOIS,71,ILLINOIS,71,ILLINOIS
-col_a_indiana,80,INDIANA,78,INDIANA,72,INDIANA,72,INDIANA
-col_a_iowa,81,IOWA,79,IOWA,73,IOWA,73,IOWA
-col_a_kansas,82,KANSAS,80,KANSAS,74,KANSAS,74,KANSAS
-col_a_kentucky,83,KENTUCKY,81,KENTUCKY,75,KENTUCKY,75,KENTUCKY
-col_a_louisiana,84,LOUISIANA,82,LOUISIANA,76,LOUISIANA,76,LOUISIANA
-col_a_maine,85,MAINE,83,MAINE,77,MAINE,77,MAINE
-col_a_maryland,86,MARYLAND,84,MARYLAND,78,MARYLAND,78,MARYLAND
-col_a_massachusetts,87,MASSACHUSETTS,85,MASSACHUSETTS,79,MASSACHUSETTS,79,MASSACHUSETTS
-col_a_michigan,88,MICHIGAN,86,MICHIGAN,80,MICHIGAN,80,MICHIGAN
-col_a_minnesota,89,MINNESOTA,87,MINNESOTA,81,MINNESOTA,81,MINNESOTA
-col_a_mississippi,90,MISSISSIPPI,88,MISSISSIPPI,82,MISSISSIPPI,82,MISSISSIPPI
-col_a_missouri,91,MISSOURI,89,MISSOURI,83,MISSOURI,83,MISSOURI
-col_a_montana,92, MONTANA,90, MONTANA,84, MONTANA,84, MONTANA
-col_a_nebraska,93,NEBRASKA,91,NEBRASKA,85,NEBRASKA,85,NEBRASKA
-col_a_nevada,94,NEVADA,92,NEVADA,86,NEVADA,86,NEVADA
-col_a_new_hampshire,95,NEW HAMPSHIRE,93,NEW HAMPSHIRE,87,NEW HAMPSHIRE,87,NEW HAMPSHIRE
-col_a_new_jersey,96,NEW JERSEY,94,NEW JERSEY,88,NEW JERSEY,88,NEW JERSEY
-col_a_new_mexico,97,NEW MEXICO,95,NEW MEXICO,89,NEW MEXICO,89,NEW MEXICO
-col_a_new_york,98,NEW YORK,96,NEW YORK,90,NEW YORK,90,NEW YORK
-col_a_north_carolina,99,NORTH CAROLINA,97,NORTH CAROLINA,91,NORTH CAROLINA,91,NORTH CAROLINA
-col_a_north_dakota,100,NORTH DAKOTA,98,NORTH DAKOTA,92,NORTH DAKOTA,92,NORTH DAKOTA
-col_a_ohio,101,OHIO,99,OHIO,93,OHIO,93,OHIO
-col_a_oklahoma,102,OKLAHOMA,100,OKLAHOMA,94,OKLAHOMA,94,OKLAHOMA
-col_a_oregon,103,OREGON,101,OREGON,95,OREGON,95,OREGON
-col_a_pennsylvania,104,PENNSYLVANIA,102,PENNSYLVANIA,96,PENNSYLVANIA,96,PENNSYLVANIA
-col_a_rhode_island,105,RHODE ISLAND,103,RHODE ISLAND,97,RHODE ISLAND,97,RHODE ISLAND
-col_a_south_carolina,106,SOUTH CAROLINA,104,SOUTH CAROLINA,98,SOUTH CAROLINA,98,SOUTH CAROLINA
-col_a_south_dakota,107,SOUTH DAKOTA,105,SOUTH DAKOTA,99,SOUTH DAKOTA,99,SOUTH DAKOTA
-col_a_tennessee,108,TENNESSEE,106,TENNESSEE,100,TENNESSEE,100,TENNESSEE
-col_a_texas,109,TEXAS,107,TEXAS,101,TEXAS,101,TEXAS
-col_a_utah,110,UTAH,108,UTAH,102,UTAH,102,UTAH
-col_a_vermont,111,VERMONT,109,VERMONT,103,VERMONT,103,VERMONT
-col_a_virginia,112,VIRGINIA,110,VIRGINIA,104,VIRGINIA,104,VIRGINIA
-col_a_washington,113,WASHINGTON,111,WASHINGTON,105,WASHINGTON,105,WASHINGTON
-col_a_west_virginia,114,WEST VIRGINIA,112,WEST VIRGINIA,106,WEST VIRGINIA,106,WEST VIRGINIA
-col_a_wisconsin,115,WISCONSIN,113,WISCONSIN,107,WISCONSIN,107,WISCONSIN
-col_a_wyoming,116,WYOMING,114,WYOMING,108,WYOMING,108,WYOMING
-col_a_puerto_rico,117,PUERTO RICO,115,PUERTO RICO,109,PUERTO RICO,109,PUERTO RICO
-col_a_guam,118,GUAM,116,GUAM,110,GUAM,110,GUAM
-col_a_virgin_islands,119,VIRGIN ISLANDS,117,VIRGIN ISLANDS,111,VIRGIN ISLANDS,111,VIRGIN ISLANDS
-col_a_totals,120,TOTALS,118,TOTALS,112,TOTALS,112,TOTALS
-col_b_federal_funds,121,16. Federal Funds,119,16. Federal Funds,113,16. Federal Funds,113,16. Federal Funds
-col_b_individuals_itemized,122,17(a.i) Individuals Itemized,,,,,,
-col_b_individuals_unitemized,123,17(a.ii) Individuals Unitemized,,,,,,
-col_b_individual_contribution_total,124,17(a.iii) Individual Contribution Total,120,17(a)  Individuals,114,17(a)  Individuals,114,17(a)  Individuals
-col_b_political_party_committees_receipts,125,17(b) Political Party Committees,121,17(b) Political Party Committees,115,17(b) Political Party Committees,115,17(b) Political Party Committees
-col_b_other_political_committees_pacs,126,17(c) Other Political Committees (PACs),122,17(c) Other Political Committees (PACs),116,17(c) Other Political Committees (PACs),116,17(c) Other Political Committees (PACs)
-col_b_the_candidate,127,17(d) The Candidate,123,17(d) The Candidate,117,17(d) The Candidate,117,17(d) The Candidate
-col_b_total_contributions_other_than_loans,128,17(e) Total contributions  (Other than Loans),124,17(e) Total contributions  (Other than Loans),118,17(e) Total contributions  (Other than Loans),118,17(e) Total contributions  (Other than Loans)
-col_b_transfers_from_aff_other_party_cmttees,129,18. Transfers From Aff/Other Party Cmttees,125,18. Transfers From Aff/Other Party Cmttees,119,18. Transfers From Aff/Other Party Cmttees,119,18. Transfers From Aff/Other Party Committees
-col_b_received_from_or_guaranteed_by_cand,130,19(a) Received from or Guaranteed  by Cand.,126,19(a) Received from or Guaranteed  by Cand.,120,19(a) Received from or Guaranteed  by Cand.,120,19(a) Received from or Guaranteed  by Candidate
-col_b_other_loans,131,19(b) Other Loans,127,19(b) Other Loans,121,19(b) Other Loans,121,19(b) Other Loans
-col_b_total_loans,132,19(c) Total Loans,128,19(c) Total Loans,122,19(c) Total Loans,122,19(c) Total Loans
-col_b_operating,133,20(a) Operating,129,20(a) Operating,123,20(a) Operating,123,20(a) Operating
-col_b_fundraising,134,20(b) Fundraising,130,20(b) Fundraising,124,20(b) Fundraising,124,20(b) Fundraising
-col_b_legal_and_accounting,135,20(c) Legal and Accounting,131,20(c) Legal and Accounting,125,20(c) Legal and Accounting,125,20(c) Legal and Accounting
-col_b_total_offsets_to_operating_expenditures,136,20(d) Total Offsets to Operating Expenditures,132,20(d) Total Offsets to Operating Expenditures,126,20(d) Total Offsets to Operating Expenditures,126,20(d) Total Offsets to Operating Expenditures
-col_b_other_receipts,137,21. Other Receipts,133,21. Other Receipts,127,21. Other Receipts,127,21. Other Receipts
-col_b_total_receipts,138,22. Total Receipts,134,22. Total Receipts,128,22. Total Receipts,128,22. Total Receipts
-col_b_operating_expenditures,139,23. Operating Expenditures,135,23. Operating Expenditures,129,23. Operating Expenditures,129,23. Operating Expenditures
-col_b_transfers_to_other_authorized_committees,140,24. Transfers to Other Authorized Committees,136,24. Transfers to Other Authorized Committees,130,24. Transfers to Other Authorized Committees,130,24. Transfers to Other Authorized Committees
-col_b_fundraising_disbursements,141,25. Fundraising Disbursements,137,25. Fundraising Disbursements,131,25. Fundraising Disbursements,131,25. Fundraising Disbursements
-col_b_exempt_legal_accounting_disbursement,142,26. Exempt Legal & Accounting Disbursement,138,26. Exempt Legal & Accounting Disbursement,132,26. Exempt Legal & Accounting Disbursement,132,26. Exempt Legal and Accounting Disbursements
-col_b_made_or_guaranteed_by_the_candidate,143,27(a) Made or Guaranteed by the Candidate,139,27(a) Made or Guaranteed by the Candidate,133,27(a) Made or Guaranteed by the Candidate,133,27(a) Made or Guaranteed by the Candidate
-col_b_other_repayments,144,27(b) Other Repayments,140,27(b) Other Repayments,134,27(b) Other Repayments,134,27(b) Other Repayments
-col_b_total_loan_repayments_made,145,27(c) Total Loan Repayments Made,141,27(c) Total Loan Repayments Made,135,27(c) Total Loan Repayments Made,135,27(c) Total Loan Repayments Made
-col_b_individuals,146,28(a)  Individuals,142,28(a)  Individuals,136,28(a)  Individuals,136,28(a)  Individuals
-col_b_political_party_committees_refunds,147,28(b) Political Party Committees,143,28(b) Political Party Committees,137,28(b) Political Party Committees,137,28(b) Political Party Committees
-col_b_other_political_committees,148,28(c) Other Political Committees,144,28(c) Other Political Committees,138,28(c) Other Political Committees,138,28(c) Other Political Committees
-col_b_total_contributions_refunds,149,28(d) Total Contributions Refunds,145,28(d) Total Contributions Refunds,139,28(d) Total Contributions Refunds,139,28(d) Total Contributions Refunds
-col_b_other_disbursements,150,29. Other Disbursements,146,29. Other Disbursements,140,29. Other Disbursements,140,29. Other Disbursements
-col_b_total_disbursements,151,30. Total Disbursements,147,30. Total Disbursements,141,30. Total Disbursements,141,30. Total Disbursements
-col_b_alabama,152,ALABAMA,148,ALABAMA,142,ALABAMA,142,ALABAMA
-col_b_alaska,153,ALASKA,149,ALASKA,143,ALASKA,143,ALASKA
-col_b_arizona,154,ARIZONA,150,ARIZONA,144,ARIZONA,144,ARIZONA
-col_b_arkansas,155,ARKANSAS,151,ARKANSAS,145,ARKANSAS,145,ARKANSAS
-col_b_california,156,CALIFORNIA,152,CALIFORNIA,146,CALIFORNIA,146,CALIFORNIA
-col_b_colorado,157,COLORADO,153,COLORADO,147,COLORADO,147,COLORADO
-col_b_connecticut,158,CONNECTICUT,154,CONNECTICUT,148,CONNECTICUT,148,CONNECTICUT
-col_b_delaware,159,DELAWARE,155,DELAWARE,149,DELAWARE,149,DELAWARE
-col_b_dist_of_columbia,160,DIST OF COLUMBIA,156,DIST OF COLUMBIA,150,DIST OF COLUMBIA,150,DIST OF COLUMBIA
-col_b_florida,161,FLORIDA,157,FLORIDA,151,FLORIDA,151,FLORIDA
-col_b_georgia,162,GEORGIA,158,GEORGIA,152,GEORGIA,152,GEORGIA
-col_b_hawaii,163,HAWAII,159,HAWAII,153,HAWAII,153,HAWAII
-col_b_idaho,164,IDAHO,160,IDAHO,154,IDAHO,154,IDAHO
-col_b_illinois,165,ILLINOIS,161,ILLINOIS,155,ILLINOIS,155,ILLINOIS
-col_b_indiana,166,INDIANA,162,INDIANA,156,INDIANA,156,INDIANA
-col_b_iowa,167,IOWA,163,IOWA,157,IOWA,157,IOWA
-col_b_kansas,168,KANSAS,164,KANSAS,158,KANSAS,158,KANSAS
-col_b_kentucky,169,KENTUCKY,165,KENTUCKY,159,KENTUCKY,159,KENTUCKY
-col_b_louisiana,170,LOUISIANA,166,LOUISIANA,160,LOUISIANA,160,LOUISIANA
-col_b_maine,171,MAINE,167,MAINE,161,MAINE,161,MAINE
-col_b_maryland,172,MARYLAND,168,MARYLAND,162,MARYLAND,162,MARYLAND
-col_b_massachusetts,173,MASSACHUSETTS,169,MASSACHUSETTS,163,MASSACHUSETTS,163,MASSACHUSETTS
-col_b_michigan,174,MICHIGAN,170,MICHIGAN,164,MICHIGAN,164,MICHIGAN
-col_b_minnesota,175,MINNESOTA,171,MINNESOTA,165,MINNESOTA,165,MINNESOTA
-col_b_mississippi,176,MISSISSIPPI,172,MISSISSIPPI,166,MISSISSIPPI,166,MISSISSIPPI
-col_b_missouri,177,MISSOURI,173,MISSOURI,167,MISSOURI,167,MISSOURI
-col_b_montana,178,MONTANA,174,MONTANA,168,MONTANA,168,MONTANA
-col_b_nebraska,179,NEBRASKA,175,NEBRASKA,169,NEBRASKA,169,NEBRASKA
-col_b_nevada,180,NEVADA,176,NEVADA,170,NEVADA,170,NEVADA
-col_b_new_hampshire,181,NEW HAMPSHIRE,177,NEW HAMPSHIRE,171,NEW HAMPSHIRE,171,NEW HAMPSHIRE
-col_b_new_jersey,182,NEW JERSEY,178,NEW JERSEY,172,NEW JERSEY,172,NEW JERSEY
-col_b_new_mexico,183,NEW MEXICO,179,NEW MEXICO,173,NEW MEXICO,173,NEW MEXICO
-col_b_new_york,184,NEW YORK,180,NEW YORK,174,NEW YORK,174,NEW YORK
-col_b_north_carolina,185,NORTH CAROLINA,181,NORTH CAROLINA,175,NORTH CAROLINA,175,NORTH CAROLINA
-col_b_north_dakota,186,NORTH DAKOTA,182,NORTH DAKOTA,176,NORTH DAKOTA,176,NORTH DAKOTA
-col_b_ohio,187,OHIO,183,OHIO,177,OHIO,177,OHIO
-col_b_oklahoma,188,OKLAHOMA,184,OKLAHOMA,178,OKLAHOMA,178,OKLAHOMA
-col_b_oregon,189,OREGON,185,OREGON,179,OREGON,179,OREGON
-col_b_pennsylvania,190,PENNSYLVANIA,186,PENNSYLVANIA,180,PENNSYLVANIA,180,PENNSYLVANIA
-col_b_rhode_island,191,RHODE ISLAND,187,RHODE ISLAND,181,RHODE ISLAND,181,RHODE ISLAND
-col_b_south_carolina,192,SOUTH CAROLINA,188,SOUTH CAROLINA,182,SOUTH CAROLINA,182,SOUTH CAROLINA
-col_b_south_dakota,193,SOUTH DAKOTA,189,SOUTH DAKOTA,183,SOUTH DAKOTA,183,SOUTH DAKOTA
-col_b_tennessee,194,TENNESSEE,190,TENNESSEE,184,TENNESSEE,184,TENNESSEE
-col_b_texas,195,TEXAS,191,TEXAS,185,TEXAS,185,TEXAS
-col_b_utah,196,UTAH,192,UTAH,186,UTAH,186,UTAH
-col_b_vermont,197,VERMONT,193,VERMONT,187,VERMONT,187,VERMONT
-col_b_virginia,198,VIRGINIA,194,VIRGINIA,188,VIRGINIA,188,VIRGINIA
-col_b_washington,199,WASHINGTON,195,WASHINGTON,189,WASHINGTON,189,WASHINGTON
-col_b_west_virginia,200,WEST VIRGINIA,196,WEST VIRGINIA,190,WEST VIRGINIA,190,WEST VIRGINIA
-col_b_wisconsin,201,WISCONSIN,197,WISCONSIN,191,WISCONSIN,191,WISCONSIN
-col_b_wyoming,202,WYOMING,198,WYOMING,192,WYOMING,192,WYOMING
-col_b_puerto_rico,203,PUERTO RICO,199,PUERTO RICO,193,PUERTO RICO,193,PUERTO RICO
-col_b_guam,204,GUAM,200,GUAM,194,GUAM,194,GUAM
-col_b_virgin_islands,205,VIRGIN ISLANDS,201,VIRGIN ISLANDS,195,VIRGIN ISLANDS,195,VIRGIN ISLANDS
-col_b_totals,206,TOTALS,202,TOTALS,196,TOTALS,196,TOTALS
+canonical,^8.1|8.0|7.0,,^6.4|6.3|6.2|6.1,,^5.3|5.2,,^5.1|5.0|3,form_type,1,FORM TYPE,1,FORM TYPE,1,FORM TYPE,1,FORM TYPEfiler_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID,2,FILER FEC CMTE IDcommittee_name,3,COMMITTEE NAME,3,COMMITTEE NAME,3,COMMITTEENAME,3,COMMITTEENAMEchange_of_address,4,CHANGE OF ADDRESS,4,CHANGE OF ADDRESS,9,CHG OF ADDRESS,9,CHG OF ADDRESSstreet_1,5,STREET  1,5,STREET  1,4,STREET  1,4,STREET  1street_2,6,STREET  2,6,STREET  2,5,STREET  2,5,STREET  2city,7,CITY,7,CITY,6,CITY,6,CITYstate,8,STATE,8,STATE,7,STATE,7,STATEzip_code,9,ZIP,9,ZIP,8,ZIP,8,ZIPactivity_primary,10,ACTIVITY PRIMARY,10,ACTIVITY PRIMARY,10,ACTIVITY PRIMARY,10,ACTIVITY PRIMARYactivity_general,11,ACTIVITY GENERAL,11,ACTIVITY GENERAL,11,ACTIVITY GENERAL,11,ACTIVITY GENERALreport_code,12,REPORT CODE,12,REPORT CODE,12,RPTCODE,12,RPTCODEelection_code,13,ELECTION CODE  {was RPTPGI},13,ELECTION CODE  {was RPTPGI},13,RPTPGI,13,RPTPGIdate_of_election,14,DATE OF ELECTION,14,DATE OF ELECTION,14,DATE (Of Election),14,DATE (Of Election)state_of_election,15,STATE OF ELECTION,15,STATE OF ELECTION,15,STATE (Of Election),15,STATE (Of Election)coverage_from_date,16,COVERAGE FROM DATE,16,COVERAGE FROM DATE,16,DATE (Coverage From),16,DATE (Coverage From)coverage_through_date,17,COVERAGE THROUGH DATE,17,COVERAGE THROUGH DATE,17,DATE (Coverage To),17,DATE (Coverage To)treasurer_name,,,,,197,NAME/TREASURER (as signed),197,NAME/TREASURER (as signed)treasurer_last_name,18,TREASURER LAST NAME,18,TREASURER LAST NAME,,,,treasurer_first_name,19,TREASURER FIRST NAME,19,TREASURER FIRST NAME,,,,treasurer_middle_name,20,TREASURER MIDDLE NAME,20,TREASURER MIDDLE NAME,,,,treasurer_prefix,21,TREASURER PREFIX,21,TREASURER PREFIX,,,,treasurer_suffix,22,TREASURER SUFFIX,22,TREASURER SUFFIX,,,,date_signed,23,DATE SIGNED,23,DATE SIGNED,198,DATE (Signed),198,DATE (Signed)col_a_cash_on_hand_beginning_period,24,6.  Cash on Hand Beginning Period,24,6.  Cash on Hand Beginning Period,18,6.  Cash on Hand Beginning Period,18,6.  Cash on Hand Beginning Periodcol_a_total_receipts,25,7.  Total Receipts,25,7.  Total Receipts,19,7.  Total Receipts,19,7.  Total Receiptscol_a_subtotal,26,8.  Subtotal,26,8.  SubTotal,20,8.  SubTotal,20,8.  SubTotalcol_a_total_disbursements,27,9.  Total Disbursements,27,9.  Total Disbursements,21,9.  Total Disbursements,21,9.  Total Disbursementscol_a_cash_on_hand_close_of_period,28,10.  Cash on Hand Close of Period,28,10.  Cash on Hand Close of Period,22,10.  Cash on Hand Close of Period,22,10.  Cash on Hand Close of Periodcol_a_debts_to,29,11.  Debts to,29,11.  Debts to,23,11.  Debts to,23,11.  Debts tocol_a_debts_by,30,12.  Debts by,30,12.  Debts by,24,12.  Debts by,24,12.  Debts bycol_a_expenditures_subject_to_limits,31,13.  Expenditures Subject to Limits,31,13.  Expenditures Subject to Limits,25,13.  Expenditures Subject to Limits,25,13.  Expenditures Subject to Limitscol_a_net_contributions,32,14.  Net Contributions,32,14.  Net Contributions,26,14.  Net Contributions,26,14.  Net Contributionscol_a_net_operating_expenditures,33,15.  Net Operating Expenditures,33,15.  Net Operating Expenditures,27,15.  Net Operating Expenditures,27,15.  Net Operating Expenditurescol_a_federal_funds,34,16. Federal Funds,34,16. Federal Funds,28,16. Federal Funds,28,16. Federal Fundscol_a_individuals_itemized,35,17(a.i) Individuals Itemized,,,,,,col_a_individuals_unitemized,36,17(a.ii) Individuals Unitemized,,,,,,col_a_individual_contribution_total,37,17(a.iii) Individual Contribution Total,35,17(a)  Individuals,29,17(a)  Individuals,29,17(a)  Individualscol_a_political_party_committees_receipts,38,17(b) Political Party Committees,36,17(b) Political Party Committees,30,17(b) Political Party Committees,30,17(b) Political Party Committeescol_a_other_political_committees_pacs,39,17(c) Other Political Committees (PACs),37,17(c) Other Political Committees (PACs),31,17(c) Other Political Committees (PACs),31,17(c) Other Political Committees (PACs)col_a_the_candidate,40,17(d) The Candidate,38,17(d) The Candidate,32,17(d) The Candidate,32,17(d) The Candidatecol_a_total_contributions,41,17(e) Total Contributions,39,17(e) Total Contributions,33,17(e) Total Contributions,33,17(e) Total Contributionscol_a_transfers_from_aff_other_party_cmttees,42,18. Transfers From Aff/Other Party Cmttees,40,18. Transfers From Aff/Other Party Cmttees,34,18. Transfers From Aff/Other Party Cmttees,34,18. Transfers From Aff/Other Party Committeescol_a_received_from_or_guaranteed_by_cand,43,19(a) Received from or Guaranteed by Cand.,41,19(a) Received from or Guaranteed by Cand.,35,19(a) Received from or Guaranteed by Cand.,35,19(a) Received from or Guaranteed by Candidatecol_a_other_loans,44,19(b) Other Loans,42,19(b) Other Loans,36,19(b) Other Loans,36,19(b) Other Loanscol_a_total_loans,45,19(c) Total Loans,43,19(c) Total Loans,37,19(c) Total Loans,37,19(c) Total Loanscol_a_operating,46,20(a) Operating,44,20(a) Operating,38,20(a) Operating,38,20(a) Operatingcol_a_fundraising,47,20(b) Fundraising,45,20(b) Fundraising,39,20(b) Fundraising,39,20(b) Fundraisingcol_a_legal_and_accounting,48,20(c) Legal and Accounting,46,20(c) Legal and Accounting,40,20(c) Legal and Accounting,40,20(c) Legal and Accountingcol_a_total_offsets_to_expenditures,49,20(d) Total offsets to Expenditures,47,20(d) Total offsets to Expenditures,41,20(d) Total offsets to Expenditures,41,20(d) Total offsets to Expenditurescol_a_other_receipts,50,21. Other Receipts,48,21. Other Receipts,42,21. Other Receipts,42,21. Other Receiptscol_a_total_receipts,51,22. Total Receipts,49,22. Total Receipts,43,22. Total Receipts,43,22. Total Receiptscol_a_operating_expenditures,52,23. Operating Expenditures,50,23. Operating Expenditures,44,23. Operating Expenditures,44,23. Operating Expenditurescol_a_transfers_to_other_authorized_committees,53,24. Transfers to Other Authorized Committees,51,24. Transfers to Other Authorized Committees,45,24. Transfers to Other Authorized Committees,45,24. Transfers to Other Authorized Committeescol_a_fundraising_disbursements,54,25. Fundraising Disbursements,52,25. Fundraising Disbursements,46,25. Fundraising Disbursements,46,25. Fundraising Disbursementscol_a_exempt_legal_accounting_disbursement,55,26. Exempt Legal & Accounting Disbursement,53,26. Exempt Legal & Accounting Disbursement,47,26. Exempt Legal & Accounting Disbursement,47,26. Exempt Legal and Accounting Disbursementscol_a_made_or_guaranteed_by_candidate,56,27(a) Made or guaranteed by Candidate,54,27(a) Made or guaranteed by Candidate,48,27(a) Made or guaranteed by Candidate,48,27(a) Made or guaranteed by Candidatecol_a_other_repayments,57,27(b) Other Repayments,55,27(b) Other Repayments,49,27(b) Other Repayments,49,27(b) Other Repaymentscol_a_total_loan_repayments_made,58,27(c) Total Loan Repayments Made,56,27(c) Total Loan Repayments Made,50,27(c) Total Loan Repayments Made,50,27(c) Total Loan Repayments Madecol_a_individuals,59,28(a) Individuals,57,28(a) Individuals,51,28(a) Individuals,51,28(a) Individualscol_a_political_party_committees_refunds,60,28(b) Political Party Committees,58,28(b) Political Party Committees,52,28(b) Political Party Committees,52,28(b) Political Party Committeescol_a_other_political_committees,61,28(c) Other Political Committees,59,28(c) Other Political Committees,53,28(c) Other Political Committees,53,28(c) Other Political Committeescol_a_total_contributions_refunds,62,28(d) Total Contributions Refunds,60,28(d) Total Contributions Refunds,54,28(d) Total Contributions Refunds,54,28(d) Total Contributions Refundscol_a_other_disbursements,63,29. Other Disbursements,61,29. Other Disbursements,55,29. Other Disbursements,55,29. Other Disbursementscol_a_total_disbursements,64,30. Total Disbursements,62,30. Total Disbursements,56,30. Total Disbursements,56,30. Total Disbursementscol_a_items_on_hand_to_be_liquidated,65,31. Items on Hand to be Liquidated,63,31. Items on Hand to be Liquidated,57,31. Items on Hand to be Liquidated,57,31. Items on Hand to be Liquidatedcol_a_alabama,66,ALABAMA,64,ALABAMA,58,ALABAMA,58,ALABAMAcol_a_alaska,67,ALASKA,65,ALASKA,59,ALASKA,59,ALASKAcol_a_arizona,68,ARIZONA,66,ARIZONA,60,ARIZONA,60,ARIZONAcol_a_arkansas,69,ARKANSAS,67,ARKANSAS,61,ARKANSAS,61,ARKANSAScol_a_california,70,CALIFORNIA,68,CALIFORNIA,62,CALIFORNIA,62,CALIFORNIAcol_a_colorado,71,COLORADO,69,COLORADO,63,COLORADO,63,COLORADOcol_a_connecticut,72,CONNECTICUT,70,CONNECTICUT,64,CONNECTICUT,64,CONNECTICUTcol_a_delaware,73,DELAWARE,71,DELAWARE,65,DELAWARE,65,DELAWAREcol_a_dist_of_columbia,74,DIST OF COLUMBIA,72,DIST OF COLUMBIA,66,DIST OF COLUMBIA,66,DIST OF COLUMBIAcol_a_florida,75,FLORIDA,73,FLORIDA,67,FLORIDA,67,FLORIDAcol_a_georgia,76,GEORGIA,74,GEORGIA,68,GEORGIA,68,GEORGIAcol_a_hawaii,77, HAWAII,75, HAWAII,69, HAWAII,69, HAWAIIcol_a_idaho,78,IDAHO,76,IDAHO,70,IDAHO,70,IDAHOcol_a_illinois,79,ILLINOIS,77,ILLINOIS,71,ILLINOIS,71,ILLINOIScol_a_indiana,80,INDIANA,78,INDIANA,72,INDIANA,72,INDIANAcol_a_iowa,81,IOWA,79,IOWA,73,IOWA,73,IOWAcol_a_kansas,82,KANSAS,80,KANSAS,74,KANSAS,74,KANSAScol_a_kentucky,83,KENTUCKY,81,KENTUCKY,75,KENTUCKY,75,KENTUCKYcol_a_louisiana,84,LOUISIANA,82,LOUISIANA,76,LOUISIANA,76,LOUISIANAcol_a_maine,85,MAINE,83,MAINE,77,MAINE,77,MAINEcol_a_maryland,86,MARYLAND,84,MARYLAND,78,MARYLAND,78,MARYLANDcol_a_massachusetts,87,MASSACHUSETTS,85,MASSACHUSETTS,79,MASSACHUSETTS,79,MASSACHUSETTScol_a_michigan,88,MICHIGAN,86,MICHIGAN,80,MICHIGAN,80,MICHIGANcol_a_minnesota,89,MINNESOTA,87,MINNESOTA,81,MINNESOTA,81,MINNESOTAcol_a_mississippi,90,MISSISSIPPI,88,MISSISSIPPI,82,MISSISSIPPI,82,MISSISSIPPIcol_a_missouri,91,MISSOURI,89,MISSOURI,83,MISSOURI,83,MISSOURIcol_a_montana,92, MONTANA,90, MONTANA,84, MONTANA,84, MONTANAcol_a_nebraska,93,NEBRASKA,91,NEBRASKA,85,NEBRASKA,85,NEBRASKAcol_a_nevada,94,NEVADA,92,NEVADA,86,NEVADA,86,NEVADAcol_a_new_hampshire,95,NEW HAMPSHIRE,93,NEW HAMPSHIRE,87,NEW HAMPSHIRE,87,NEW HAMPSHIREcol_a_new_jersey,96,NEW JERSEY,94,NEW JERSEY,88,NEW JERSEY,88,NEW JERSEYcol_a_new_mexico,97,NEW MEXICO,95,NEW MEXICO,89,NEW MEXICO,89,NEW MEXICOcol_a_new_york,98,NEW YORK,96,NEW YORK,90,NEW YORK,90,NEW YORKcol_a_north_carolina,99,NORTH CAROLINA,97,NORTH CAROLINA,91,NORTH CAROLINA,91,NORTH CAROLINAcol_a_north_dakota,100,NORTH DAKOTA,98,NORTH DAKOTA,92,NORTH DAKOTA,92,NORTH DAKOTAcol_a_ohio,101,OHIO,99,OHIO,93,OHIO,93,OHIOcol_a_oklahoma,102,OKLAHOMA,100,OKLAHOMA,94,OKLAHOMA,94,OKLAHOMAcol_a_oregon,103,OREGON,101,OREGON,95,OREGON,95,OREGONcol_a_pennsylvania,104,PENNSYLVANIA,102,PENNSYLVANIA,96,PENNSYLVANIA,96,PENNSYLVANIAcol_a_rhode_island,105,RHODE ISLAND,103,RHODE ISLAND,97,RHODE ISLAND,97,RHODE ISLANDcol_a_south_carolina,106,SOUTH CAROLINA,104,SOUTH CAROLINA,98,SOUTH CAROLINA,98,SOUTH CAROLINAcol_a_south_dakota,107,SOUTH DAKOTA,105,SOUTH DAKOTA,99,SOUTH DAKOTA,99,SOUTH DAKOTAcol_a_tennessee,108,TENNESSEE,106,TENNESSEE,100,TENNESSEE,100,TENNESSEEcol_a_texas,109,TEXAS,107,TEXAS,101,TEXAS,101,TEXAScol_a_utah,110,UTAH,108,UTAH,102,UTAH,102,UTAHcol_a_vermont,111,VERMONT,109,VERMONT,103,VERMONT,103,VERMONTcol_a_virginia,112,VIRGINIA,110,VIRGINIA,104,VIRGINIA,104,VIRGINIAcol_a_washington,113,WASHINGTON,111,WASHINGTON,105,WASHINGTON,105,WASHINGTONcol_a_west_virginia,114,WEST VIRGINIA,112,WEST VIRGINIA,106,WEST VIRGINIA,106,WEST VIRGINIAcol_a_wisconsin,115,WISCONSIN,113,WISCONSIN,107,WISCONSIN,107,WISCONSINcol_a_wyoming,116,WYOMING,114,WYOMING,108,WYOMING,108,WYOMINGcol_a_puerto_rico,117,PUERTO RICO,115,PUERTO RICO,109,PUERTO RICO,109,PUERTO RICOcol_a_guam,118,GUAM,116,GUAM,110,GUAM,110,GUAMcol_a_virgin_islands,119,VIRGIN ISLANDS,117,VIRGIN ISLANDS,111,VIRGIN ISLANDS,111,VIRGIN ISLANDScol_a_totals,120,TOTALS,118,TOTALS,112,TOTALS,112,TOTALScol_b_federal_funds,121,16. Federal Funds,119,16. Federal Funds,113,16. Federal Funds,113,16. Federal Fundscol_b_individuals_itemized,122,17(a.i) Individuals Itemized,,,,,,col_b_individuals_unitemized,123,17(a.ii) Individuals Unitemized,,,,,,col_b_individual_contribution_total,124,17(a.iii) Individual Contribution Total,120,17(a)  Individuals,114,17(a)  Individuals,114,17(a)  Individualscol_b_political_party_committees_receipts,125,17(b) Political Party Committees,121,17(b) Political Party Committees,115,17(b) Political Party Committees,115,17(b) Political Party Committeescol_b_other_political_committees_pacs,126,17(c) Other Political Committees (PACs),122,17(c) Other Political Committees (PACs),116,17(c) Other Political Committees (PACs),116,17(c) Other Political Committees (PACs)col_b_the_candidate,127,17(d) The Candidate,123,17(d) The Candidate,117,17(d) The Candidate,117,17(d) The Candidatecol_b_total_contributions_other_than_loans,128,17(e) Total contributions  (Other than Loans),124,17(e) Total contributions  (Other than Loans),118,17(e) Total contributions  (Other than Loans),118,17(e) Total contributions  (Other than Loans)col_b_transfers_from_aff_other_party_cmttees,129,18. Transfers From Aff/Other Party Cmttees,125,18. Transfers From Aff/Other Party Cmttees,119,18. Transfers From Aff/Other Party Cmttees,119,18. Transfers From Aff/Other Party Committeescol_b_received_from_or_guaranteed_by_cand,130,19(a) Received from or Guaranteed  by Cand.,126,19(a) Received from or Guaranteed  by Cand.,120,19(a) Received from or Guaranteed  by Cand.,120,19(a) Received from or Guaranteed  by Candidatecol_b_other_loans,131,19(b) Other Loans,127,19(b) Other Loans,121,19(b) Other Loans,121,19(b) Other Loanscol_b_total_loans,132,19(c) Total Loans,128,19(c) Total Loans,122,19(c) Total Loans,122,19(c) Total Loanscol_b_operating,133,20(a) Operating,129,20(a) Operating,123,20(a) Operating,123,20(a) Operatingcol_b_fundraising,134,20(b) Fundraising,130,20(b) Fundraising,124,20(b) Fundraising,124,20(b) Fundraisingcol_b_legal_and_accounting,135,20(c) Legal and Accounting,131,20(c) Legal and Accounting,125,20(c) Legal and Accounting,125,20(c) Legal and Accountingcol_b_total_offsets_to_operating_expenditures,136,20(d) Total Offsets to Operating Expenditures,132,20(d) Total Offsets to Operating Expenditures,126,20(d) Total Offsets to Operating Expenditures,126,20(d) Total Offsets to Operating Expenditurescol_b_other_receipts,137,21. Other Receipts,133,21. Other Receipts,127,21. Other Receipts,127,21. Other Receiptscol_b_total_receipts,138,22. Total Receipts,134,22. Total Receipts,128,22. Total Receipts,128,22. Total Receiptscol_b_operating_expenditures,139,23. Operating Expenditures,135,23. Operating Expenditures,129,23. Operating Expenditures,129,23. Operating Expenditurescol_b_transfers_to_other_authorized_committees,140,24. Transfers to Other Authorized Committees,136,24. Transfers to Other Authorized Committees,130,24. Transfers to Other Authorized Committees,130,24. Transfers to Other Authorized Committeescol_b_fundraising_disbursements,141,25. Fundraising Disbursements,137,25. Fundraising Disbursements,131,25. Fundraising Disbursements,131,25. Fundraising Disbursementscol_b_exempt_legal_accounting_disbursement,142,26. Exempt Legal & Accounting Disbursement,138,26. Exempt Legal & Accounting Disbursement,132,26. Exempt Legal & Accounting Disbursement,132,26. Exempt Legal and Accounting Disbursementscol_b_made_or_guaranteed_by_the_candidate,143,27(a) Made or Guaranteed by the Candidate,139,27(a) Made or Guaranteed by the Candidate,133,27(a) Made or Guaranteed by the Candidate,133,27(a) Made or Guaranteed by the Candidatecol_b_other_repayments,144,27(b) Other Repayments,140,27(b) Other Repayments,134,27(b) Other Repayments,134,27(b) Other Repaymentscol_b_total_loan_repayments_made,145,27(c) Total Loan Repayments Made,141,27(c) Total Loan Repayments Made,135,27(c) Total Loan Repayments Made,135,27(c) Total Loan Repayments Madecol_b_individuals,146,28(a)  Individuals,142,28(a)  Individuals,136,28(a)  Individuals,136,28(a)  Individualscol_b_political_party_committees_refunds,147,28(b) Political Party Committees,143,28(b) Political Party Committees,137,28(b) Political Party Committees,137,28(b) Political Party Committeescol_b_other_political_committees,148,28(c) Other Political Committees,144,28(c) Other Political Committees,138,28(c) Other Political Committees,138,28(c) Other Political Committeescol_b_total_contributions_refunds,149,28(d) Total Contributions Refunds,145,28(d) Total Contributions Refunds,139,28(d) Total Contributions Refunds,139,28(d) Total Contributions Refundscol_b_other_disbursements,150,29. Other Disbursements,146,29. Other Disbursements,140,29. Other Disbursements,140,29. Other Disbursementscol_b_total_disbursements,151,30. Total Disbursements,147,30. Total Disbursements,141,30. Total Disbursements,141,30. Total Disbursementscol_b_alabama,152,ALABAMA,148,ALABAMA,142,ALABAMA,142,ALABAMAcol_b_alaska,153,ALASKA,149,ALASKA,143,ALASKA,143,ALASKAcol_b_arizona,154,ARIZONA,150,ARIZONA,144,ARIZONA,144,ARIZONAcol_b_arkansas,155,ARKANSAS,151,ARKANSAS,145,ARKANSAS,145,ARKANSAScol_b_california,156,CALIFORNIA,152,CALIFORNIA,146,CALIFORNIA,146,CALIFORNIAcol_b_colorado,157,COLORADO,153,COLORADO,147,COLORADO,147,COLORADOcol_b_connecticut,158,CONNECTICUT,154,CONNECTICUT,148,CONNECTICUT,148,CONNECTICUTcol_b_delaware,159,DELAWARE,155,DELAWARE,149,DELAWARE,149,DELAWAREcol_b_dist_of_columbia,160,DIST OF COLUMBIA,156,DIST OF COLUMBIA,150,DIST OF COLUMBIA,150,DIST OF COLUMBIAcol_b_florida,161,FLORIDA,157,FLORIDA,151,FLORIDA,151,FLORIDAcol_b_georgia,162,GEORGIA,158,GEORGIA,152,GEORGIA,152,GEORGIAcol_b_hawaii,163,HAWAII,159,HAWAII,153,HAWAII,153,HAWAIIcol_b_idaho,164,IDAHO,160,IDAHO,154,IDAHO,154,IDAHOcol_b_illinois,165,ILLINOIS,161,ILLINOIS,155,ILLINOIS,155,ILLINOIScol_b_indiana,166,INDIANA,162,INDIANA,156,INDIANA,156,INDIANAcol_b_iowa,167,IOWA,163,IOWA,157,IOWA,157,IOWAcol_b_kansas,168,KANSAS,164,KANSAS,158,KANSAS,158,KANSAScol_b_kentucky,169,KENTUCKY,165,KENTUCKY,159,KENTUCKY,159,KENTUCKYcol_b_louisiana,170,LOUISIANA,166,LOUISIANA,160,LOUISIANA,160,LOUISIANAcol_b_maine,171,MAINE,167,MAINE,161,MAINE,161,MAINEcol_b_maryland,172,MARYLAND,168,MARYLAND,162,MARYLAND,162,MARYLANDcol_b_massachusetts,173,MASSACHUSETTS,169,MASSACHUSETTS,163,MASSACHUSETTS,163,MASSACHUSETTScol_b_michigan,174,MICHIGAN,170,MICHIGAN,164,MICHIGAN,164,MICHIGANcol_b_minnesota,175,MINNESOTA,171,MINNESOTA,165,MINNESOTA,165,MINNESOTAcol_b_mississippi,176,MISSISSIPPI,172,MISSISSIPPI,166,MISSISSIPPI,166,MISSISSIPPIcol_b_missouri,177,MISSOURI,173,MISSOURI,167,MISSOURI,167,MISSOURIcol_b_montana,178,MONTANA,174,MONTANA,168,MONTANA,168,MONTANAcol_b_nebraska,179,NEBRASKA,175,NEBRASKA,169,NEBRASKA,169,NEBRASKAcol_b_nevada,180,NEVADA,176,NEVADA,170,NEVADA,170,NEVADAcol_b_new_hampshire,181,NEW HAMPSHIRE,177,NEW HAMPSHIRE,171,NEW HAMPSHIRE,171,NEW HAMPSHIREcol_b_new_jersey,182,NEW JERSEY,178,NEW JERSEY,172,NEW JERSEY,172,NEW JERSEYcol_b_new_mexico,183,NEW MEXICO,179,NEW MEXICO,173,NEW MEXICO,173,NEW MEXICOcol_b_new_york,184,NEW YORK,180,NEW YORK,174,NEW YORK,174,NEW YORKcol_b_north_carolina,185,NORTH CAROLINA,181,NORTH CAROLINA,175,NORTH CAROLINA,175,NORTH CAROLINAcol_b_north_dakota,186,NORTH DAKOTA,182,NORTH DAKOTA,176,NORTH DAKOTA,176,NORTH DAKOTAcol_b_ohio,187,OHIO,183,OHIO,177,OHIO,177,OHIOcol_b_oklahoma,188,OKLAHOMA,184,OKLAHOMA,178,OKLAHOMA,178,OKLAHOMAcol_b_oregon,189,OREGON,185,OREGON,179,OREGON,179,OREGONcol_b_pennsylvania,190,PENNSYLVANIA,186,PENNSYLVANIA,180,PENNSYLVANIA,180,PENNSYLVANIAcol_b_rhode_island,191,RHODE ISLAND,187,RHODE ISLAND,181,RHODE ISLAND,181,RHODE ISLANDcol_b_south_carolina,192,SOUTH CAROLINA,188,SOUTH CAROLINA,182,SOUTH CAROLINA,182,SOUTH CAROLINAcol_b_south_dakota,193,SOUTH DAKOTA,189,SOUTH DAKOTA,183,SOUTH DAKOTA,183,SOUTH DAKOTAcol_b_tennessee,194,TENNESSEE,190,TENNESSEE,184,TENNESSEE,184,TENNESSEEcol_b_texas,195,TEXAS,191,TEXAS,185,TEXAS,185,TEXAScol_b_utah,196,UTAH,192,UTAH,186,UTAH,186,UTAHcol_b_vermont,197,VERMONT,193,VERMONT,187,VERMONT,187,VERMONTcol_b_virginia,198,VIRGINIA,194,VIRGINIA,188,VIRGINIA,188,VIRGINIAcol_b_washington,199,WASHINGTON,195,WASHINGTON,189,WASHINGTON,189,WASHINGTONcol_b_west_virginia,200,WEST VIRGINIA,196,WEST VIRGINIA,190,WEST VIRGINIA,190,WEST VIRGINIAcol_b_wisconsin,201,WISCONSIN,197,WISCONSIN,191,WISCONSIN,191,WISCONSINcol_b_wyoming,202,WYOMING,198,WYOMING,192,WYOMING,192,WYOMINGcol_b_puerto_rico,203,PUERTO RICO,199,PUERTO RICO,193,PUERTO RICO,193,PUERTO RICOcol_b_guam,204,GUAM,200,GUAM,194,GUAM,194,GUAMcol_b_virgin_islands,205,VIRGIN ISLANDS,201,VIRGIN ISLANDS,195,VIRGIN ISLANDS,195,VIRGIN ISLANDScol_b_totals,206,TOTALS,202,TOTALS,196,TOTALS,196,TOTALS
