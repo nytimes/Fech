@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "fech"
   s.version     = Fech::VERSION
   s.platform    = Gem::Platform::RUBY
+  s.license     = 'Apache-2.0'
   s.authors     = ["Michael Strickland", "Evan Carmi", "Aaron Bycoffe", "Derek Willis"]
   s.email       = ["dwillis@gmail.com"]
   s.homepage    = "http://github.com/nytimes/fech"
