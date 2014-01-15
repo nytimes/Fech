@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fech (1.6.1)
+    fech (1.6.2)
       ensure-encoding
       fastercsv
       people
