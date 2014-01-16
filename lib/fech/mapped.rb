@@ -24,7 +24,7 @@ module Fech
         # Does not allow (obvious) recursion
         aliias = filing.translator.aliases.reverse.detect do |a|
           a[:alias] == key && a[:row].match(row_type) && a[:alias] != a[:for]
-        end
+        end if filing.translator
         # Pass the key this alias references back to this function
         aliias ? old_bracket(aliias[:for], &block) : nil
       end
