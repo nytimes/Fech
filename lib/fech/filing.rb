@@ -13,7 +13,7 @@ module Fech
     # note that there are plenty of <v3 filings after this, so readable? still needs to be checked
     FIRST_V3_FILING = 11850 
     
-    attr_accessor :filing_id, :download_dir, :translator
+    attr_accessor :filing_id, :download_dir
 
     # Create a new Filing object, assign the download directory to system's
     # temp folder by default.
@@ -172,6 +172,15 @@ module Fech
       Fech::Mappings.for_row(row_type, opts)
     end
     
+    # Accessor for @translator. Will return the Translator initialized in
+    # Filing's initializer if built-in translations were passed to Filing's
+    # initializer ({:translate => [:foo, :bar]}).
+    # Otherwise, will create and memoize a new Translator without any default
+    # translations.
+    def translator
+      @translator ||= Fech::Translator.new
+    end
+
     # @yield [t] returns a reference to the filing's Translator
     # @yieldparam [Translator] the filing's Translator
     def translate(&block)
