@@ -212,6 +212,38 @@ describe Fech::Filing do
     end
     
   end
+
+  describe "#translator" do
+
+    describe "when Filing was initialized with built-in translations" do
+
+      before do
+        @translated_filing = Fech::Filing.new(723604, :translate => [:names])
+        @translator = @translated_filing.translator
+      end
+
+      it "returns the Translator created in Filing's initializer" do
+        @translated_filing.translator.should == @translator
+        @translated_filing.translator.translations.size.should > 0
+      end
+
+    end
+
+    describe "when Filing was not initialized with built-in translation" do
+
+      before do
+        @untranslated_filing = Fech::Filing.new(723604)
+      end
+
+      it "creates a new Translator with no default ranslations" do
+        @untranslated_filing.translator.should_not be_nil
+        @untranslated_filing.translator.class.should == Fech::Translator
+        @untranslated_filing.translator.translations.should be_empty
+      end
+
+    end
+
+  end
   
   describe "#map" do
     
