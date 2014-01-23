@@ -9,13 +9,17 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    archive-tar-minitar (0.5.2)
     columnize (0.3.6)
+    debugger (1.4.0)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.1.1)
+      debugger-ruby_core_source (~> 1.2.0)
+    debugger-linecache (1.1.2)
+      debugger-ruby_core_source (>= 1.1.1)
+    debugger-ruby_core_source (1.2.4)
     diff-lcs (1.1.2)
     ensure-encoding (0.1)
     fastercsv (1.5.5)
-    linecache19 (0.5.12)
-      ruby_core_source (>= 0.1.4)
     mocha (0.9.12)
     people (0.2.1)
     rake (0.8.7)
@@ -28,16 +32,6 @@ GEM
     rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.6.0)
-    ruby-debug-base19 (0.11.25)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
-    ruby_core_source (0.1.5)
-      archive-tar-minitar (>= 0.5.2)
     yard (0.7.2)
 
 PLATFORMS
@@ -45,11 +39,10 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
+  debugger (= 1.4.0)
   fech!
-  linecache19
   mocha
   rake
   rdoc
   rspec (~> 2.6)
-  ruby-debug19
   yard
