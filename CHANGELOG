@@ -1,3 +1,21 @@
+1.6.3 / 2014-01-22
+
+* Bug fixes
+
+  * Ensure that a Translator object is available to all Filing objects, even if one wasn't created when the Filing was instantiated. (thx, @abstrctn!)
+
+1.6.2 / 2014-01-15
+
+* Bug fixes
+
+  * Added dissemination date to SE transactions.
+
+1.6.1 / 2014-01-15
+
+* Bug fixes
+
+  * Added version 8.1 mappings for F24 and F13 filings.
+
 1.6.0 / 2014-01-14
 
 * Breaking changes

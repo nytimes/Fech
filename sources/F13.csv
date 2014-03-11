@@ -1,4 +1,4 @@
-canonical,^8.0|7.0|6.4|6.3|6.2|6.1,,^5.3|5.2,
+canonical,^8.1|8.0|7.0|6.4|6.3|6.2|6.1,,^5.3|5.2,
 form_type,1,FORM TYPE,1,FORM TYPE
 filer_committee_id_number,2,FILER COMMITTEE ID NUMBER,2,FILER FEC CMTE ID
 committee_name,3,COMMITTEE NAME,3,COMMITTEE NAME
