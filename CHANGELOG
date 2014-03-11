@@ -1,3 +1,9 @@
+1.6.4 / 2014-03-11
+
+* Bug fixes
+
+  * Fixed office state and district mappings in Schedule E transactions.
+
 1.6.3 / 2014-01-22
 
 * Bug fixes

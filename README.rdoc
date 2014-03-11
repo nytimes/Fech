@@ -6,7 +6,7 @@
 
 Fech makes it easy to parse electronic campaign finance filings[http://www.fec.gov/finance/disclosure/efile_search.shtml] by candidates, parties and political action committees from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data. Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
 
-Latest version: 1.6.3. For details see the CHANGELOG.
+Latest version: 1.6.4. For details see the CHANGELOG.
 
 Fech is tested under Ruby versions 1.8.7, 1.9.2, 1.9.3 and 2.0.0.
 
@@ -16,6 +16,7 @@ Can be found at Fech's Github page[http://nytimes.github.com/Fech/].
 
 == News
 
+* March 11, 2014: Version 1.6.4 released. Bugfix for Schedule E transactions to fix office state and district.
 * Jan. 22, 2014: Version 1.6.3 released. Bugfix to ensure Translator object is available to any Filing object. Thanks to @abstrctn for fix.
 * Jan. 15, 2014: Version 1.6.2 released. Bugfix to add dissemination date to SE mappings.
 * Jan. 15, 2014: Version 1.6.1 released. Bugfix to add FEC version 8.1 mappings for F13 and F24 forms.
