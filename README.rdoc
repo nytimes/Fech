@@ -8,7 +8,7 @@ Fech makes it easy to parse electronic campaign finance filings[http://www.fec.g
 
 Latest version: 1.7. For details see the CHANGELOG.
 
-Fech is tested under Ruby versions 1.8.7, 1.9.2, 1.9.3 and 2.1.2. It also has been reported to run using Rubinius.
+Fech works best under Ruby version 2.x, and has been tested under Ruby versions 1.8.7, 1.9.2, 1.9.3 and 2.1.2. It also has been reported to run using Rubinius.
 
 == Documentation
 
