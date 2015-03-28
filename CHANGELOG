@@ -1,3 +1,14 @@
+1.7 / 2015-03-28
+
+* Additions
+
+  * Support for F3Z and SA3L transactions in F3 filings.
+  * Better support for Ruby 2.1.2
+
+* Bug fixes
+
+  * Fixed three canonical slugs in sources/F3.csv
+
 1.6.4 / 2014-03-11
 
 * Bug fixes

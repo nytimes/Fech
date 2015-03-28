@@ -6,9 +6,9 @@
 
 Fech makes it easy to parse electronic campaign finance filings[http://www.fec.gov/finance/disclosure/efile_search.shtml] by candidates, parties and political action committees from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data. Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
 
-Latest version: 1.6.4. For details see the CHANGELOG.
+Latest version: 1.7. For details see the CHANGELOG.
 
-Fech is tested under Ruby versions 1.8.7, 1.9.2, 1.9.3 and 2.0.0.
+Fech is tested under Ruby versions 1.8.7, 1.9.2, 1.9.3 and 2.1.2. It also has been reported to run using Rubinius.
 
 == Documentation
 
@@ -16,6 +16,7 @@ Can be found at Fech's Github page[http://nytimes.github.com/Fech/].
 
 == News
 
+* March 28, 2015: Version 1.7 released. Added support for Schedule SA3L and F3Z transactions, fixed some bugs and updated gems and specs.
 * March 11, 2014: Version 1.6.4 released. Bugfix for Schedule E transactions to fix office state and district.
 * Jan. 22, 2014: Version 1.6.3 released. Bugfix to ensure Translator object is available to any Filing object. Thanks to @abstrctn for fix.
 * Jan. 15, 2014: Version 1.6.2 released. Bugfix to add dissemination date to SE mappings.
@@ -54,7 +55,7 @@ Can be found at Fech's Github page[http://nytimes.github.com/Fech/].
 Install Fech as a gem:
 
   gem install fech
-  
+
 For use in a Rails 3 application, put the following in your Gemfile:
 
   gem 'fech'
