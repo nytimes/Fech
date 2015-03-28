@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-  
+
   s.add_dependency "fastercsv"
   s.add_dependency "people"
   s.add_dependency "ensure-encoding"
@@ -29,14 +29,14 @@ Gem::Specification.new do |s|
     s.add_development_dependency "iconv"
   end
   if RUBY_VERSION >= "2.0"
-    s.add_development_dependency "debugger", "1.4.0"
+    s.add_development_dependency "byebug"
   end
   if RUBY_VERSION >= "1.9" && RUBY_VERSION < '2.0'
     s.add_development_dependency "ruby-debug19"
     s.add_development_dependency "linecache19"
   end
   s.add_development_dependency "rake"
-  s.add_development_dependency "rspec", "~> 2.6"
+  s.add_development_dependency "rspec"
   s.add_development_dependency "mocha"
   s.add_development_dependency "bundler"
   s.add_development_dependency "rdoc"
