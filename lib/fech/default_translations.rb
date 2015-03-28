@@ -51,7 +51,7 @@ module Fech
         {:row => :sc1,    :version => /^[3-5]/,   :field => [:treasurer, :authorized]},
         {:row => :sc2,    :version => /^[3-5]/,   :field => :guarantor},
         {:row => :sd,     :version => /^[3-5]/,   :field => :creditor},
-        {:row => :se,     :version => /^[3-5]/,   :field => [:payee, :cadidate]},
+        {:row => :se,     :version => /^[3-5]/,   :field => [:payee, :candidate]},
         {:row => :sf,     :version => /^[3-5]/,   :field => [:payee, :payee_candidate]},
         {:row => :f3p,    :version => /^[3-5]/,   :field => :treasurer},
         {:row => :f3p31,  :version => /^[3-5]/,   :field => :contributor},
