@@ -23,17 +23,23 @@ Gem::Specification.new do |s|
   s.add_dependency "fastercsv"
   s.add_dependency "people"
   s.add_dependency "ensure-encoding"
-  if RUBY_VERSION < "1.9"
-    s.add_development_dependency "linecache", "0.43"
-    s.add_development_dependency "ruby-debug"
-    s.add_development_dependency "iconv"
-  end
-  if RUBY_VERSION >= "2.0"
-    s.add_development_dependency "byebug"
-  end
-  if RUBY_VERSION >= "1.9" && RUBY_VERSION < '2.0'
-    s.add_development_dependency "ruby-debug19"
-    s.add_development_dependency "linecache19"
+  if defined?(RUBY_ENGINE) && RUBY_ENGINE == 'rbx'
+    s.add_development_dependency 'rubinius-compiler'
+    s.add_development_dependency 'rubinius-debugger'
+    s.add_development_dependency 'rubysl'
+    s.add_development_dependency 'ffi'
+    s.add_development_dependency 'psych'
+  else
+    if RUBY_VERSION < "1.9"
+      s.add_development_dependency "linecache", "0.43"
+      s.add_development_dependency "ruby-debug"
+      s.add_development_dependency "iconv"
+    elsif RUBY_VERSION >= "2.0"
+      s.add_development_dependency "byebug"
+    elsif RUBY_VERSION >= "1.9" && RUBY_VERSION < '2.0'
+      s.add_development_dependency "ruby-debug19"
+      s.add_development_dependency "linecache19"
+    end
   end
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
