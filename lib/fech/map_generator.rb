@@ -1,18 +1,21 @@
 module Fech
-  
+
   # Helper class to generate mapping hashes from source csv data.
   # Needed to rebuild rendered_maps.rb with new source data, not used
   # in main gem.
   #   rake fech:maps
   class MapGenerator
-    
+
     attr_accessor :map
+    PAPER_FILING_VERSIONS = ["3.1", "3.0", "2.6", "2.4", "2.3", "2.2", "1.0"]
+    PAPER_BASE_ROW_TYPES = ["HDR", "F3", "F3X", "SchA", "SchB"]
+
     FILING_VERSIONS   = ["8.0", "7.0", "6.4", "6.3", "6.2", "6.1",
                          "5.3", "5.2", "5.1", "5.0", "3"]
-    BASE_ROW_TYPES    = ["HDR", "F1", "F13", "F132", "F133", "F1M", "F1S", "F2", "F24", "F3", "F3L", "F3P", "F3P31", "F3PS", 
-                         "F3S", "F3X", "F4", "F5", "F56", "F57", "F6", "F65", "F7", "F76", "F9", "F91", "F92", "F93", 
+    BASE_ROW_TYPES    = ["HDR", "F1", "F13", "F132", "F133", "F1M", "F1S", "F2", "F24", "F3", "F3L", "F3P", "F3P31", "F3PS",
+                         "F3S", "F3X", "F4", "F5", "F56", "F57", "F6", "F65", "F7", "F76", "F9", "F91", "F92", "F93",
                          "F94", "F99", "H1", "H2", "H3", "H4", "H5", "H6",
-                         "SchA", "SchB", "SchC", "SchC1", "SchC2", "SchD", "SchE", "SchF", "SchL", "TEXT"]
+                         "SchA", "SchA3L", "SchB", "SchC", "SchC1", "SchC2", "SchD", "SchE", "SchF", "SchL", "TEXT"]
     ROW_TYPE_MATCHERS = {
       "HDR"    => FechUtils::ROW_TYPES[:hdr],
       "F1"     => FechUtils::ROW_TYPES[:f1],
@@ -51,6 +54,7 @@ module Fech
       "H5"     => FechUtils::ROW_TYPES[:h5],
       "H6"     => FechUtils::ROW_TYPES[:h6],
       "SchA"   => FechUtils::ROW_TYPES[:sa],
+      "SchA3L" => FechUtils::ROW_TYPES[:sa3l],
       "SchB"   => FechUtils::ROW_TYPES[:sb],
       "SchC"   => FechUtils::ROW_TYPES[:sc],
       "SchC1"  => FechUtils::ROW_TYPES[:sc1],
@@ -61,15 +65,15 @@ module Fech
       "SchL"   => FechUtils::ROW_TYPES[:sl],
       "TEXT"   => FechUtils::ROW_TYPES[:text],
     }
-    
+
     # Goes through all version header summary files and generates
     # row map files for each type of row inside them.
     def self.convert_header_file_to_row_files(source_dir)
       data = {}
       hybrid_data = {}
-      
+
       ignored_fields = File.open(ignored_fields_file(source_dir)).readlines.map { |l| l.strip }
-      
+
       # Create a hash of data with an entry for each row type found in the source
       # version summary files. Each row has an entry for each version map that
       # exists for it. If maps for two different versions are identical, they
@@ -101,12 +105,12 @@ module Fech
           data[row.first][version] = row_version_data
           data[row.first].each do |k, v|
             # skip the row we just added
-            
+
             next if k == version
             if v == row_version_data
               # Create the new hybrid entry
               hybrid_data[row.first]["#{k}|#{version}"] = row_version_data
-              
+
               # Delete the old entry, and the one for this version only
               data[row.first].delete(k)
               data[row.first].delete(version)
@@ -115,7 +119,7 @@ module Fech
           data[row.first].update(hybrid_data[row.first])
         end
       end
-      
+
       # Go through each row type and create a base map management file that
       # will serve as a template for organizing which fields are the same
       # between versions. This file will need to then be arranged by hand to
@@ -126,18 +130,18 @@ module Fech
         next unless File.exists?(file_path)
         File.open(file_path, 'w') do |f|
           f.write('canonical')
-          
+
           to_transpose = []
           row_data.sort.reverse.each do |version, version_data|
             to_transpose << ["^#{version}", version_data.each_with_index.collect {|x, idx| idx+1}].flatten
             to_transpose << [nil, version_data].flatten
           end
-          
+
           # standardize row size
           max_size = to_transpose.max { |r1, r2| r1.size <=> r2.size }.size
           to_transpose.each { |r| r[max_size - 1] ||= nil }
           transposed = to_transpose.transpose
-          
+
           transposed.each do |transposed_data|
             transposed_data.collect! {|x| x.to_s.gsub(/\r/, ' ')}
             canonical = transposed_data[1] # first description
@@ -152,7 +156,7 @@ module Fech
       end
 
     end
-    
+
     # Generates the mapping for each row type in BASE_ROW_TYPES, writes them out
     # to file for inclusion in the gem.
     def self.dump_row_maps_to_ruby(source_dir, file_path)
@@ -194,44 +198,44 @@ module Fech
           row.each_with_index {|x, ind| version_indexes << ind unless (x.nil? || x.empty?)}.slice!(1)
           version_indexes.slice!(0, 1)
           versions.each {|x| data[x] = [] }
-          
+
         elsif row.first.size > 0
           canonical = row.first
-          
+
           versions.zip(version_indexes).each do |version, row_index|
             index = row[row_index]
             data[version][index.to_i - 1] = canonical.to_sym if index.to_i > 0
           end
         end
       end
-    
+
       row_map = {}
       data.each {|key, value| row_map[key] = value}
       row_map
     end
-    
+
     # Remove both the row type from the beginning of the row,
     # and any fields marked as "ignore" in sources/headers/ignore.csv
     def self.remove_ignored_fields(row, ignore)
       data = row[1..-1].compact # strip off the row type
       data.reject { |f| ignore.include?(f) }
     end
-    
+
     def self.row_map_file(source_dir, row_type)
       File.join(source_dir, row_type + '.csv')
     end
-    
+
     def self.ignored_fields_file(source_dir)
       File.join(source_dir, 'headers', 'ignore.csv')
     end
-    
+
     def self.version_summary_file(source_dir, version)
       File.join(source_dir, 'headers', version + '.csv')
     end
-    
+
     def self.write_row_map_file(source_dir, row_type)
       File.join(source_dir, 'rows', row_type + '.csv')
     end
-  
+
   end
 end

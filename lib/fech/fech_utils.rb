@@ -1,7 +1,7 @@
 # Contains helper functions and static variables used by various
 # Fech classes.
 module FechUtils
-  
+
   # All supported row types pointed to regular expressions that will correctly
   # match that row type in the wild. If multiple matches exist, Fech will match
   # the longest regex pattern found.
@@ -43,6 +43,7 @@ module FechUtils
     :h5    => /^h5/i,
     :h6    => /^h6/i,
     :sa    => /^sa/i,
+    :sa3l  => /^sa3l/i,
     :sb    => /^sb/i,
     :sc    => /^sc[^1-2]/i,
     :sc1   => /^sc1/i,
@@ -53,7 +54,7 @@ module FechUtils
     :sl    => /^sl/i,
     :text  => /^text/i,
   }
-  
+
   # Converts symbols and strings to Regexp objects for use in regex-keyed maps.
   # Assumes that symbols should be matched literally, strings unanchored.
   # @param [String,Symbol,Regexp] label the object to convert to a Regexp
@@ -70,7 +71,7 @@ module FechUtils
       Regexp.new(Regexp.escape(label.to_s), Regexp::IGNORECASE)
     end
   end
-  
-  
+
+
 
 end
