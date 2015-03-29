@@ -68,7 +68,9 @@ module Fech
       # only convert fields whose name is date* or *_date*
       # lots of other things might be 8 digits, and we have to exclude eg 'candidate'
       t.convert :field => /(^|_)date/ do |value|
-        Date.parse(value) rescue value
+        unless value.nil?
+          Date.parse(value) rescue value
+        end
       end
     end
     
