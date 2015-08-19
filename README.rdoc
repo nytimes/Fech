@@ -6,9 +6,9 @@
 
 Fech makes it easy to parse electronic campaign finance filings[http://www.fec.gov/finance/disclosure/efile_search.shtml] by candidates, parties and political action committees from the Federal Election Commission. It lets you access filing attributes the same way regardless of filing version, and works as a framework for cleaning and filing data. Fech is an open source project of The New York Times, but contributions from anyone interested in working with F.E.C. filings are greatly appreciated.
 
-Latest version: 1.7. For details see the CHANGELOG.
+Latest version: 1.8. For details see the CHANGELOG.
 
-Fech works best under Ruby version 2.x, and has been tested under Ruby versions 1.8.7, 1.9.2, 1.9.3, 2.1.2 and Rubinius.
+Fech works best under Ruby version 2.x, and has been tested under Ruby versions 1.8.7, 1.9.2, 1.9.3, 2.1.2, 2.2.2 and Rubinius.
 
 == Documentation
 
@@ -16,6 +16,7 @@ Can be found at Fech's Github page[http://nytimes.github.com/Fech/].
 
 == News
 
+* August 19, 2015: Version 1.8 released. Replaced `sources` directory with submodule pulling from [fech-sources](https://github.com/dwillis/fech-sources).
 * March 28, 2015: Version 1.7 released. Added support for Schedule SA3L and F3Z transactions, fixed some bugs and updated gems and specs.
 * March 11, 2014: Version 1.6.4 released. Bugfix for Schedule E transactions to fix office state and district.
 * Jan. 22, 2014: Version 1.6.3 released. Bugfix to ensure Translator object is available to any Filing object. Thanks to @abstrctn for fix.
@@ -60,9 +61,16 @@ For use in a Rails 3 application, put the following in your Gemfile:
 
   gem 'fech'
 
-then issue the 'bundle install' command. Fech has been tested under Ruby 1.8.7, 1.9.2 and JRuby 1.6.3.
+then issue the 'bundle install' command. Fech has been tested under Ruby versions 1.8.7, 1.9.2, 1.9.3, 2.1.2, 2.2.2 and Rubinius.
 
 == How to contribute
+
+To develop locally, you'll need to clone this repository and then run the following commands to update the `sources` directory:
+
+```
+$ git submodule init
+$ git submodule update
+```
 
 Fech's goal is to provide support for all electronically filed forms and their row types, so contributors can pick an form type that is currently unsupported and try to implement it, or to improve an existing implementation. For entirely new form types, please include specs showing successful parsing of the summary. A good way to start is to look at the mappings for a similar form type. Please note that Fech currently commits to supporting the F.E.C.'s filing formats back to version 3.0, where applicable.
 

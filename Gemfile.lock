@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fech (1.6.4)
+    fech (1.8)
       ensure-encoding
       fastercsv
       people
@@ -41,3 +41,6 @@ DEPENDENCIES
   rdoc
   rspec
   yard
+
+BUNDLED WITH
+   1.10.6
