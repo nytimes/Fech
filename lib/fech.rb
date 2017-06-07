@@ -1,7 +1,7 @@
 require 'fech/filing'
 require 'fech/senate_filing'
 require 'fech/rendered_maps'
-require 'fech/mappings'  
+require 'fech/mappings'
 require 'fech/default_translations'
 require 'fech/translator'
 require 'fech/mapped'
@@ -13,5 +13,5 @@ require 'fech/version'
 
 module Fech
   extend FechUtils
-  DEFAULT_VERSION = "8.1"
+  DEFAULT_VERSION = "8.2"
 end
