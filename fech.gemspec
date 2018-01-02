@@ -46,5 +46,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "mocha"
   s.add_development_dependency "bundler"
   s.add_development_dependency "rdoc"
-  s.add_development_dependency "yard"
+  s.add_development_dependency "yard", "~> 0.9", ">= 0.9.11"
 end
