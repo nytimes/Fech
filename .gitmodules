@@ -1,3 +1,3 @@
 [submodule "sources"]
-	path = sources
-	url = git@github.com:dwillis/fech-sources.git
+  path = sources
+  url = https://github.com/dwillis/fech-sources.git
