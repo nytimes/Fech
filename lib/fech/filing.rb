@@ -246,7 +246,7 @@ module Fech
 
     # The raw contents of the Filing
     def file_contents
-      File.open(file_path, 'r')
+      File.open(file_path, "r:#{@encoding}")
     end
 
     # Determine the form type of the filing
