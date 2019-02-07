@@ -27,6 +27,8 @@ describe Fech::Filing do
     @filing_special_character.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '771694.fec'))
     @filing_f99 = Fech::Filing.new(862554)
     @filing_f99.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '862554.fec'))
+    @filing_encoding = Fech::Filing.new(1247604)
+    @filing_encoding.stubs(:file_path).returns(File.join(File.dirname(__FILE__), 'data', '1247604.fec'))
   end
 
   describe "#filing_version" do
@@ -83,6 +85,7 @@ describe Fech::Filing do
       sum_f13[:form_type].should == 'F13N'
       sum_filing_special_character = @filing_special_character.summary
       sum_filing_special_character[:form_type].should == "F3XN"
+      expect{@filing_encoding.summary}.to_not raise_error
     end
   end
 
