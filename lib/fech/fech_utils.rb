@@ -25,7 +25,7 @@ module FechUtils
     :f3z   => /^f3z[t]/i,
     :f3z1   => /^f3z1/i,
     :f3z2   => /^f3z2/i,
-    :f4    => /^f4[na]/i,
+    :f4    => /^f4[n|a|t]/i,
     :f5    => /^f5[na]/i,
     :f56   => /^f56/i,
     :f57   => /^f57/i,
